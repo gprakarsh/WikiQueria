@@ -1,8 +1,16 @@
 #pragma once
 
-#include <iostream>
-#include "../Vertex.h"
+// // // Files // // //
+#include "Vertex.h"
+#include "Edge.h"
 
+// // // Modules // // //
+#include <iostream>
+#include <unordered_map>
+#include <list> 
+
+
+// // // Graph ADT // // //
 class Graph{
   public:
     void insertVertex(Vertex key);
@@ -12,5 +20,5 @@ class Graph{
     // Use Disjoint Sets + Path Compression to check for good query
     void removeEdge(Vertex v1, Vertex v2);
   private:
-    
+    std::unordered_map<Vertex&, std::list<Edge*>> adj_list;
 };
