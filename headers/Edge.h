@@ -10,3 +10,4 @@ struct Edge{
     Vertex& initial_;
     Vertex& terminal_;
 };
+
