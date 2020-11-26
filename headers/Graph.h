@@ -24,9 +24,9 @@ class Graph{
     void displayGraph();
   private:
     //
-    std::unordered_map<size_t, Vertex> vertexMap;
-    std::unordered_map<size_t, std::list<EdgeListIterator>> AdjList;
-    std::list<Edge> EdgeList;
-    size_t edgeNum;
+    std::unordered_map<size_t, Vertex> vertexMap_;
+    std::unordered_map<size_t, std::list<EdgeListIterator>> adjList_;
+    std::list<Edge> edgeList_;
+    size_t edgeNum_;
   };
 
