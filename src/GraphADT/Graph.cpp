@@ -30,8 +30,9 @@ void Graph::insertEdge(Vertex& v1, Vertex& v2){
         // Push to the front
         edgeList_.push_front(newEdge); 
         // Return what was just inserted to the front of the edgeList_
-        adjList_.at(v1.hash()).push_back(edgeList_.begin());  // if rbegin() worked, I would've kept it at push_back for edgeList_
+        adjList_.at(v1.hash()).push_front(edgeList_.begin());  // if rbegin() worked, I would've kept it at push_back for edgeList_
         v1.degree_++;
+        adjList_.at(v1.hash()).back()->edgeInSrcVertex = adjList_.at(v1.hash()).begin();
         // adjList_->at(&v2)->push_back(*newEdge);
         // v2.degree_++;
     }

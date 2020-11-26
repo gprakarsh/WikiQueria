@@ -10,7 +10,6 @@
 #include <unordered_map>
 #include <list> 
 
-using EdgeListIterator = std::list<Edge>::iterator;
 
 class Graph{
   public:
