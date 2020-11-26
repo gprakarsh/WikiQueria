@@ -1,3 +1,10 @@
 {
-    "C_Cpp.default.includePath": ["./headers"]
+    "C_Cpp.default.includePath": [
+        "./headers"
+    ],
+    "files.associations": {
+        "*.js": "javascriptreact",
+        "unordered_map": "cpp",
+        "list": "cpp"
+    }
 }

@@ -1,6 +1,7 @@
 #pragma once
 
 // // // Files // // //
+
 #include "Vertex.h"
 #include "Edge.h"
 
@@ -10,15 +11,19 @@
 #include <list> 
 
 
-// // // Graph ADT // // //
-class Graph{
+namespace GraphADT{
+  class Graph{
   public:
-    void insertVertex(Vertex key);
+    Graph();
+    void insertVertex(Vertex v);
     void removeVertex(Vertex v);
     bool areAdjacent(Vertex v1, Vertex v2);
-    void insertEdge(Vertex v1, Vertex v2, int weight);
-    // Use Disjoint Sets + Path Compression to check for good query
+    void insertEdge(Vertex v1, Vertex v2); // Use Disjoint Sets + Path Compression to check for good query
     void removeEdge(Vertex v1, Vertex v2);
+    std::list<Edge>* incidentEdges(Vertex v);
+    void displayGraph();
   private:
-    std::unordered_map<Vertex, std::list<Edge*>> adj_list;
+    std::unordered_map<Vertex*, std::list<Edge>*>* AdjList;
+    size_t edgeNum;
+  };
 };

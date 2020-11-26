@@ -1,13 +1,11 @@
 #pragma once
 
-#include "Vertex.h"
+#include "Graph.h"
 
-struct Edge{
-    // // // Member functions // // //
-    Edge(const Vertex& initial,const Vertex& terminal, int weight = 1);
-    // // // Member variables // // //
-    int weight_;
-    Vertex& initial_;
-    Vertex& terminal_;
-};
+namespace GraphADT{
+    struct Edge{
+        Edge(size_t edge_number, size_t initial_node_id, size_t terminal_node_id);
+        size_t edge_number_, initial_node_id_, terminal_node_id_;
+    };
+}
 

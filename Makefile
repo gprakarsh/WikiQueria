@@ -4,7 +4,7 @@ EXENAME = finalproj
 CXX			:=	clang++
 CXXFLAGS	:=	$(CS225) -std=c++1y -stdlib=libc++ -c -g -O0 -Wall -Wextra -pedantic -Iheaders
 LD			:=	clang++
-LDFLAGS		:=	-std=c++1y -stdlib=libc++ -lc++abi -lm -Iinclude
+LDFLAGS		:=	-std=c++1y -stdlib=libc++ -lc++abi -lm -Iheaders
 #----------------------------------------------
 define make-build-dir
 	@mkdir -p build
@@ -18,22 +18,26 @@ endef
 
 all : $(EXENAME)
 
-$(EXENAME): build/main.o build/readFromFile.o build/Graph.o build/Vertex.o
+$(EXENAME): build/main.o build/Graph.o build/Vertex.o build/Edge.o
 	$(LD) $^ $(LDFLAGS) -o $(EXENAME)
 
-build/readFromFile.o: src/readFromFile.cpp include/readFromFile.hpp
+build/readFromFile.o: src/readFromFile.cpp headers/readFromFile.hpp
 	$(make-build-dir)
 	$(CXX) $(CXXFLAGS) $< -o $@
 
-build/main.o: src/main.cpp include/readFromFile.hpp
+build/main.o: src/main.cpp 
 	$(make-build-dir)
 	$(CXX) $(CXXFLAGS) $< -o $@ 
 
-build/Graph.o: src/Preprocess/Graph.cpp include/Preprocess/Graph.h include/Preprocess/Vertex.h
+build/Graph.o: src/GraphADT/Graph.cpp headers/GraphADT/Graph.h headers/GraphADT/Vertex.h headers/GraphADT/Edge.h
 	$(make-build-dir)
 	$(CXX) $(CXXFLAGS) $< -o $@
 
-build/Vertex.o: src/Preprocess/Vertex.cpp include/Preprocess/Vertex.h
+build/Vertex.o: src/GraphADT/Vertex.cpp headers/GraphADT/Vertex.h
+	$(make-build-dir)
+	$(CXX) $(CXXFLAGS) $< -o $@
+
+build/Edge.o: src/GraphADT/Edge.cpp headers/GraphADT/Edge.h
 	$(make-build-dir)
 	$(CXX) $(CXXFLAGS) $< -o $@
 
