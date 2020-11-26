@@ -6,11 +6,12 @@ CXXFLAGS	:=	$(CS225) -std=c++1y -stdlib=libc++ -c -g -O0 -Wall -Wextra -pedantic
 LD			:=	clang++
 LDFLAGS		:=	-std=c++1y -stdlib=libc++ -lc++abi -lm -Iheaders
 #----------------------------------------------
+
 define make-build-dir
 	@mkdir -p build
 endef 
 
-.PHONY: all-data all clean output_msg
+.PHONY: all-data all clean
 
 # $^ = all dependencies
 # $< = first dependency
@@ -23,11 +24,11 @@ $(EXENAME): build/main.o build/Graph.o build/Vertex.o build/Edge.o
 
 build/readFromFile.o: src/readFromFile.cpp headers/readFromFile.hpp
 	$(make-build-dir)
-	$(CXX) $(CXXFLAGS) $< -o $@
-
-build/main.o: src/main.cpp 
-	$(make-build-dir)
 	$(CXX) $(CXXFLAGS) $< -o $@ 
+
+build/main.o: src/main.cpp headers/GraphADT/Graph.h headers/GraphADT/Vertex.h headers/GraphADT/Edge.h
+	$(make-build-dir)
+	$(CXX) $(CXXFLAGS) $< -o $@
 
 build/Graph.o: src/GraphADT/Graph.cpp headers/GraphADT/Graph.h headers/GraphADT/Vertex.h headers/GraphADT/Edge.h
 	$(make-build-dir)
@@ -41,8 +42,8 @@ build/Edge.o: src/GraphADT/Edge.cpp headers/GraphADT/Edge.h
 	$(make-build-dir)
 	$(CXX) $(CXXFLAGS) $< -o $@
 
-test: tests/tests.cpp tests/catchmain.cpp build/readFromFile.o
-	$(LD) tests/tests.cpp tests/catchmain.cpp build/readFromFile.o $(LDFLAGS) -o test
+test: tests/tests.cpp tests/catchmain.cpp
+	$(LD) $^ $(LDFLAGS) -o test
 
 clean:
 	rm -rf build/ $(EXENAME) test
