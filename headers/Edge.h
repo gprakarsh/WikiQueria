@@ -12,12 +12,3 @@ struct Edge{
     VertexBucketIterator edgeInSrcVertex;
 };
 
-/*
-    Iterator i
-      v
-a->b->c->d->e
-
-std::erase(i)
-
-a->b->d->e
-*/
