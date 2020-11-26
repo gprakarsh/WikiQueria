@@ -21,7 +21,9 @@ class Graph{
     std::list<Edge>* incidentEdges(Vertex& v);
     void displayGraph();
   private:
+    // 
     std::unordered_map<Vertex*, std::list<Edge>*>* AdjList;
+    std::list<Edge>* EdgeList;
     size_t edgeNum;
   };
 

@@ -17,7 +17,7 @@ void Graph::insertVertex(Vertex& v){
 };
 
 void Graph::removeVertex(Vertex& v){
-    
+        
 };
 
 bool Graph::areAdjacent(Vertex& v1, Vertex& v2){
@@ -30,8 +30,9 @@ void Graph::insertEdge(Vertex& v1, Vertex& v2){
         edgeNum++;
         AdjList->at(&v1)->push_back(*newEdge);
         v1.degree_++;
-    // AdjList->at(&v2)->push_back(*newEdge);
-    // v2.degree_++;
+        EdgeList->push_back(*newEdge);
+        // AdjList->at(&v2)->push_back(*newEdge);
+        // v2.degree_++;
     }
 };
 
