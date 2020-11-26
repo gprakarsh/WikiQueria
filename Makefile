@@ -30,15 +30,15 @@ build/main.o: src/main.cpp headers/Graph.h headers/Vertex.h headers/Edge.h
 	$(make-build-dir)
 	$(CXX) $(CXXFLAGS) $< -o $@
 
-build/Graph.o: src/Graph.cpp headers/Graph.h headers/Vertex.h headers/Edge.h
+build/Graph.o: src/GraphADT/Graph.cpp headers/Graph.h headers/Vertex.h headers/Edge.h
 	$(make-build-dir)
 	$(CXX) $(CXXFLAGS) $< -o $@
 
-build/Vertex.o: src/Vertex.cpp headers/Vertex.h
+build/Vertex.o: src/GraphADT/Vertex.cpp headers/Vertex.h
 	$(make-build-dir)
 	$(CXX) $(CXXFLAGS) $< -o $@
 
-build/Edge.o: src/Edge.cpp headers/Edge.h
+build/Edge.o: src/GraphADT/Edge.cpp headers/Edge.h
 	$(make-build-dir)
 	$(CXX) $(CXXFLAGS) $< -o $@
 

@@ -1,10 +1,6 @@
-#pragma once
-
 #include "Vertex.h"
 #include "Edge.h"
 #include "Graph.h"
-
-using namespace GraphADT;
 
 int main(){
     Vertex v0 = Vertex(0, "zero");
@@ -20,6 +16,7 @@ int main(){
     g.insertVertex(v3);
     
     g.insertEdge(v0, v1);
+    g.insertEdge(v1, v1);
     g.insertEdge(v1, v2);
     g.insertEdge(v2, v3);
     g.insertEdge(v3, v0);
