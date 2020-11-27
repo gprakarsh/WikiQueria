@@ -3,8 +3,6 @@
         "./headers"
     ],
     "files.associations": {
-        "*.js": "javascriptreact",
-        "unordered_map": "cpp",
-        "list": "cpp"
+        "*.tcc": "cpp"
     }
 }

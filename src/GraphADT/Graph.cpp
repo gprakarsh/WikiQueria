@@ -7,17 +7,17 @@
 #include <list> 
 
 Graph::Graph(){
-    AdjList = new std::unordered_map<Vertex*, std::list<Edge>*>;
-    edgeNum = 0;
+    edgeNum_ = 0;
 };
 
 void Graph::insertVertex(Vertex& v){
-    auto newList = new std::list<Edge>;
-    AdjList->insert(std::make_pair(&v, newList));
+    std::list<EdgeListIterator> newList;
+    adjList_.insert(std::make_pair(v.hash(), newList));
+    vertexMap_.insert(std::make_pair(v.hash(), v));
 };
 
 void Graph::removeVertex(Vertex& v){
-    
+        
 };
 
 bool Graph::areAdjacent(Vertex& v1, Vertex& v2){
@@ -25,13 +25,18 @@ bool Graph::areAdjacent(Vertex& v1, Vertex& v2){
 };
 
 void Graph::insertEdge(Vertex& v1, Vertex& v2){
-    if (!(v1 == v2)) {
-        Edge* newEdge  = new Edge(edgeNum, v1.node_id_, v2.node_id_);
-        edgeNum++;
-        AdjList->at(&v1)->push_back(*newEdge);
+    if (!(v1.hash() == v2.hash())) {
+        Edge newEdge = Edge(edgeNum_, v1.hash(), v2.hash());
+        // Push to the front
+        edgeList_.push_front(newEdge); 
+        // Return what was just inserted to the front of the edgeList_
+        adjList_.at(v1.hash()).push_front(edgeList_.begin());
         v1.degree_++;
-    // AdjList->at(&v2)->push_back(*newEdge);
-    // v2.degree_++;
+        // Now that the entry exists in the vertex bucket, 
+        // we define the edge's iterator in the vertex bucket.
+        adjList_.at(v1.hash()).back()->edgeInSrcVertex = adjList_.at(v1.hash()).begin();
+        // adjList_->at(&v2)->push_back(*newEdge);
+        // v2.degree_++;
     }
 };
 
@@ -39,18 +44,16 @@ void Graph::removeEdge(Vertex& v1, Vertex& v2){
 
 };
 
-
-std::list<Edge>* Graph::incidentEdges(Vertex& v){
-    return AdjList->at(&v);
+std::list<EdgeListIterator>& Graph::incidentEdges(Vertex& v){
+    return adjList_.at(v.hash());
 };
 
 void Graph::displayGraph(){
-    for(auto i : *AdjList){
-        size_t vId = i.first->node_id_;
+    for(auto i : adjList_){
+        size_t vId = i.first;
         std::cout<<vId<<" : ";
-        std::list<Edge> currList = *(i.second);
-        for(auto currEdge : currList){
-            std::cout<< currEdge.initial_node_id_ << "=>"  << currEdge.terminal_node_id_ <<" ";
+        for(auto currEdge : i.second){
+            std::cout<< currEdge->initial_node_id_ << "=>"  << currEdge->terminal_node_id_ << " ";
         }
         std::cout<<std::endl;
     }
