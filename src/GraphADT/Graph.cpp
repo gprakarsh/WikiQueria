@@ -16,12 +16,16 @@ void Graph::insertVertex(Vertex& v){
     vertexMap_.insert(std::make_pair(v.hash(), v));
 };
 
-void Graph::removeVertex(Vertex& v){
-        
+void Graph::removeVertex(Vertex& v) {
+    // @todo
 };
 
+// Path exists from v1 to v2
 bool Graph::areAdjacent(Vertex& v1, Vertex& v2){
-
+    for (auto edgePtr : adjList_.at(v1.hash())) {
+        if (edgePtr->terminal_node_id_ == v2.hash()) return true;
+    }
+    return false;
 };
 
 void Graph::insertEdge(Vertex& v1, Vertex& v2){
@@ -41,13 +45,15 @@ void Graph::insertEdge(Vertex& v1, Vertex& v2){
 };
 
 void Graph::removeEdge(Vertex& v1, Vertex& v2){
-
+    // @todo
 };
 
+// Returns all edges leaving v
 std::list<EdgeListIterator>& Graph::incidentEdges(Vertex& v){
     return adjList_.at(v.hash());
 };
 
+// Helper function to display the graph
 void Graph::displayGraph(){
     for(auto i : adjList_){
         size_t vId = i.first;
@@ -58,3 +64,15 @@ void Graph::displayGraph(){
         std::cout<<std::endl;
     }
 };
+
+bool Graph::vertexExists(size_t id) {
+    return (vertexMap_.find(id) != vertexMap_.end());
+}
+
+const std::unordered_map<size_t, Vertex>& Graph::vertexMap() {
+    return vertexMap_;
+}
+
+const std::list<Edge>& Graph::edgeList(){
+    return edgeList_;
+}

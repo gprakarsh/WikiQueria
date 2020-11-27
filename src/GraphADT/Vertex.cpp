@@ -17,3 +17,4 @@ bool Vertex::operator<(const Vertex& other) const{
 size_t Vertex::hash() const {
     return node_id_;
 }
+
