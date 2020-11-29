@@ -27,14 +27,14 @@ TEST_CASE("Verify that these tests compile") {
 	REQUIRE(true);
 }
 
-TEST_CASE("Verify that vertices and edges are properly inserted") {
+TEST_CASE("Verify that vertices and edges are properly inserted", "[GraphADT]") {
 	Graph g = basicTestGraph();
 
 	REQUIRE(g.num_vertices == 4);
 	REQUIRE(g.num_edges == 4);
 }
 
-TEST_CASE("Verify that edgeExists queries work") {
+TEST_CASE("Verify that edgeExists queries work","[GraphADT]") {
 	Vertex v0 = Vertex(0, "zero");
     Vertex v1 = Vertex(1, "one");
     Vertex v2 = Vertex(2, "two");
@@ -46,7 +46,7 @@ TEST_CASE("Verify that edgeExists queries work") {
 	REQUIRE(g.edgeExists(v2, v3) == true);
 }
 
-TEST_CASE("Verify that vertexExists queries work") {
+TEST_CASE("Verify that vertexExists queries work", "[GraphADT]") {
 	Vertex v0 = Vertex(0, "zero");
     Vertex v1 = Vertex(1, "one");
     Vertex v2 = Vertex(25, "anything");
@@ -57,7 +57,7 @@ TEST_CASE("Verify that vertexExists queries work") {
 	REQUIRE(g.vertexExists(v2) == false);
 }
 
-TEST_CASE("Demonstrate how to use the incidentEdges and incidentVertices function.") {
+TEST_CASE("Demonstrate how to use the incidentEdges and incidentVertices function.", "[GraphADT]") {
     Graph g = basicTestGraph();
 	Vertex v0 = Vertex(0, "zero");
 	for (auto& it : g.incidentEdges(v0)) {
@@ -69,7 +69,7 @@ TEST_CASE("Demonstrate how to use the incidentEdges and incidentVertices functio
 	REQUIRE(true);
 }
 
-TEST_CASE("Verify that removeEdge function work as expected."){
+TEST_CASE("Verify that removeEdge function work as expected.", "[GraphADT]"){
     Graph g = basicTestGraph();
     Vertex v0(0, "zero");
     Vertex v1(1, "one");
@@ -83,7 +83,7 @@ TEST_CASE("Verify that removeEdge function work as expected."){
     REQUIRE(g.num_edges == 3);  // num_edges should remain same for non-existent edge
 }
 
-TEST_CASE("Verify that removeVertex function work as expected."){
+TEST_CASE("Verify that removeVertex function work as expected.", "[GraphADT]"){
     Graph g = basicTestGraph();
     Vertex v0(0, "zero");
 
