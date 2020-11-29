@@ -1,8 +1,12 @@
 #include "Edge.h"
 
 
-Edge::Edge(size_t edge_number, size_t initial_node_id, size_t terminal_node_id){
-    edge_number_ = edge_number;
-    initial_node_id_ = initial_node_id;
-    terminal_node_id_ = terminal_node_id;
+Edge::Edge(size_t source_node_id,size_t destination_node_id){
+    source_node_id_ = source_node_id;
+    destination_node_id_ = destination_node_id;
 };
+
+Edge::Edge(const Edge& edge){
+    source_node_id_ = edge.source_node_id_;
+    destination_node_id_ = edge.destination_node_id_;
+}

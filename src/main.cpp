@@ -23,5 +23,10 @@ int main(){
 
     g.displayGraph();
 
+    // g.removeVertex(v2);
+
+    // g.displayGraph();
+
+
     return 0;
 };

@@ -1,14 +1,16 @@
 #pragma once
+
+#include "Vertex.h"
+
 #include <iostream>
 #include <list>
 
-struct Edge;
-using EdgeListIterator = std::list<Edge>::iterator;
-using VertexBucketIterator = std::list<EdgeListIterator>::iterator;
+
 
 struct Edge{
-    Edge(size_t edge_number, size_t initial_node_id, size_t terminal_node_id);
-    size_t edge_number_, initial_node_id_, terminal_node_id_;
-    VertexBucketIterator edgeInSrcVertex;
+    Edge(size_t source_node_id, size_t destination_node_id);
+    Edge(const Edge& edge);
+    size_t source_node_id_;
+    size_t destination_node_id_;
 };
 

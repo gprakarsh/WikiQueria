@@ -13,8 +13,3 @@ bool Vertex::operator==(const Vertex& other) const{
 bool Vertex::operator<(const Vertex& other) const{
     return (node_id_<other.node_id_);
 }
-
-size_t Vertex::hash() const {
-    return node_id_;
-}
-
