@@ -6,6 +6,7 @@
 #include "Edge.h"
 
 // // // Modules // // //
+
 #include <unordered_map>
 #include <list>
 #include <vector> 
@@ -26,18 +27,11 @@ class Graph{
     vector<Vertex> incidentVertices(const Vertex& v);
     vector<Edge> incidentEdges(const Vertex& v);
     void displayGraph();
+    size_t num_vertices;
+    size_t num_edges;
   private:
     unordered_map<Vertex, unordered_map<Vertex, Edge, VertexHashFunction>, VertexHashFunction> adjacency_list;
 };
 
 
-/*
-  A=>B=>A-B  
-     C=>A-C
-     D=>D-A // store vertices which have dest to A in a vector
-  B => 
-  C =>
-  D => A => D-A
-vec[i][A]
-*/
 

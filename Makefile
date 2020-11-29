@@ -42,7 +42,7 @@ build/Edge.o: src/GraphADT/Edge.cpp headers/Edge.h
 	$(make-build-dir)
 	$(CXX) $(CXXFLAGS) $< -o $@
 
-test: tests/tests.cpp tests/catchmain.cpp
+test: tests/tests.cpp tests/catchmain.cpp build/Vertex.o build/Graph.o build/Edge.o
 	$(LD) $^ $(LDFLAGS) -o test
 
 clean:

@@ -7,31 +7,33 @@ using std::endl;
 
 
 Graph::Graph(){
-    //do nothing
+    num_vertices = 0;
+    num_edges = 0;
 };
 
 void Graph::insertVertex(const Vertex& v){
     //remove v if v already exists
     adjacency_list[v] = unordered_map<Vertex, Edge, VertexHashFunction>();
+    num_vertices++;
 };
 
 void Graph::removeVertex(const Vertex& v){
     
-    // Target: O(deg(v))
-    // Current: O(n) (n is the number of vertices)
 
     if (adjacency_list.find(v) != adjacency_list.end())
     {
+        num_edges -= adjacency_list[v].size();
         adjacency_list.erase(v);
         for(auto i : adjacency_list)
         {
             if (i.second.find(v)!=i.second.end())
             {
                 i.second.erase(v);
+                num_edges --;
             }
         }
     }
-
+    num_vertices--;
     
 };  
 
@@ -68,14 +70,15 @@ void Graph::insertEdge(Vertex& source,Vertex& destination){
     }
     if(!edgeExists(source, destination)){
         Edge newEdge(source.node_id_, destination.node_id_);
-        adjacency_list[source].insert({destination, newEdge}); 
+        adjacency_list[source].insert({destination, newEdge});
+        num_edges++; 
     }
-
 };
 
 void Graph::removeEdge(const Vertex& source,const Vertex& destination){
     if(edgeExists(source, destination)){
-       adjacency_list[source].erase(destination); 
+       adjacency_list[source].erase(destination);
+       num_edges--; 
     }
 };
 
