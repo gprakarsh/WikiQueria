@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include <fstream>
 
     struct Vertex{    
         Vertex(size_t node_id, std::string page_name);
@@ -16,3 +17,6 @@ class VertexHashFunction {
             return  v.node_id_;
         } 
 };
+
+std::ostream &operator<<(std::ostream& os, const Vertex& v);
+// Source: https://stackoverflow.com/questions/2981836/how-can-i-use-cout-myclass

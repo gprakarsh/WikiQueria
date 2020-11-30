@@ -19,7 +19,7 @@ endef
 
 all : $(EXENAME)
 
-$(EXENAME): build/main.o build/Graph.o build/Vertex.o build/Edge.o
+$(EXENAME): build/main.o build/Graph.o build/Vertex.o build/Edge.o build/BFS.o
 	$(LD) $^ $(LDFLAGS) -o $(EXENAME)
 
 build/readFromFile.o: src/readFromFile.cpp headers/readFromFile.hpp
@@ -42,7 +42,11 @@ build/Edge.o: src/GraphADT/Edge.cpp headers/Edge.h
 	$(make-build-dir)
 	$(CXX) $(CXXFLAGS) $< -o $@
 
-test: tests/tests.cpp tests/catchmain.cpp build/Vertex.o build/Graph.o build/Edge.o
+build/BFS.o: src/BFS/BFS.cpp headers/Graph.h headers/Vertex.h headers/Edge.h headers/BFS.h
+	$(make-build-dir)
+	$(CXX) $(CXXFLAGS) $< -o $@
+
+test: tests/tests.cpp tests/catchmain.cpp build/Vertex.o build/Graph.o build/Edge.o build/BFS.o
 	$(LD) $^ $(LDFLAGS) -o test
 
 clean:

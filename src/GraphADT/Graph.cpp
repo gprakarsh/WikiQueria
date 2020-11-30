@@ -1,4 +1,5 @@
 #include "Graph.h"
+#include "BFS.h"
 
 #include <iostream>
 
@@ -82,17 +83,17 @@ void Graph::removeEdge(const Vertex& source,const Vertex& destination){
     }
 };
 
-vector<Vertex> Graph::incidentVertices(const Vertex& v){
+vector<Vertex> Graph::incidentVertices(const Vertex& v) const {
     vector<Vertex> incidentVertices_;
-    for(auto i : adjacency_list[v]){
+    for(auto i : adjacency_list.at(v)){
         incidentVertices_.push_back(i.first);
     }
     return incidentVertices_;    
 };
 
-vector<Edge> Graph::incidentEdges(const Vertex& v){
+vector<Edge> Graph::incidentEdges(const Vertex& v) const {
     vector<Edge> incidentEdges_;
-    for(auto i : adjacency_list[v]){
+    for(auto i : adjacency_list.at(v)){
         incidentEdges_.push_back(i.second);
     }
     return incidentEdges_;    
@@ -110,3 +111,7 @@ void Graph::displayGraph(){
         cout<<endl;
     }
 };
+
+BFSTraversal Graph::getBFS(const Vertex& v) const {
+    return BFSTraversal(*this, v);
+}
