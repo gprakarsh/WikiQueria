@@ -13,3 +13,6 @@ bool Vertex::operator==(const Vertex& other) const{
 bool Vertex::operator<(const Vertex& other) const{
     return (node_id_<other.node_id_);
 }
+std::ostream &operator<<(std::ostream& os, const Vertex& v) {
+    return os << "V(" << v.node_id_<< ", " << v.page_name_ << ")";
+}

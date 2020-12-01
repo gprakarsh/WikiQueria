@@ -2,6 +2,8 @@
 #include <vector>
 
 #include "Graph.h"
+#include "BFS.h"
+
 #include "catch.hpp"
 
 Graph basicTestGraph() {
@@ -23,6 +25,7 @@ Graph basicTestGraph() {
 
 	return g;
 }
+
 TEST_CASE("Verify that these tests compile") {
 	REQUIRE(true);
 }
@@ -94,3 +97,14 @@ TEST_CASE("Verify that removeVertex function work as expected.", "[GraphADT]"){
     REQUIRE(g.num_edges == 2);              // function should remove all the vertex's Edges
 }
 
+TEST_CASE("Verify the BFS works as expected", "[BFS]") {
+    Graph g = basicTestGraph();
+    Vertex v0(0, "zero");
+    BFSTraversal bfs = g.getBFS(v0);
+    int count;
+    for (auto b : bfs) {
+        CAPTURE(b);
+        count++;
+    }
+    REQUIRE(count == 4);
+}
