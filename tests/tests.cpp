@@ -101,7 +101,8 @@ TEST_CASE("Verify the BFS works as expected", "[BFS]") {
     Graph g = basicTestGraph();
     Vertex v0(0, "zero");
     BFSTraversal bfs = g.getBFS(v0);
-    int count;
+    
+    int count = 0;
     for (auto b : bfs) {
         CAPTURE(b);
         count++;
