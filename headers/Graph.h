@@ -28,7 +28,7 @@ class Graph{
     void removeEdge(const Vertex& source,const Vertex& destination);
     vector<Vertex> incidentVertices(const Vertex& v) const;
     vector<Edge> incidentEdges(const Vertex& v) const;
-    BFSTraversal getBFS(const Vertex& v) const;
+    BFSTraversal getBFS(const Vertex& v);
     void displayGraph();
     size_t num_vertices;
     size_t num_edges;

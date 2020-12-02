@@ -109,3 +109,15 @@ TEST_CASE("Verify the BFS works as expected", "[BFS]") {
     }
     REQUIRE(count == 4);
 }
+
+TEST_CASE("Show that in a BFS, we know where we came from.", "[BFS]") {
+    Graph g = basicTestGraph();
+    Vertex v0(0, "zero");
+    BFSTraversal bfs = g.getBFS(v0);
+    int count;
+    for (auto b : bfs) {
+        CAPTURE(b);
+        count++;
+    }
+    REQUIRE(count == 4);
+}
