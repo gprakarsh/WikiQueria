@@ -112,6 +112,6 @@ void Graph::displayGraph(){
     }
 };
 
-BFSTraversal Graph::getBFS(const Vertex& v) const {
+BFSTraversal Graph::getBFS(const Vertex& v) {
     return BFSTraversal(*this, v);
 }

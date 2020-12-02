@@ -72,10 +72,12 @@ int main(){
         std::cout << v << ", ";
     }
     std::cout << '\n';
-    // g.removeVertex(v2);
 
-    // g.displayGraph();
-
+    auto bfs = treeGraph.getBFS(Vertex(0, "0"));
+    for (auto it = bfs.begin(); it != bfs.end(); ++it) {
+        std::cout << *it << ", origin: " << it.arrivalEdge().source_node_id_ << '\n';
+    }
+    bfs = treeGraph.getBFS(Vertex(1, "1"));
 
     return 0;
 };
