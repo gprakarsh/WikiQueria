@@ -82,7 +82,7 @@ int main(){
     ////////////Preprocessing//////////////
 
     std::cout<<"Preprocessing starts here:"<<std::endl;
-    Graph pGraph("./custom-data/Vertices.csv", "./custom-data/Edges.txt");
+    Graph pGraph("./data/enwiki-2013-names.csv","./data/enwiki-2013.txt");
     pGraph.displayGraph();
 
     //////////////////////////////////////

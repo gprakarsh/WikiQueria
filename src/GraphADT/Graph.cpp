@@ -15,12 +15,13 @@ Graph::Graph(){
 };
 
 Graph::Graph(const std::string & verticesFileName, const std::string & edgesFileName){
+    cout << "Reading vertices\n";
     createVertices(verticesFileName);
+    cout << "Reading edges\n";
     createEdges(edgesFileName);
 };
 
 void Graph::createVertices(const std::string & verticesFileName){
-
     std::ifstream verticesFile(verticesFileName);
 
     if(!verticesFile.is_open()) throw std::runtime_error("Could not open file");
@@ -34,8 +35,10 @@ void Graph::createVertices(const std::string & verticesFileName){
         std::string page_name;
         std::string node_id_str;
         if(lineCount > 0){
+            if (lineCount % 20000 == 0) {cout << "."; cout.flush(); lineCount = 1;}
             std::getline(line_stream, node_id_str, ',');
             std::getline (line_stream, page_name);
+            if (node_id_str == "") continue;
             size_t node_id = stoi(node_id_str);
             Vertex v(node_id, page_name);
             insertVertex(v);
@@ -58,7 +61,7 @@ void Graph::createEdges(const std::string & edgesFileName){     //this function 
         std::stringstream line_stream(line);
         std::string from_node_id_str, to_node_id_str; 
         if(lineCount > 0){
-            
+            if (lineCount % 20000 == 0) {cout << "."; cout.flush(); lineCount = 1;}
             std::getline(line_stream, from_node_id_str, ' ');
             std::getline (line_stream, to_node_id_str);
             size_t from_node_id = stoi(from_node_id_str);
