@@ -79,5 +79,13 @@ int main(){
     }
     bfs = treeGraph.getBFS(Vertex(1, "1"));
 
+    ////////////Preprocessing//////////////
+
+    std::cout<<"Preprocessing starts here:"<<std::endl;
+    Graph pGraph("./custom-data/Vertices.csv", "./custom-data/Edges.txt");
+    pGraph.displayGraph();
+
+    //////////////////////////////////////
+
     return 0;
 };

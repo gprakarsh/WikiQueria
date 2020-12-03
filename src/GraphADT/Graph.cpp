@@ -2,6 +2,8 @@
 #include "BFS.h"
 
 #include <iostream>
+#include <fstream>
+#include <sstream> 
 
 using std::cout;
 using std::endl;
@@ -12,9 +14,66 @@ Graph::Graph(){
     num_edges = 0;
 };
 
-void Graph::insertVertex(const Vertex& v){
+Graph::Graph(const std::string & verticesFileName, const std::string & edgesFileName){
+    createVertices(verticesFileName);
+    createEdges(edgesFileName);
+};
+
+void Graph::createVertices(const std::string & verticesFileName){
+
+    std::ifstream verticesFile(verticesFileName);
+
+    if(!verticesFile.is_open()) throw std::runtime_error("Could not open file");
+
+    std::string line;
+    int lineCount = 0;
+
+    while(verticesFile.good()){
+        std::getline(verticesFile, line); 
+        std::stringstream line_stream(line);
+        std::string page_name;
+        std::string node_id_str;
+        if(lineCount > 0){
+            std::getline(line_stream, node_id_str, ',');
+            std::getline (line_stream, page_name);
+            int node_id = stoi(node_id_str);
+            Vertex v(node_id, page_name);
+            insertVertex(v);
+        }
+        lineCount++;
+    }
+};
+
+void Graph::createEdges(const std::string & edgesFileName){     //this function needs fixing
+    std::ifstream edgesFile(edgesFileName);
+
+    if(!edgesFile.is_open()) throw std::runtime_error("Could not open file");
+
+    std::string line;
+    int lineCount = 0;
+
+    while(edgesFile.good()){
+        std::getline(edgesFile, line); 
+        std::stringstream line_stream(line);
+        std::string from_node_id_str, to_node_id_str; 
+        if(lineCount > 0){
+            std::getline(line_stream, from_node_id_str, ' ');
+            std::getline (line_stream, to_node_id_str);
+            size_t from_node_id = stoi(from_node_id_str);
+            size_t to_node_id = stoi(to_node_id_str);
+            if((vertices.find(from_node_id) != vertices.end())&&(vertices.find(to_node_id) != vertices.end())){
+                cout<<vertices[from_node_id]->node_id_<<" "<<vertices[to_node_id]->node_id_<<endl;
+            }
+            // cout<<from_node_id<<" "<<to_node_id<<endl;
+        }
+        lineCount++;
+    }
+};
+
+void Graph::insertVertex(Vertex v){
     //remove v if v already exists
     adjacency_list[v] = unordered_map<Vertex, Edge, VertexHashFunction>();
+    // vertices[v.node_id_] = &v;
     num_vertices++;
 };
 

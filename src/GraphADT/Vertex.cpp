@@ -6,6 +6,12 @@ Vertex::Vertex(size_t node_id, std::string page_name){
     degree_ = 0;
 };
 
+Vertex::Vertex(const Vertex& v){
+    node_id_ = v.node_id_;
+    page_name_ = v.page_name_;
+    degree_ = v.degree_;
+};
+
 bool Vertex::operator==(const Vertex& other) const{
     return (node_id_ == other.node_id_) && (page_name_ == other.page_name_);
 }

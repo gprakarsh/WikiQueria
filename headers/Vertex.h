@@ -3,13 +3,14 @@
 #include <string>
 #include <fstream>
 
-    struct Vertex{    
-        Vertex(size_t node_id, std::string page_name);
-        bool operator==(const Vertex &other) const; 
-        bool operator<(const Vertex &other) const;
-        size_t node_id_, degree_;
-        std::string page_name_;
-    };
+struct Vertex{    
+    Vertex(size_t node_id, std::string page_name);
+    Vertex(const Vertex& v);
+    bool operator==(const Vertex &other) const; 
+    bool operator<(const Vertex &other) const;
+    size_t node_id_, degree_;
+    std::string page_name_;
+};
 
 class VertexHashFunction { 
     public: 
