@@ -121,3 +121,7 @@ TEST_CASE("Show that in a BFS, we know where we came from.", "[BFS]") {
     }
     REQUIRE(count == 4);
 }
+
+TEST_CASE("Verify that loading data works") {
+    Graph gIO = Graph("./tests/mock-data/Vertices.csv", "./tests/mock-data/Edges.txt");
+}
