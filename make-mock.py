@@ -47,4 +47,4 @@ nx.write_edgelist(G, outedgefile, data=False)
 
 with open(outnamefile, 'w') as of:
     for i in G.nodes():
-        of.write("{} {}\n".format(i, G.nodes[i]['page']))
+        of.write('{},"{}"\n'.format(i, G.nodes[i]['page']))

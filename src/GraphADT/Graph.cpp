@@ -11,19 +11,19 @@ using std::endl;
 
 Graph::Graph(){
     num_vertices = 0;
+    assert (num_vertices == 0);
     num_edges = 0;
 };
 
-Graph::Graph(const std::string & verticesFileName, const std::string & edgesFileName){
-    cout << "Reading vertices\n";
+Graph::Graph(const std::string & verticesFileName, const std::string & edgesFileName)
+    : Graph() {
     createVertices(verticesFileName);
-    cout << "Reading edges\n";
     createEdges(edgesFileName);
 };
 
 void Graph::createVertices(const std::string & verticesFileName){
     std::ifstream verticesFile(verticesFileName);
-
+    assert (num_vertices == 0);
     if(!verticesFile.is_open()) throw std::runtime_error("Could not open file");
 
     std::string line;
@@ -34,22 +34,19 @@ void Graph::createVertices(const std::string & verticesFileName){
         std::stringstream line_stream(line);
         std::string page_name;
         std::string node_id_str;
-        if(lineCount > 0){
-            if (lineCount % 20000 == 0) {cout << "."; cout.flush(); lineCount = 1;}
-            std::getline(line_stream, node_id_str, ',');
-            std::getline (line_stream, page_name);
-            if (node_id_str == "") continue;
-            size_t node_id = stoi(node_id_str);
-            Vertex v(node_id, page_name);
-            insertVertex(v);
-        }
+        // if (lineCount % 20000 == 0) {cout << "."; cout.flush(); lineCount = 1;}
+        std::getline(line_stream, node_id_str, ',');
+        std::getline (line_stream, page_name);
+        if (node_id_str[0] == '#' || node_id_str[0] == '"' || !node_id_str[0]) continue;
+        size_t node_id = stoi(node_id_str);
+        Vertex v(node_id, page_name);
+        insertVertex(v);
         lineCount++;
     }
 };
 
 void Graph::createEdges(const std::string & edgesFileName){     //this function needs fixing
     std::ifstream edgesFile(edgesFileName);
-
     if(!edgesFile.is_open()) throw std::runtime_error("Could not open file");
 
     std::string line;
@@ -59,18 +56,16 @@ void Graph::createEdges(const std::string & edgesFileName){     //this function 
         std::getline(edgesFile, line);
         std::stringstream line_stream(line);
         std::string from_node_id_str, to_node_id_str; 
-        if(lineCount > 0){
-            if (lineCount % 40000 == 0) {cout << "."; cout.flush(); lineCount = 1;}
-            std::getline(line_stream, from_node_id_str, ' ');
-            std::getline (line_stream, to_node_id_str);
-            if (from_node_id_str[0] == '#') continue;
-            size_t from_node_id = stoi(from_node_id_str);
-            size_t to_node_id = stoi(to_node_id_str);
-            if((vertices.find(from_node_id) != vertices.end())&&(vertices.find(to_node_id) != vertices.end())){
-                insertEdge(vertices.at(from_node_id), vertices.at(to_node_id));
-            }
-            // cout<<from_node_id<<" "<<to_node_id<<endl;
+        // if (lineCount % 40000 == 0) {cout << "."; cout.flush(); lineCount = 0;}
+        std::getline(line_stream, from_node_id_str, ' ');
+        std::getline (line_stream, to_node_id_str);
+        if (from_node_id_str[0] == '#' || !from_node_id_str[0]) continue;
+        size_t from_node_id = stoi(from_node_id_str);
+        size_t to_node_id = stoi(to_node_id_str);
+        if((vertices.find(from_node_id) != vertices.end())&&(vertices.find(to_node_id) != vertices.end())){
+            insertEdge(vertices.at(from_node_id), vertices.at(to_node_id));
         }
+            // cout<<from_node_id<<" "<<to_node_id<<endl;
         lineCount++;
     }
 };
