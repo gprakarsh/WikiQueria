@@ -37,6 +37,6 @@ class Graph{
     void createVertices(const std::string & verticesFileName);
     void createEdges(const std::string & edgesFileName);
     unordered_map<Vertex, unordered_map<Vertex, Edge, VertexHashFunction>, VertexHashFunction> adjacency_list;
-    unordered_map<size_t, Vertex*> vertices;
+    unordered_map<size_t, Vertex> vertices;
 };
 

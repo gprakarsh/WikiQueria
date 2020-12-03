@@ -36,7 +36,7 @@ void Graph::createVertices(const std::string & verticesFileName){
         if(lineCount > 0){
             std::getline(line_stream, node_id_str, ',');
             std::getline (line_stream, page_name);
-            int node_id = stoi(node_id_str);
+            size_t node_id = stoi(node_id_str);
             Vertex v(node_id, page_name);
             insertVertex(v);
         }
@@ -53,16 +53,18 @@ void Graph::createEdges(const std::string & edgesFileName){     //this function 
     int lineCount = 0;
 
     while(edgesFile.good()){
-        std::getline(edgesFile, line); 
+        std::getline(edgesFile, line);
+        if (line.at(0) == '#') continue;
         std::stringstream line_stream(line);
         std::string from_node_id_str, to_node_id_str; 
         if(lineCount > 0){
+            
             std::getline(line_stream, from_node_id_str, ' ');
             std::getline (line_stream, to_node_id_str);
             size_t from_node_id = stoi(from_node_id_str);
             size_t to_node_id = stoi(to_node_id_str);
             if((vertices.find(from_node_id) != vertices.end())&&(vertices.find(to_node_id) != vertices.end())){
-                cout<<vertices[from_node_id]->node_id_<<" "<<vertices[to_node_id]->node_id_<<endl;
+                insertEdge(vertices.at(from_node_id), vertices.at(to_node_id));
             }
             // cout<<from_node_id<<" "<<to_node_id<<endl;
         }
@@ -71,9 +73,10 @@ void Graph::createEdges(const std::string & edgesFileName){     //this function 
 };
 
 void Graph::insertVertex(Vertex v){
-    //remove v if v already exists
+    // remove v if v already exists
     adjacency_list[v] = unordered_map<Vertex, Edge, VertexHashFunction>();
-    // vertices[v.node_id_] = &v;
+    // Simultaneously makes a pair to insert
+    vertices.emplace(v.node_id_, v);
     num_vertices++;
 };
 
