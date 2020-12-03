@@ -76,7 +76,7 @@ void Graph::insertVertex(Vertex v){
     // remove v if v already exists
     adjacency_list[v] = unordered_map<Vertex, Edge, VertexHashFunction>();
     // Simultaneously makes a pair to insert
-    vertices.emplace(v.node_id_, v);
+    vertices.insert({v.node_id_, v});
     num_vertices++;
 };
 
