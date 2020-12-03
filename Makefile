@@ -46,7 +46,11 @@ build/BFS.o: src/BFS/BFS.cpp headers/Graph.h headers/Vertex.h headers/Edge.h hea
 	$(make-build-dir)
 	$(CXX) $(CXXFLAGS) $< -o $@
 
-test: tests/tests.cpp tests/catchmain.cpp build/Vertex.o build/Graph.o build/Edge.o build/BFS.o
+build/catch.o: tests/catch.cpp tests/catch.hpp
+	$(make-build-dir)
+	$(CXX) $(CXXFLAGS) $< -o $@
+
+test: tests/tests.cpp build/catch.o tests/catchmain.cpp build/Vertex.o build/Graph.o build/Edge.o build/BFS.o
 	$(LD) $^ $(LDFLAGS) -o test
 
 clean:
