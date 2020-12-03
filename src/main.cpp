@@ -1,4 +1,5 @@
 #include <iostream>
+#include <stdlib.h>
 
 #include "Vertex.h"
 #include "Edge.h"
@@ -82,9 +83,29 @@ int main(){
     ////////////Preprocessing//////////////
 
     std::cout<<"Preprocessing starts here:"<<std::endl;
-    Graph pGraph("./custom-data/Vertices.csv", "./custom-data/Edges.txt");
-    pGraph.displayGraph();
+    // Graph pGraph("./data/enwiki-2013-names.csv", "./data/enwiki-2013.txt");
+    Graph pGraph("./custom-data/Vertices.csv","./custom-data/Edges.txt");
+    // pGraph.displayGraph();
 
+    //////////////////User-Interface/////////////////////////
+    system("clear");
+    bool exit = false;
+    while(!exit){
+        std::cout<<"What would you like to do?"<<std::endl;
+        std::cout<<"1) See full graph"<<std::endl;
+        std::cout<<"2) Clear Screen"<<std::endl;
+        //Add more options here
+        std::cout<<"Type the corresponding number to the desired option or anything else to exit"<<std::endl;
+        int option;
+        std::cin>>option;
+        if(option==1){
+            pGraph.displayGraph();
+        }else if(option==2){
+            system("clear");
+        }else{
+            exit = true;
+        }
+    }
     //////////////////////////////////////
 
     return 0;
