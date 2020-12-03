@@ -1,9 +1,0 @@
-# python3 ./make-mock.py tests/mock-data/gen-names.txt test/mock-data/gen-edges.txt 10 0.3
-0 5
-1 7
-3 2
-4 2
-5 0
-6 0
-7 0
-9 7

@@ -25,21 +25,27 @@ else:
 def random_words(count, size):
     vowels = "aeiou"
     consonants = "bcdfghjklmnpqrstvwxyz"
+    punctuation = ",. "
+    vc = vowels + consonants
+    pc = punctuation + consonants
+    pv = punctuation + vowels
     words = []
-    word = random.choice(vowels + consonants)
+    word = random.choice(vc)
     while len(words) < count:
         if len(word) == size:
             words.append(word.capitalize())
-            word = random.choice(vowels + consonants)
+            word = random.choice(vc)
         # explore five at a time
         if word[-1] in vowels:
-            word = word + random.choice(consonants)
+            word = word + random.choice(pc)
+        elif word[-1] in punctuation:
+            word = word + random.choice(vc)
         else:
-            word = word + random.choice(vowels)
+            word = word + random.choice(pv)
     return words
 
 G = nx.gnp_random_graph(10, 0.1, directed=True)
-words = random_words(len(G.nodes()), 8)
+words = random_words(len(G.nodes()), 12)
 for i in range(len(G.nodes())):
     G.nodes[i]['page'] = words[i]
 
