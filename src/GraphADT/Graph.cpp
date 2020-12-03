@@ -30,7 +30,7 @@ void Graph::createVertices(const std::string & verticesFileName){
     int lineCount = 0;
 
     while(verticesFile.good()){
-        std::getline(verticesFile, line); 
+        std::getline(verticesFile, line);
         std::stringstream line_stream(line);
         std::string page_name;
         std::string node_id_str;
@@ -57,14 +57,13 @@ void Graph::createEdges(const std::string & edgesFileName){     //this function 
 
     while(edgesFile.good()){
         std::getline(edgesFile, line);
-        if (line.at(0) == '#') continue;
         std::stringstream line_stream(line);
         std::string from_node_id_str, to_node_id_str; 
         if(lineCount > 0){
             if (lineCount % 40000 == 0) {cout << "."; cout.flush(); lineCount = 1;}
             std::getline(line_stream, from_node_id_str, ' ');
             std::getline (line_stream, to_node_id_str);
-            cout<<from_node_id_str<<" "<<to_node_id_str<<endl;
+            if (from_node_id_str[0] == '#') continue;
             size_t from_node_id = stoi(from_node_id_str);
             size_t to_node_id = stoi(to_node_id_str);
             if((vertices.find(from_node_id) != vertices.end())&&(vertices.find(to_node_id) != vertices.end())){
