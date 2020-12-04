@@ -6,7 +6,7 @@ Iterator::Iterator(BFSTraversal& traversal, bool finished)
 : traversal_{&traversal}, finished_{finished} {
     if (!finished_) {
         queue_.push(traversal.start_);
-        equeue_.push(Edge(-1, -1));
+        equeue_.push(Edge());
     }
 };
 
