@@ -87,33 +87,38 @@ int main(int argc, char* argv[]){
 
     ////////////Preprocessing//////////////
 
-    std::cout<<"Preprocessing starts here:"<<std::endl;
-    // Graph pGraph("./data/enwiki-2013-names.csv", "./data/enwiki-2013.txt");
-    Graph pGraph("./tests/mock-data/Vertices.csv","./tests/mock-data/Edges.txt");
-    // pGraph.displayGraph();
+    if (argc >= 4){
+        std::cout<<"Started preprocessing"<<std::endl;
 
-    //////////////////User-Interface/////////////////////////
-    if (argc >= 2 && std::string(argv[1]) == "--interactive") {
-        system("clear");
-        bool exit = false;
-        while(!exit){
-            std::cout<<"What would you like to do?"<<std::endl;
-            std::cout<<"1) See full graph"<<std::endl;
-            std::cout<<"2) Clear Screen"<<std::endl;
-            //Add more options here
-            std::cout<<"Type the corresponding number to the desired option or anything else to exit"<<std::endl;
-            int option;
-            std::cin>>option;
-            if(option==1){
-                pGraph.displayGraph();
-            }else if(option==2){
-                system("clear");
-            }else{
-                exit = true;
+        std::string verticesFile = argv[1];
+        std::string edgesFile = argv[2];
+
+        Graph pGraph(verticesFile,edgesFile);
+
+        std::cout<<"Preprocessing successful"<<std::endl;
+
+
+        //////////////////User-Interface/////////////////////////
+        if (std::string(argv[3]) == "--interactive" || std::string(argv[3]) == "-i") {
+            bool exit = false;
+            while(!exit){
+                std::cout<<"What would you like to do?"<<std::endl;
+                std::cout<<"1) See full graph"<<std::endl;
+                std::cout<<"2) Clear Screen"<<std::endl;
+                //Add more options here
+                std::cout<<"Type the corresponding number to the desired option or anything else to exit"<<std::endl;
+                int option;
+                std::cin>>option;
+                if(option==1){
+                    pGraph.displayGraph();
+                }else if(option==2){
+                    system("clear");
+                }else{
+                    exit = true;
+                }
             }
         }
     }
-    
     //////////////////////////////////////
 
     return 0;

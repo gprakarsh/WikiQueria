@@ -7,6 +7,7 @@
 
 using std::cout;
 using std::endl;
+using std::flush;
 
 
 Graph::Graph(){
@@ -27,8 +28,7 @@ void Graph::createVertices(const std::string & verticesFileName){
     if(!verticesFile.is_open()) throw std::runtime_error("Could not open file");
 
     std::string line;
-    int lineCount = 0;
-
+    int vertexCount = 0;
     while(verticesFile.good()){
         std::getline(verticesFile, line);
         std::stringstream line_stream(line);
@@ -41,17 +41,18 @@ void Graph::createVertices(const std::string & verticesFileName){
         size_t node_id = stoi(node_id_str);
         Vertex v(node_id, page_name);
         insertVertex(v);
-        lineCount++;
+        cout << "\rVertices Loaded: " << vertexCount << flush;
+        vertexCount++;
     }
+    cout<<endl;
 };
 
-void Graph::createEdges(const std::string & edgesFileName){     //this function needs fixing
+void Graph::createEdges(const std::string & edgesFileName){     
     std::ifstream edgesFile(edgesFileName);
     if(!edgesFile.is_open()) throw std::runtime_error("Could not open file");
 
     std::string line;
-    int lineCount = 0;
-
+    int edgeCount = 0;
     while(edgesFile.good()){
         std::getline(edgesFile, line);
         std::stringstream line_stream(line);
@@ -64,10 +65,11 @@ void Graph::createEdges(const std::string & edgesFileName){     //this function 
         size_t to_node_id = stoi(to_node_id_str);
         if((vertices.find(from_node_id) != vertices.end())&&(vertices.find(to_node_id) != vertices.end())){
             insertEdge(vertices.at(from_node_id), vertices.at(to_node_id));
+            cout << "\rEdges Loaded: " << edgeCount << flush;
+            edgeCount++;
         }
-            // cout<<from_node_id<<" "<<to_node_id<<endl;
-        lineCount++;
     }
+    cout<<endl;
 };
 
 void Graph::insertVertex(Vertex v){
