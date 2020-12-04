@@ -20,7 +20,8 @@ class BFSTraversal;
 class Graph{
   public:
     Graph();
-    void insertVertex(const Vertex& v);
+    Graph(const std::string & verticesFileName, const std::string & EdgesFileName);
+    void insertVertex(Vertex v);
     void removeVertex(const Vertex& v);
     bool edgeExists(const Vertex& source,const Vertex& destination);
     bool vertexExists(const Vertex& v);
@@ -33,6 +34,9 @@ class Graph{
     size_t num_vertices;
     size_t num_edges;
   private:
+    void createVertices(const std::string & verticesFileName);
+    void createEdges(const std::string & edgesFileName);
     unordered_map<Vertex, unordered_map<Vertex, Edge, VertexHashFunction>, VertexHashFunction> adjacency_list;
+    unordered_map<size_t, Vertex> vertices;
 };
 

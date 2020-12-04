@@ -1,0 +1,8 @@
+# FromNodeId ToNodeId1 0
+2 0
+0 2
+4 3
+7 5
+5 6
+7 8
+8 9
