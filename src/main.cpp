@@ -76,7 +76,12 @@ int main(int argc, char* argv[]){
 
     auto bfs = treeGraph.getBFS(Vertex(0, "0"));
     for (auto it = bfs.begin(); it != bfs.end(); ++it) {
-        std::cout << *it << ", origin: " << it.arrivalEdge().source_node_id_ << '\n';
+        std::cout << *it; 
+        if(!it.arrivalEdge().isEmpty){
+            std::cout<<", origin: " << it.arrivalEdge().source_node_id_ << '\n';
+        } else {
+            std::cout<<" (root)"<<std::endl;
+        }
     }
     bfs = treeGraph.getBFS(Vertex(1, "1"));
 
