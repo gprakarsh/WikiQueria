@@ -4,6 +4,7 @@
 #include <iostream>
 #include <fstream>
 #include <sstream> 
+#include <algorithm>
 
 using std::cout;
 using std::endl;
@@ -186,11 +187,27 @@ FullBFS Graph::getFullBFS(const Vertex& v) {
 
 vector<Edge> Graph::getShortestPath(const Vertex start, const Vertex end) {
     vector<Edge> path;
-    unordered_map<Vertex, Edge> edgeToVertex;
-    edgeToVertex[start] = Edge();
-    for (auto v : g_.getBFS(start)) {
-        edgeToVertex[v] = v->arrivalEdge();
-        if (v == end) break;
+    unordered_map<size_t, Edge> originEdge;
+    originEdge[start.node_id_];
+    bool found = false;
+    BFSTraversal searchBFS = getBFS(start);
+    for (auto it = searchBFS.begin(); it != searchBFS.end(); ++it) {
+        originEdge.insert({(*it).node_id_, it.arrivalEdge()});
+        if (*it == end) {
+            found = true;
+            break;
+        }
     }
-    Edge e;   
+
+    if (!found) return path;
+    else {
+        size_t last = end.node_id_;
+        while (last != start.node_id_) {
+            path.push_back(originEdge.at(last));
+            last = originEdge.at(last).source_node_id_;
+        }
+    }
+    
+    std::reverse(path.begin(), path.end());
+    return path;
 }

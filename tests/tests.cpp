@@ -149,8 +149,28 @@ TEST_CASE("An empty edge is equivalent to all other empty edges", "[GraphADT]") 
     REQUIRE(Edge(-1, -1).isEmpty() == true);
 }
 
-TEST_CASE("We are able to retrieve the node_id using the name of the vertex.") {
+TEST_CASE("We are able to retrieve the node_id using the name of the vertex.", "[GraphADT]") {
     Graph g = basicTestGraph();
     Vertex v0(0, "zero");
     REQUIRE(g.page_to_id.at("zero") == 0);
+}
+
+TEST_CASE("BFS Shortest Path returns correct path if path exists", "[BFS]") {
+    Graph g = basicTestGraph();
+    Vertex v0(0, "zero");
+    Vertex v3(3, "three");
+    auto path = g.getShortestPath(v0, v3);
+    REQUIRE(path.size() == 3);
+    for (auto p : path) {
+        std::cout << p.source_node_id_ << "->" << p.destination_node_id_ << '\n';
+    }
+}
+
+TEST_CASE("BFS Shortest Path returns nothing if path does not exist", "[BFS]") {
+    Graph g = basicTestGraph();
+    Vertex v0(0, "zero");
+    Vertex v3(3, "three");
+    g.removeEdge(v3, v0);
+    auto path = g.getShortestPath(v3, v0);
+    REQUIRE(path.size() == 0);
 }
