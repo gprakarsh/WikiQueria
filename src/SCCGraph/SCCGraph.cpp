@@ -75,12 +75,8 @@ void SCCGraph::SCCUtil(int u, int disc[], int low[], stack<int> *st, bool stackM
 };
 
 void SCCGraph::condense_graph_dfs(){
-    /*
-    if(comp_adj_list.find(vertices.at(startRep)) == comp_adj_list.end()){
-                comp_adj_list[vertices.at(startRep)] = unordered_map<Vertex, Edge, VertexHashFunction>();
-                num_SCCs++;
-            }
-    */
+    unordered_map<Vertex, unordered_map<Vertex, Edge, VertexHashFunction>, VertexHashFunction> comp_adj_list;
+
     int i = 0;
     while(i <(int) rep_node_ids.size()){
         comp_adj_list[vertices.at(rep_node_ids[i])] = unordered_map<Vertex, Edge, VertexHashFunction>();
@@ -96,13 +92,14 @@ void SCCGraph::condense_graph_dfs(){
     i=0;
     while(i < (int) num_vertices){
         if (visited[i] == false){
-            condense_graph_dfs_util(i, visited);
+            condense_graph_dfs_util(i, visited, comp_adj_list);
         }
         i++;
     }
+    adjacency_list = comp_adj_list;
 };
 
-void SCCGraph::condense_graph_dfs_util(int start, bool* visited){
+void SCCGraph::condense_graph_dfs_util(int start, bool* visited, unordered_map<Vertex, unordered_map<Vertex, Edge, VertexHashFunction>, VertexHashFunction> comp_adj_list){
     visited[start] = true;
     vector<Vertex> adjVertices = incidentVertices(vertices.at(start));
     for(Vertex& currVertex : adjVertices){
@@ -116,25 +113,25 @@ void SCCGraph::condense_graph_dfs_util(int start, bool* visited){
             num_SCC_edges++; 
         }
         if(visited[currVertex.node_id_] == false){
-            condense_graph_dfs_util(currVertex.node_id_, visited);
+            condense_graph_dfs_util(currVertex.node_id_, visited, comp_adj_list);
         }
     }
 }
 
-void SCCGraph::displayGraph(){
-    cout<< "Number of SCCs : "<<rep_node_ids.size()<<endl;
-    cout<< "Number of SCC Edges : "<<num_SCC_edges<<endl;
-    for(auto i : comp_adj_list){
-        Vertex a = i.first;
-        cout<<a.node_id_<<" : ";
-        for(auto j : adjacency_list[a]){
-            Vertex b = j.first;
-            cout<<a.node_id_<<"->"<<b.node_id_<<" ";
-            // cout<<b.node_id_<<" ";
-        }
-        cout<<endl;
-    }
-}
+// void SCCGraph::displayGraph(){
+//     cout<< "Number of SCCs : "<<rep_node_ids.size()<<endl;
+//     cout<< "Number of SCC Edges : "<<num_SCC_edges<<endl;
+//     for(auto i : comp_adj_list){
+//         Vertex a = i.first;
+//         cout<<a.node_id_<<" : ";
+//         for(auto j : adjacency_list[a]){
+//             Vertex b = j.first;
+//             cout<<a.node_id_<<"->"<<b.node_id_<<" ";
+//             // cout<<b.node_id_<<" ";
+//         }
+//         cout<<endl;
+//     }
+// }
 
 void SCCGraph::displayRepNodes(){
     for(auto i : rep_node_ids){
