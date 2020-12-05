@@ -19,20 +19,25 @@ endef
 
 all : $(EXENAME)
 
-$(EXENAME): build/main.o build/Graph.o build/Vertex.o build/Edge.o build/BFS.o
+$(EXENAME): build/main.o build/SCCGraph.o build/Graph.o build/Vertex.o build/Edge.o build/BFS.o 
 	$(LD) $^ $(LDFLAGS) -o $(EXENAME)
 
 build/readFromFile.o: src/readFromFile.cpp headers/readFromFile.hpp
 	$(make-build-dir)
 	$(CXX) $(CXXFLAGS) $< -o $@ 
 
-build/main.o: src/main.cpp headers/Graph.h headers/Vertex.h headers/Edge.h
+build/main.o: src/main.cpp headers/Graph.h headers/Vertex.h headers/Edge.h headers/SCCGraph.h
+	$(make-build-dir)
+	$(CXX) $(CXXFLAGS) $< -o $@
+
+build/SCCGraph.o: src/SCCGraph/SCCGraph.cpp headers/SCCGraph.h headers/Graph.h
 	$(make-build-dir)
 	$(CXX) $(CXXFLAGS) $< -o $@
 
 build/Graph.o: src/GraphADT/Graph.cpp headers/Graph.h headers/Vertex.h headers/Edge.h
 	$(make-build-dir)
 	$(CXX) $(CXXFLAGS) $< -o $@
+
 
 build/Vertex.o: src/GraphADT/Vertex.cpp headers/Vertex.h
 	$(make-build-dir)

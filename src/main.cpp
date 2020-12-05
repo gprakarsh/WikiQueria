@@ -5,6 +5,7 @@
 #include "Edge.h"
 #include "Graph.h"
 #include "BFS.h"
+#include "SCCGraph.h"
 
 // Uses Universal Addressing to help with visualizing the tree
 // Every child has one more `.`, except for the root=0
@@ -50,6 +51,7 @@ int main(int argc, char* argv[]){
     
     g.insertEdge(v0, v1);
     g.insertEdge(v1, v1);
+
     g.insertEdge(v1, v2);
     g.insertEdge(v2, v3);
     g.insertEdge(v3, v0);
@@ -104,14 +106,19 @@ int main(int argc, char* argv[]){
             while(!exit){
                 std::cout<<"What would you like to do?"<<std::endl;
                 std::cout<<"1) See full graph"<<std::endl;
-                std::cout<<"2) Clear Screen"<<std::endl;
+                std::cout<<"2) Print SCCs"<<std::endl;
+                std::cout<<"3) Clear Screen"<<std::endl;
                 //Add more options here
                 std::cout<<"Type the corresponding number to the desired option or anything else to exit"<<std::endl;
                 int option;
                 std::cin>>option;
-                if(option==1){
+                if(option == 1){
                     pGraph.displayGraph();
-                }else if(option==2){
+                }else if(option == 2){
+                    std::cout<<"Following are the Strongly Connected Components:"<<std::endl;
+                    pGraph.SCC();
+                    // exit = true;
+                }else if(option ==3){
                     system("clear");
                 }else{
                     exit = true;
