@@ -75,16 +75,13 @@ void Graph::createEdges(const std::string & edgesFileName){
 };
 
 void Graph::insertVertex(Vertex v){
-    // remove v if v already exists
     adjacency_list[v] = unordered_map<Vertex, Edge, VertexHashFunction>();
-    // Simultaneously makes a pair to insert
     vertices.insert({v.node_id_, v});
     num_vertices++;
 };
 
 void Graph::removeVertex(const Vertex& v){
     
-
     if (adjacency_list.find(v) != adjacency_list.end())
     {
         num_edges -= adjacency_list[v].size();
@@ -99,7 +96,6 @@ void Graph::removeVertex(const Vertex& v){
         }
     }
     num_vertices--;
-    
 };  
 
 bool Graph::edgeExists(const Vertex& source,const Vertex& destination){
