@@ -10,6 +10,7 @@ using std::min;
 #define UNVISITED -1
 
 SCCGraph::SCCGraph(const std::string & verticesFileName, const std::string & edgesFileName) : Graph(verticesFileName, edgesFileName){
+    
     num_SCC_edges = 0;
     num_SCCs = 0;
     int *disc = new int[num_vertices]; 
@@ -75,12 +76,7 @@ void SCCGraph::SCCUtil(int u, int disc[], int low[], stack<int> *st, bool stackM
 };
 
 void SCCGraph::condense_graph_dfs(){
-    /*
-    if(comp_adj_list.find(vertices.at(startRep)) == comp_adj_list.end()){
-                comp_adj_list[vertices.at(startRep)] = unordered_map<Vertex, Edge, VertexHashFunction>();
-                num_SCCs++;
-            }
-    */
+    
     int i = 0;
     while(i <(int) rep_node_ids.size()){
         comp_adj_list[vertices.at(rep_node_ids[i])] = unordered_map<Vertex, Edge, VertexHashFunction>();
@@ -142,3 +138,7 @@ void SCCGraph::displayRepNodes(){
     }
     std::cout<<std::endl;
 };
+
+void SCCGraph::not_supported(){
+    cout<<"Function not supported in SCC Graph"<<endl;
+}
