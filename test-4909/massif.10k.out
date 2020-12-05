@@ -1,0 +1,1388 @@
+desc: --massif-out-file=massif.10k.out
+cmd: ./finalproj ./large-names.csv ./large-edge.txt 10000
+time_unit: i
+#-----------
+snapshot=0
+#-----------
+time=0
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=1
+#-----------
+time=5998042
+mem_heap_B=72856
+mem_heap_extra_B=5744
+mem_stacks_B=0
+heap_tree=detailed
+n7: 72856 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 34080 0x417D98: __allocate (new:228)
+  n1: 34080 0x417D98: allocate (memory:1793)
+   n1: 34080 0x417D98: allocate (memory:1547)
+    n1: 34080 0x417D98: std::__1::unique_ptr<std::__1::__hash_node<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, void*>, std::__1::__hash_node_destructor<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, void*> > > > std::__1::__hash_table<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, std::__1::__unordered_map_hasher<Vertex, std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, VertexHashFunction, true>, std::__1::__unordered_map_equal<Vertex, std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, std::__1::equal_to<Vertex>, true>, std::__1::allocator<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > > > >::__construct_node_hash<std::__1::piecewise_construct_t const&, std::__1::tuple<Vertex const&>, std::__1::tuple<> >(unsigned long, std::__1::piecewise_construct_t const&, std::__1::tuple<Vertex const&>&&, std::__1::tuple<>&&) (__hash_table:2304)
+     n1: 34080 0x40DFDE: __emplace_unique_key_args<Vertex, const std::__1::piecewise_construct_t &, std::__1::tuple<const Vertex &>, std::__1::tuple<> > (__hash_table:2021)
+      n1: 34080 0x40DFDE: std::__1::unordered_map<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > >, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > > > >::operator[](Vertex const&) (unordered_map:1386)
+       n1: 34080 0x4088DC: Graph::insertVertex(Vertex) (Graph.cpp:78)
+        n1: 34080 0x406B9F: Graph::createVertices(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) (Graph.cpp:43)
+         n1: 34080 0x405704: Graph::Graph(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:21)
+          n0: 34080 0x403BCF: main (main.cpp:92)
+ n1: 22656 0x41A35D: __allocate (new:228)
+  n1: 22656 0x41A35D: allocate (memory:1793)
+   n1: 22656 0x41A35D: allocate (memory:1547)
+    n1: 22656 0x41A35D: std::__1::unique_ptr<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long, Vertex>, void*>, std::__1::__hash_node_destructor<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long, Vertex>, void*> > > > std::__1::__hash_table<std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::__unordered_map_hasher<unsigned long, std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::hash<unsigned long>, true>, std::__1::__unordered_map_equal<unsigned long, std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::equal_to<unsigned long>, true>, std::__1::allocator<std::__1::__hash_value_type<unsigned long, Vertex> > >::__construct_node_hash<std::__1::pair<unsigned long const, Vertex>>(unsigned long, std::__1::pair<unsigned long const, Vertex>&&) (__hash_table:2304)
+     n1: 22656 0x408E63: __emplace_unique_key_args<unsigned long, std::__1::pair<const unsigned long, Vertex> > (__hash_table:2021)
+      n1: 22656 0x408E63: __insert_unique (__hash_table:1123)
+       n1: 22656 0x408E63: insert (unordered_map:934)
+        n1: 22656 0x408E63: Graph::insertVertex(Vertex) (Graph.cpp:80)
+         n1: 22656 0x406B9F: Graph::createVertices(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) (Graph.cpp:43)
+          n1: 22656 0x405704: Graph::Graph(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:21)
+           n0: 22656 0x403BCF: main (main.cpp:92)
+ n1: 5120 0x595C26B: _IO_file_doallocate (filedoalloc.c:101)
+  n2: 5120 0x596C448: _IO_doallocbuf (genops.c:365)
+   n1: 4096 0x5969893: _IO_file_xsgetn (fileops.c:1310)
+    n1: 4096 0x595D4A0: fread (iofread.c:38)
+     n1: 4096 0x41203D: std::__1::basic_filebuf<char, std::__1::char_traits<char> >::underflow() (fstream:600)
+      n1: 4096 0x5449579: std::__1::basic_streambuf<char, std::__1::char_traits<char> >::uflow() (in /usr/lib/x86_64-linux-gnu/libc++.so.1.0)
+       n1: 4096 0x40D410: sbumpc (streambuf:186)
+        n1: 4096 0x40D410: std::__1::basic_istream<char, std::__1::char_traits<char> >& std::__1::getline<char, std::__1::char_traits<char>, std::__1::allocator<char> >(std::__1::basic_istream<char, std::__1::char_traits<char> >&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >&, char) (istream:1571)
+         n1: 4096 0x405EF1: getline<char, std::__1::char_traits<char>, std::__1::allocator<char> > (istream:1608)
+          n1: 4096 0x405EF1: Graph::createVertices(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) (Graph.cpp:33)
+           n1: 4096 0x405704: Graph::Graph(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:21)
+            n0: 4096 0x403BCF: main (main.cpp:92)
+   n1: 1024 0x596B567: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:759)
+    n1: 1024 0x5969ABC: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1266)
+     n1: 1024 0x595DA56: fwrite (iofwrite.c:39)
+      n1: 1024 0x405072: sputn (streambuf:227)
+       n1: 1024 0x405072: std::__1::ostreambuf_iterator<char, std::__1::char_traits<char> > std::__1::__pad_and_output<char, std::__1::char_traits<char> >(std::__1::ostreambuf_iterator<char, std::__1::char_traits<char> >, char const*, char const*, char const*, std::__1::ios_base&, char) (locale:1414)
+        n1: 1024 0x404AB9: std::__1::basic_ostream<char, std::__1::char_traits<char> >& std::__1::__put_character_sequence<char, std::__1::char_traits<char> >(std::__1::basic_ostream<char, std::__1::char_traits<char> >&, char const*, unsigned long) (ostream:725)
+         n1: 1024 0x403CFB: std::__1::basic_ostream<char, std::__1::char_traits<char> >& std::__1::operator<< <std::__1::char_traits<char> >(std::__1::basic_ostream<char, std::__1::char_traits<char> >&, char const*) (ostream:864)
+          n0: 1024 0x403A89: main (main.cpp:89)
+ n1: 4096 0x41117F: std::__1::basic_filebuf<char, std::__1::char_traits<char> >::setbuf(char*, long) (fstream:759)
+  n1: 4096 0x416895: std::__1::basic_filebuf<char, std::__1::char_traits<char> >::basic_filebuf() (fstream:278)
+   n1: 4096 0x4058CF: basic_ifstream (fstream:1021)
+    n1: 4096 0x4058CF: Graph::createVertices(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) (Graph.cpp:26)
+     n1: 4096 0x405704: Graph::Graph(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:21)
+      n0: 4096 0x403BCF: main (main.cpp:92)
+ n1: 3176 0x418EA7: __allocate (new:228)
+  n1: 3176 0x418EA7: allocate (memory:1793)
+   n1: 3176 0x418EA7: allocate (memory:1547)
+    n1: 3176 0x418EA7: std::__1::__hash_table<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, std::__1::__unordered_map_hasher<Vertex, std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, VertexHashFunction, true>, std::__1::__unordered_map_equal<Vertex, std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, std::__1::equal_to<Vertex>, true>, std::__1::allocator<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > > > >::__rehash(unsigned long) (__hash_table:2168)
+     n1: 3176 0x418959: std::__1::__hash_table<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, std::__1::__unordered_map_hasher<Vertex, std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, VertexHashFunction, true>, std::__1::__unordered_map_equal<Vertex, std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, std::__1::equal_to<Vertex>, true>, std::__1::allocator<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > > > >::rehash(unsigned long) (__hash_table:2145)
+      n1: 3176 0x40E397: __emplace_unique_key_args<Vertex, const std::__1::piecewise_construct_t &, std::__1::tuple<const Vertex &>, std::__1::tuple<> > (__hash_table:2027)
+       n1: 3176 0x40E397: std::__1::unordered_map<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > >, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > > > >::operator[](Vertex const&) (unordered_map:1386)
+        n1: 3176 0x4088DC: Graph::insertVertex(Vertex) (Graph.cpp:78)
+         n1: 3176 0x406B9F: Graph::createVertices(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) (Graph.cpp:43)
+          n1: 3176 0x405704: Graph::Graph(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:21)
+           n0: 3176 0x403BCF: main (main.cpp:92)
+ n1: 3176 0x41B0A5: __allocate (new:228)
+  n1: 3176 0x41B0A5: allocate (memory:1793)
+   n1: 3176 0x41B0A5: allocate (memory:1547)
+    n1: 3176 0x41B0A5: std::__1::__hash_table<std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::__unordered_map_hasher<unsigned long, std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::hash<unsigned long>, true>, std::__1::__unordered_map_equal<unsigned long, std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::equal_to<unsigned long>, true>, std::__1::allocator<std::__1::__hash_value_type<unsigned long, Vertex> > >::__rehash(unsigned long) (__hash_table:2168)
+     n1: 3176 0x41AB29: std::__1::__hash_table<std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::__unordered_map_hasher<unsigned long, std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::hash<unsigned long>, true>, std::__1::__unordered_map_equal<unsigned long, std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::equal_to<unsigned long>, true>, std::__1::allocator<std::__1::__hash_value_type<unsigned long, Vertex> > >::rehash(unsigned long) (__hash_table:2145)
+      n1: 3176 0x40921E: __emplace_unique_key_args<unsigned long, std::__1::pair<const unsigned long, Vertex> > (__hash_table:2027)
+       n1: 3176 0x40921E: __insert_unique (__hash_table:1123)
+        n1: 3176 0x40921E: insert (unordered_map:934)
+         n1: 3176 0x40921E: Graph::insertVertex(Vertex) (Graph.cpp:80)
+          n1: 3176 0x406B9F: Graph::createVertices(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) (Graph.cpp:43)
+           n1: 3176 0x405704: Graph::Graph(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:21)
+            n0: 3176 0x403BCF: main (main.cpp:92)
+ n0: 552 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=2
+#-----------
+time=8703657
+mem_heap_B=112536
+mem_heap_extra_B=9072
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=3
+#-----------
+time=13786933
+mem_heap_B=187800
+mem_heap_extra_B=15320
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=4
+#-----------
+time=19359644
+mem_heap_B=254776
+mem_heap_extra_B=22016
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=5
+#-----------
+time=23158768
+mem_heap_B=321912
+mem_heap_extra_B=26160
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=6
+#-----------
+time=27376613
+mem_heap_B=372312
+mem_heap_extra_B=31200
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=7
+#-----------
+time=30389628
+mem_heap_B=408312
+mem_heap_extra_B=34800
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=8
+#-----------
+time=33643610
+mem_heap_B=447192
+mem_heap_extra_B=38688
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=9
+#-----------
+time=36897592
+mem_heap_B=486072
+mem_heap_extra_B=42576
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=10
+#-----------
+time=41959760
+mem_heap_B=546552
+mem_heap_extra_B=48624
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=11
+#-----------
+time=46357991
+mem_heap_B=642680
+mem_heap_extra_B=53088
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=12
+#-----------
+time=49196976
+mem_heap_B=676600
+mem_heap_extra_B=56480
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=13
+#-----------
+time=52745472
+mem_heap_B=719000
+mem_heap_extra_B=60720
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=14
+#-----------
+time=55584457
+mem_heap_B=752920
+mem_heap_extra_B=64112
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=15
+#-----------
+time=59132953
+mem_heap_B=795320
+mem_heap_extra_B=68352
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=16
+#-----------
+time=61971948
+mem_heap_B=829240
+mem_heap_extra_B=71744
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=17
+#-----------
+time=65520454
+mem_heap_B=871640
+mem_heap_extra_B=75984
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=18
+#-----------
+time=70899307
+mem_heap_B=926320
+mem_heap_extra_B=81328
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=19
+#-----------
+time=74798850
+mem_heap_B=954800
+mem_heap_extra_B=83696
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=20
+#-----------
+time=79401163
+mem_heap_B=995496
+mem_heap_extra_B=86504
+mem_stacks_B=0
+heap_tree=detailed
+n7: 995496 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 480000 0x417D98: __allocate (new:228)
+  n1: 480000 0x417D98: allocate (memory:1793)
+   n1: 480000 0x417D98: allocate (memory:1547)
+    n1: 480000 0x417D98: std::__1::unique_ptr<std::__1::__hash_node<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, void*>, std::__1::__hash_node_destructor<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, void*> > > > std::__1::__hash_table<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, std::__1::__unordered_map_hasher<Vertex, std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, VertexHashFunction, true>, std::__1::__unordered_map_equal<Vertex, std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, std::__1::equal_to<Vertex>, true>, std::__1::allocator<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > > > >::__construct_node_hash<std::__1::piecewise_construct_t const&, std::__1::tuple<Vertex const&>, std::__1::tuple<> >(unsigned long, std::__1::piecewise_construct_t const&, std::__1::tuple<Vertex const&>&&, std::__1::tuple<>&&) (__hash_table:2304)
+     n1: 480000 0x40DFDE: __emplace_unique_key_args<Vertex, const std::__1::piecewise_construct_t &, std::__1::tuple<const Vertex &>, std::__1::tuple<> > (__hash_table:2021)
+      n1: 480000 0x40DFDE: std::__1::unordered_map<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > >, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > > > >::operator[](Vertex const&) (unordered_map:1386)
+       n1: 480000 0x4088DC: Graph::insertVertex(Vertex) (Graph.cpp:78)
+        n1: 480000 0x406B9F: Graph::createVertices(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) (Graph.cpp:43)
+         n1: 480000 0x405704: Graph::Graph(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:21)
+          n0: 480000 0x403BCF: main (main.cpp:92)
+ n1: 320000 0x41A35D: __allocate (new:228)
+  n1: 320000 0x41A35D: allocate (memory:1793)
+   n1: 320000 0x41A35D: allocate (memory:1547)
+    n1: 320000 0x41A35D: std::__1::unique_ptr<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long, Vertex>, void*>, std::__1::__hash_node_destructor<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long, Vertex>, void*> > > > std::__1::__hash_table<std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::__unordered_map_hasher<unsigned long, std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::hash<unsigned long>, true>, std::__1::__unordered_map_equal<unsigned long, std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::equal_to<unsigned long>, true>, std::__1::allocator<std::__1::__hash_value_type<unsigned long, Vertex> > >::__construct_node_hash<std::__1::pair<unsigned long const, Vertex>>(unsigned long, std::__1::pair<unsigned long const, Vertex>&&) (__hash_table:2304)
+     n1: 320000 0x408E63: __emplace_unique_key_args<unsigned long, std::__1::pair<const unsigned long, Vertex> > (__hash_table:2021)
+      n1: 320000 0x408E63: __insert_unique (__hash_table:1123)
+       n1: 320000 0x408E63: insert (unordered_map:934)
+        n1: 320000 0x408E63: Graph::insertVertex(Vertex) (Graph.cpp:80)
+         n1: 320000 0x406B9F: Graph::createVertices(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) (Graph.cpp:43)
+          n1: 320000 0x405704: Graph::Graph(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:21)
+           n0: 320000 0x403BCF: main (main.cpp:92)
+ n1: 63840 0x41D96A: __allocate (new:228)
+  n1: 63840 0x41D96A: allocate (memory:1793)
+   n1: 63840 0x41D96A: allocate (memory:1547)
+    n1: 63840 0x41D96A: std::__1::unique_ptr<std::__1::__hash_node<std::__1::__hash_value_type<Vertex, Edge>, void*>, std::__1::__hash_node_destructor<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<Vertex, Edge>, void*> > > > std::__1::__hash_table<std::__1::__hash_value_type<Vertex, Edge>, std::__1::__unordered_map_hasher<Vertex, std::__1::__hash_value_type<Vertex, Edge>, VertexHashFunction, true>, std::__1::__unordered_map_equal<Vertex, std::__1::__hash_value_type<Vertex, Edge>, std::__1::equal_to<Vertex>, true>, std::__1::allocator<std::__1::__hash_value_type<Vertex, Edge> > >::__construct_node_hash<std::__1::pair<Vertex const, Edge>>(unsigned long, std::__1::pair<Vertex const, Edge>&&) (__hash_table:2304)
+     n1: 63840 0x40A51A: __emplace_unique_key_args<Vertex, std::__1::pair<const Vertex, Edge> > (__hash_table:2021)
+      n1: 63840 0x40A51A: __insert_unique (__hash_table:1123)
+       n1: 63840 0x40A51A: insert (unordered_map:934)
+        n1: 63840 0x40A51A: Graph::insertEdge(Vertex&, Vertex&) (Graph.cpp:137)
+         n1: 63840 0x408486: Graph::createEdges(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:68)
+          n1: 63840 0x40571A: Graph::Graph(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:22)
+           n0: 63840 0x403BCF: main (main.cpp:92)
+ n1: 51368 0x418EA7: __allocate (new:228)
+  n1: 51368 0x418EA7: allocate (memory:1793)
+   n1: 51368 0x418EA7: allocate (memory:1547)
+    n1: 51368 0x418EA7: std::__1::__hash_table<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, std::__1::__unordered_map_hasher<Vertex, std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, VertexHashFunction, true>, std::__1::__unordered_map_equal<Vertex, std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, std::__1::equal_to<Vertex>, true>, std::__1::allocator<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > > > >::__rehash(unsigned long) (__hash_table:2168)
+     n1: 51368 0x418959: std::__1::__hash_table<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, std::__1::__unordered_map_hasher<Vertex, std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, VertexHashFunction, true>, std::__1::__unordered_map_equal<Vertex, std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, std::__1::equal_to<Vertex>, true>, std::__1::allocator<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > > > >::rehash(unsigned long) (__hash_table:2145)
+      n1: 51368 0x40E397: __emplace_unique_key_args<Vertex, const std::__1::piecewise_construct_t &, std::__1::tuple<const Vertex &>, std::__1::tuple<> > (__hash_table:2027)
+       n1: 51368 0x40E397: std::__1::unordered_map<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > >, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > > > >::operator[](Vertex const&) (unordered_map:1386)
+        n1: 51368 0x4088DC: Graph::insertVertex(Vertex) (Graph.cpp:78)
+         n1: 51368 0x406B9F: Graph::createVertices(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) (Graph.cpp:43)
+          n1: 51368 0x405704: Graph::Graph(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:21)
+           n0: 51368 0x403BCF: main (main.cpp:92)
+ n1: 51368 0x41B0A5: __allocate (new:228)
+  n1: 51368 0x41B0A5: allocate (memory:1793)
+   n1: 51368 0x41B0A5: allocate (memory:1547)
+    n1: 51368 0x41B0A5: std::__1::__hash_table<std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::__unordered_map_hasher<unsigned long, std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::hash<unsigned long>, true>, std::__1::__unordered_map_equal<unsigned long, std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::equal_to<unsigned long>, true>, std::__1::allocator<std::__1::__hash_value_type<unsigned long, Vertex> > >::__rehash(unsigned long) (__hash_table:2168)
+     n1: 51368 0x41AB29: std::__1::__hash_table<std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::__unordered_map_hasher<unsigned long, std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::hash<unsigned long>, true>, std::__1::__unordered_map_equal<unsigned long, std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::equal_to<unsigned long>, true>, std::__1::allocator<std::__1::__hash_value_type<unsigned long, Vertex> > >::rehash(unsigned long) (__hash_table:2145)
+      n1: 51368 0x40921E: __emplace_unique_key_args<unsigned long, std::__1::pair<const unsigned long, Vertex> > (__hash_table:2027)
+       n1: 51368 0x40921E: __insert_unique (__hash_table:1123)
+        n1: 51368 0x40921E: insert (unordered_map:934)
+         n1: 51368 0x40921E: Graph::insertVertex(Vertex) (Graph.cpp:80)
+          n1: 51368 0x406B9F: Graph::createVertices(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) (Graph.cpp:43)
+           n1: 51368 0x405704: Graph::Graph(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:21)
+            n0: 51368 0x403BCF: main (main.cpp:92)
+ n1: 19152 0x4151D7: __allocate (new:228)
+  n1: 19152 0x4151D7: allocate (memory:1793)
+   n1: 19152 0x4151D7: allocate (memory:1547)
+    n1: 19152 0x4151D7: std::__1::__hash_table<std::__1::__hash_value_type<Vertex, Edge>, std::__1::__unordered_map_hasher<Vertex, std::__1::__hash_value_type<Vertex, Edge>, VertexHashFunction, true>, std::__1::__unordered_map_equal<Vertex, std::__1::__hash_value_type<Vertex, Edge>, std::__1::equal_to<Vertex>, true>, std::__1::allocator<std::__1::__hash_value_type<Vertex, Edge> > >::__rehash(unsigned long) (__hash_table:2168)
+     n1: 19152 0x414C89: std::__1::__hash_table<std::__1::__hash_value_type<Vertex, Edge>, std::__1::__unordered_map_hasher<Vertex, std::__1::__hash_value_type<Vertex, Edge>, VertexHashFunction, true>, std::__1::__unordered_map_equal<Vertex, std::__1::__hash_value_type<Vertex, Edge>, std::__1::equal_to<Vertex>, true>, std::__1::allocator<std::__1::__hash_value_type<Vertex, Edge> > >::rehash(unsigned long) (__hash_table:2145)
+      n1: 19152 0x40A8D5: __emplace_unique_key_args<Vertex, std::__1::pair<const Vertex, Edge> > (__hash_table:2027)
+       n1: 19152 0x40A8D5: __insert_unique (__hash_table:1123)
+        n1: 19152 0x40A8D5: insert (unordered_map:934)
+         n1: 19152 0x40A8D5: Graph::insertEdge(Vertex&, Vertex&) (Graph.cpp:137)
+          n1: 19152 0x408486: Graph::createEdges(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:68)
+           n1: 19152 0x40571A: Graph::Graph(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:22)
+            n0: 19152 0x403BCF: main (main.cpp:92)
+ n0: 9768 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=21
+#-----------
+time=82841617
+mem_heap_B=1009520
+mem_heap_extra_B=88528
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=22
+#-----------
+time=86907385
+mem_heap_B=1034160
+mem_heap_extra_B=90992
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=23
+#-----------
+time=89562993
+mem_heap_B=1050296
+mem_heap_extra_B=92624
+mem_stacks_B=0
+heap_tree=detailed
+n7: 1050296 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 480000 0x417D98: __allocate (new:228)
+  n1: 480000 0x417D98: allocate (memory:1793)
+   n1: 480000 0x417D98: allocate (memory:1547)
+    n1: 480000 0x417D98: std::__1::unique_ptr<std::__1::__hash_node<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, void*>, std::__1::__hash_node_destructor<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, void*> > > > std::__1::__hash_table<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, std::__1::__unordered_map_hasher<Vertex, std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, VertexHashFunction, true>, std::__1::__unordered_map_equal<Vertex, std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, std::__1::equal_to<Vertex>, true>, std::__1::allocator<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > > > >::__construct_node_hash<std::__1::piecewise_construct_t const&, std::__1::tuple<Vertex const&>, std::__1::tuple<> >(unsigned long, std::__1::piecewise_construct_t const&, std::__1::tuple<Vertex const&>&&, std::__1::tuple<>&&) (__hash_table:2304)
+     n1: 480000 0x40DFDE: __emplace_unique_key_args<Vertex, const std::__1::piecewise_construct_t &, std::__1::tuple<const Vertex &>, std::__1::tuple<> > (__hash_table:2021)
+      n1: 480000 0x40DFDE: std::__1::unordered_map<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > >, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > > > >::operator[](Vertex const&) (unordered_map:1386)
+       n1: 480000 0x4088DC: Graph::insertVertex(Vertex) (Graph.cpp:78)
+        n1: 480000 0x406B9F: Graph::createVertices(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) (Graph.cpp:43)
+         n1: 480000 0x405704: Graph::Graph(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:21)
+          n0: 480000 0x403BCF: main (main.cpp:92)
+ n1: 320000 0x41A35D: __allocate (new:228)
+  n1: 320000 0x41A35D: allocate (memory:1793)
+   n1: 320000 0x41A35D: allocate (memory:1547)
+    n1: 320000 0x41A35D: std::__1::unique_ptr<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long, Vertex>, void*>, std::__1::__hash_node_destructor<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long, Vertex>, void*> > > > std::__1::__hash_table<std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::__unordered_map_hasher<unsigned long, std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::hash<unsigned long>, true>, std::__1::__unordered_map_equal<unsigned long, std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::equal_to<unsigned long>, true>, std::__1::allocator<std::__1::__hash_value_type<unsigned long, Vertex> > >::__construct_node_hash<std::__1::pair<unsigned long const, Vertex>>(unsigned long, std::__1::pair<unsigned long const, Vertex>&&) (__hash_table:2304)
+     n1: 320000 0x408E63: __emplace_unique_key_args<unsigned long, std::__1::pair<const unsigned long, Vertex> > (__hash_table:2021)
+      n1: 320000 0x408E63: __insert_unique (__hash_table:1123)
+       n1: 320000 0x408E63: insert (unordered_map:934)
+        n1: 320000 0x408E63: Graph::insertVertex(Vertex) (Graph.cpp:80)
+         n1: 320000 0x406B9F: Graph::createVertices(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) (Graph.cpp:43)
+          n1: 320000 0x405704: Graph::Graph(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:21)
+           n0: 320000 0x403BCF: main (main.cpp:92)
+ n1: 124960 0x41D96A: __allocate (new:228)
+  n1: 124960 0x41D96A: allocate (memory:1793)
+   n1: 124960 0x41D96A: allocate (memory:1547)
+    n1: 124960 0x41D96A: std::__1::unique_ptr<std::__1::__hash_node<std::__1::__hash_value_type<Vertex, Edge>, void*>, std::__1::__hash_node_destructor<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<Vertex, Edge>, void*> > > > std::__1::__hash_table<std::__1::__hash_value_type<Vertex, Edge>, std::__1::__unordered_map_hasher<Vertex, std::__1::__hash_value_type<Vertex, Edge>, VertexHashFunction, true>, std::__1::__unordered_map_equal<Vertex, std::__1::__hash_value_type<Vertex, Edge>, std::__1::equal_to<Vertex>, true>, std::__1::allocator<std::__1::__hash_value_type<Vertex, Edge> > >::__construct_node_hash<std::__1::pair<Vertex const, Edge>>(unsigned long, std::__1::pair<Vertex const, Edge>&&) (__hash_table:2304)
+     n1: 124960 0x40A51A: __emplace_unique_key_args<Vertex, std::__1::pair<const Vertex, Edge> > (__hash_table:2021)
+      n1: 124960 0x40A51A: __insert_unique (__hash_table:1123)
+       n1: 124960 0x40A51A: insert (unordered_map:934)
+        n1: 124960 0x40A51A: Graph::insertEdge(Vertex&, Vertex&) (Graph.cpp:137)
+         n1: 124960 0x408486: Graph::createEdges(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:68)
+          n1: 124960 0x40571A: Graph::Graph(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:22)
+           n0: 124960 0x403BCF: main (main.cpp:92)
+ n1: 51368 0x418EA7: __allocate (new:228)
+  n1: 51368 0x418EA7: allocate (memory:1793)
+   n1: 51368 0x418EA7: allocate (memory:1547)
+    n1: 51368 0x418EA7: std::__1::__hash_table<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, std::__1::__unordered_map_hasher<Vertex, std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, VertexHashFunction, true>, std::__1::__unordered_map_equal<Vertex, std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, std::__1::equal_to<Vertex>, true>, std::__1::allocator<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > > > >::__rehash(unsigned long) (__hash_table:2168)
+     n1: 51368 0x418959: std::__1::__hash_table<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, std::__1::__unordered_map_hasher<Vertex, std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, VertexHashFunction, true>, std::__1::__unordered_map_equal<Vertex, std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, std::__1::equal_to<Vertex>, true>, std::__1::allocator<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > > > >::rehash(unsigned long) (__hash_table:2145)
+      n1: 51368 0x40E397: __emplace_unique_key_args<Vertex, const std::__1::piecewise_construct_t &, std::__1::tuple<const Vertex &>, std::__1::tuple<> > (__hash_table:2027)
+       n1: 51368 0x40E397: std::__1::unordered_map<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > >, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > > > >::operator[](Vertex const&) (unordered_map:1386)
+        n1: 51368 0x4088DC: Graph::insertVertex(Vertex) (Graph.cpp:78)
+         n1: 51368 0x406B9F: Graph::createVertices(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) (Graph.cpp:43)
+          n1: 51368 0x405704: Graph::Graph(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:21)
+           n0: 51368 0x403BCF: main (main.cpp:92)
+ n1: 51368 0x41B0A5: __allocate (new:228)
+  n1: 51368 0x41B0A5: allocate (memory:1793)
+   n1: 51368 0x41B0A5: allocate (memory:1547)
+    n1: 51368 0x41B0A5: std::__1::__hash_table<std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::__unordered_map_hasher<unsigned long, std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::hash<unsigned long>, true>, std::__1::__unordered_map_equal<unsigned long, std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::equal_to<unsigned long>, true>, std::__1::allocator<std::__1::__hash_value_type<unsigned long, Vertex> > >::__rehash(unsigned long) (__hash_table:2168)
+     n1: 51368 0x41AB29: std::__1::__hash_table<std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::__unordered_map_hasher<unsigned long, std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::hash<unsigned long>, true>, std::__1::__unordered_map_equal<unsigned long, std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::equal_to<unsigned long>, true>, std::__1::allocator<std::__1::__hash_value_type<unsigned long, Vertex> > >::rehash(unsigned long) (__hash_table:2145)
+      n1: 51368 0x40921E: __emplace_unique_key_args<unsigned long, std::__1::pair<const unsigned long, Vertex> > (__hash_table:2027)
+       n1: 51368 0x40921E: __insert_unique (__hash_table:1123)
+        n1: 51368 0x40921E: insert (unordered_map:934)
+         n1: 51368 0x40921E: Graph::insertVertex(Vertex) (Graph.cpp:80)
+          n1: 51368 0x406B9F: Graph::createVertices(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) (Graph.cpp:43)
+           n1: 51368 0x405704: Graph::Graph(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:21)
+            n0: 51368 0x403BCF: main (main.cpp:92)
+ n1: 12832 0x4151D7: __allocate (new:228)
+  n1: 12832 0x4151D7: allocate (memory:1793)
+   n1: 12832 0x4151D7: allocate (memory:1547)
+    n1: 12832 0x4151D7: std::__1::__hash_table<std::__1::__hash_value_type<Vertex, Edge>, std::__1::__unordered_map_hasher<Vertex, std::__1::__hash_value_type<Vertex, Edge>, VertexHashFunction, true>, std::__1::__unordered_map_equal<Vertex, std::__1::__hash_value_type<Vertex, Edge>, std::__1::equal_to<Vertex>, true>, std::__1::allocator<std::__1::__hash_value_type<Vertex, Edge> > >::__rehash(unsigned long) (__hash_table:2168)
+     n1: 12832 0x414C89: std::__1::__hash_table<std::__1::__hash_value_type<Vertex, Edge>, std::__1::__unordered_map_hasher<Vertex, std::__1::__hash_value_type<Vertex, Edge>, VertexHashFunction, true>, std::__1::__unordered_map_equal<Vertex, std::__1::__hash_value_type<Vertex, Edge>, std::__1::equal_to<Vertex>, true>, std::__1::allocator<std::__1::__hash_value_type<Vertex, Edge> > >::rehash(unsigned long) (__hash_table:2145)
+      n1: 12832 0x40A8D5: __emplace_unique_key_args<Vertex, std::__1::pair<const Vertex, Edge> > (__hash_table:2027)
+       n1: 12832 0x40A8D5: __insert_unique (__hash_table:1123)
+        n1: 12832 0x40A8D5: insert (unordered_map:934)
+         n1: 12832 0x40A8D5: Graph::insertEdge(Vertex&, Vertex&) (Graph.cpp:137)
+          n1: 12832 0x408486: Graph::createEdges(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:68)
+           n1: 12832 0x40571A: Graph::Graph(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:22)
+            n0: 12832 0x403BCF: main (main.cpp:92)
+ n0: 9768 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=24
+#-----------
+time=94696131
+mem_heap_B=1091392
+mem_heap_extra_B=95808
+mem_stacks_B=0
+heap_tree=detailed
+n7: 1091392 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 480000 0x417D98: __allocate (new:228)
+  n1: 480000 0x417D98: allocate (memory:1793)
+   n1: 480000 0x417D98: allocate (memory:1547)
+    n1: 480000 0x417D98: std::__1::unique_ptr<std::__1::__hash_node<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, void*>, std::__1::__hash_node_destructor<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, void*> > > > std::__1::__hash_table<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, std::__1::__unordered_map_hasher<Vertex, std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, VertexHashFunction, true>, std::__1::__unordered_map_equal<Vertex, std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, std::__1::equal_to<Vertex>, true>, std::__1::allocator<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > > > >::__construct_node_hash<std::__1::piecewise_construct_t const&, std::__1::tuple<Vertex const&>, std::__1::tuple<> >(unsigned long, std::__1::piecewise_construct_t const&, std::__1::tuple<Vertex const&>&&, std::__1::tuple<>&&) (__hash_table:2304)
+     n1: 480000 0x40DFDE: __emplace_unique_key_args<Vertex, const std::__1::piecewise_construct_t &, std::__1::tuple<const Vertex &>, std::__1::tuple<> > (__hash_table:2021)
+      n1: 480000 0x40DFDE: std::__1::unordered_map<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > >, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > > > >::operator[](Vertex const&) (unordered_map:1386)
+       n1: 480000 0x4088DC: Graph::insertVertex(Vertex) (Graph.cpp:78)
+        n1: 480000 0x406B9F: Graph::createVertices(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) (Graph.cpp:43)
+         n1: 480000 0x405704: Graph::Graph(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:21)
+          n0: 480000 0x403BCF: main (main.cpp:92)
+ n1: 320000 0x41A35D: __allocate (new:228)
+  n1: 320000 0x41A35D: allocate (memory:1793)
+   n1: 320000 0x41A35D: allocate (memory:1547)
+    n1: 320000 0x41A35D: std::__1::unique_ptr<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long, Vertex>, void*>, std::__1::__hash_node_destructor<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long, Vertex>, void*> > > > std::__1::__hash_table<std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::__unordered_map_hasher<unsigned long, std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::hash<unsigned long>, true>, std::__1::__unordered_map_equal<unsigned long, std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::equal_to<unsigned long>, true>, std::__1::allocator<std::__1::__hash_value_type<unsigned long, Vertex> > >::__construct_node_hash<std::__1::pair<unsigned long const, Vertex>>(unsigned long, std::__1::pair<unsigned long const, Vertex>&&) (__hash_table:2304)
+     n1: 320000 0x408E63: __emplace_unique_key_args<unsigned long, std::__1::pair<const unsigned long, Vertex> > (__hash_table:2021)
+      n1: 320000 0x408E63: __insert_unique (__hash_table:1123)
+       n1: 320000 0x408E63: insert (unordered_map:934)
+        n1: 320000 0x408E63: Graph::insertVertex(Vertex) (Graph.cpp:80)
+         n1: 320000 0x406B9F: Graph::createVertices(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) (Graph.cpp:43)
+          n1: 320000 0x405704: Graph::Graph(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:21)
+           n0: 320000 0x403BCF: main (main.cpp:92)
+ n1: 156560 0x41D96A: __allocate (new:228)
+  n1: 156560 0x41D96A: allocate (memory:1793)
+   n1: 156560 0x41D96A: allocate (memory:1547)
+    n1: 156560 0x41D96A: std::__1::unique_ptr<std::__1::__hash_node<std::__1::__hash_value_type<Vertex, Edge>, void*>, std::__1::__hash_node_destructor<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<Vertex, Edge>, void*> > > > std::__1::__hash_table<std::__1::__hash_value_type<Vertex, Edge>, std::__1::__unordered_map_hasher<Vertex, std::__1::__hash_value_type<Vertex, Edge>, VertexHashFunction, true>, std::__1::__unordered_map_equal<Vertex, std::__1::__hash_value_type<Vertex, Edge>, std::__1::equal_to<Vertex>, true>, std::__1::allocator<std::__1::__hash_value_type<Vertex, Edge> > >::__construct_node_hash<std::__1::pair<Vertex const, Edge>>(unsigned long, std::__1::pair<Vertex const, Edge>&&) (__hash_table:2304)
+     n1: 156560 0x40A51A: __emplace_unique_key_args<Vertex, std::__1::pair<const Vertex, Edge> > (__hash_table:2021)
+      n1: 156560 0x40A51A: __insert_unique (__hash_table:1123)
+       n1: 156560 0x40A51A: insert (unordered_map:934)
+        n1: 156560 0x40A51A: Graph::insertEdge(Vertex&, Vertex&) (Graph.cpp:137)
+         n1: 156560 0x408486: Graph::createEdges(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:68)
+          n1: 156560 0x40571A: Graph::Graph(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:22)
+           n0: 156560 0x403BCF: main (main.cpp:92)
+ n1: 51368 0x418EA7: __allocate (new:228)
+  n1: 51368 0x418EA7: allocate (memory:1793)
+   n1: 51368 0x418EA7: allocate (memory:1547)
+    n1: 51368 0x418EA7: std::__1::__hash_table<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, std::__1::__unordered_map_hasher<Vertex, std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, VertexHashFunction, true>, std::__1::__unordered_map_equal<Vertex, std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, std::__1::equal_to<Vertex>, true>, std::__1::allocator<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > > > >::__rehash(unsigned long) (__hash_table:2168)
+     n1: 51368 0x418959: std::__1::__hash_table<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, std::__1::__unordered_map_hasher<Vertex, std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, VertexHashFunction, true>, std::__1::__unordered_map_equal<Vertex, std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, std::__1::equal_to<Vertex>, true>, std::__1::allocator<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > > > >::rehash(unsigned long) (__hash_table:2145)
+      n1: 51368 0x40E397: __emplace_unique_key_args<Vertex, const std::__1::piecewise_construct_t &, std::__1::tuple<const Vertex &>, std::__1::tuple<> > (__hash_table:2027)
+       n1: 51368 0x40E397: std::__1::unordered_map<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > >, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > > > >::operator[](Vertex const&) (unordered_map:1386)
+        n1: 51368 0x4088DC: Graph::insertVertex(Vertex) (Graph.cpp:78)
+         n1: 51368 0x406B9F: Graph::createVertices(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) (Graph.cpp:43)
+          n1: 51368 0x405704: Graph::Graph(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:21)
+           n0: 51368 0x403BCF: main (main.cpp:92)
+ n1: 51368 0x41B0A5: __allocate (new:228)
+  n1: 51368 0x41B0A5: allocate (memory:1793)
+   n1: 51368 0x41B0A5: allocate (memory:1547)
+    n1: 51368 0x41B0A5: std::__1::__hash_table<std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::__unordered_map_hasher<unsigned long, std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::hash<unsigned long>, true>, std::__1::__unordered_map_equal<unsigned long, std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::equal_to<unsigned long>, true>, std::__1::allocator<std::__1::__hash_value_type<unsigned long, Vertex> > >::__rehash(unsigned long) (__hash_table:2168)
+     n1: 51368 0x41AB29: std::__1::__hash_table<std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::__unordered_map_hasher<unsigned long, std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::hash<unsigned long>, true>, std::__1::__unordered_map_equal<unsigned long, std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::equal_to<unsigned long>, true>, std::__1::allocator<std::__1::__hash_value_type<unsigned long, Vertex> > >::rehash(unsigned long) (__hash_table:2145)
+      n1: 51368 0x40921E: __emplace_unique_key_args<unsigned long, std::__1::pair<const unsigned long, Vertex> > (__hash_table:2027)
+       n1: 51368 0x40921E: __insert_unique (__hash_table:1123)
+        n1: 51368 0x40921E: insert (unordered_map:934)
+         n1: 51368 0x40921E: Graph::insertVertex(Vertex) (Graph.cpp:80)
+          n1: 51368 0x406B9F: Graph::createVertices(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) (Graph.cpp:43)
+           n1: 51368 0x405704: Graph::Graph(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:21)
+            n0: 51368 0x403BCF: main (main.cpp:92)
+ n1: 22328 0x4151D7: __allocate (new:228)
+  n1: 22328 0x4151D7: allocate (memory:1793)
+   n1: 22328 0x4151D7: allocate (memory:1547)
+    n1: 22328 0x4151D7: std::__1::__hash_table<std::__1::__hash_value_type<Vertex, Edge>, std::__1::__unordered_map_hasher<Vertex, std::__1::__hash_value_type<Vertex, Edge>, VertexHashFunction, true>, std::__1::__unordered_map_equal<Vertex, std::__1::__hash_value_type<Vertex, Edge>, std::__1::equal_to<Vertex>, true>, std::__1::allocator<std::__1::__hash_value_type<Vertex, Edge> > >::__rehash(unsigned long) (__hash_table:2168)
+     n1: 22328 0x414C89: std::__1::__hash_table<std::__1::__hash_value_type<Vertex, Edge>, std::__1::__unordered_map_hasher<Vertex, std::__1::__hash_value_type<Vertex, Edge>, VertexHashFunction, true>, std::__1::__unordered_map_equal<Vertex, std::__1::__hash_value_type<Vertex, Edge>, std::__1::equal_to<Vertex>, true>, std::__1::allocator<std::__1::__hash_value_type<Vertex, Edge> > >::rehash(unsigned long) (__hash_table:2145)
+      n1: 22328 0x40A8D5: __emplace_unique_key_args<Vertex, std::__1::pair<const Vertex, Edge> > (__hash_table:2027)
+       n1: 22328 0x40A8D5: __insert_unique (__hash_table:1123)
+        n1: 22328 0x40A8D5: insert (unordered_map:934)
+         n1: 22328 0x40A8D5: Graph::insertEdge(Vertex&, Vertex&) (Graph.cpp:137)
+          n1: 22328 0x408486: Graph::createEdges(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:68)
+           n1: 22328 0x40571A: Graph::Graph(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:22)
+            n0: 22328 0x403BCF: main (main.cpp:92)
+ n0: 9768 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=25
+#-----------
+time=100019194
+mem_heap_B=1132992
+mem_heap_extra_B=99008
+mem_stacks_B=0
+heap_tree=detailed
+n7: 1132992 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 480000 0x417D98: __allocate (new:228)
+  n1: 480000 0x417D98: allocate (memory:1793)
+   n1: 480000 0x417D98: allocate (memory:1547)
+    n1: 480000 0x417D98: std::__1::unique_ptr<std::__1::__hash_node<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, void*>, std::__1::__hash_node_destructor<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, void*> > > > std::__1::__hash_table<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, std::__1::__unordered_map_hasher<Vertex, std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, VertexHashFunction, true>, std::__1::__unordered_map_equal<Vertex, std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, std::__1::equal_to<Vertex>, true>, std::__1::allocator<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > > > >::__construct_node_hash<std::__1::piecewise_construct_t const&, std::__1::tuple<Vertex const&>, std::__1::tuple<> >(unsigned long, std::__1::piecewise_construct_t const&, std::__1::tuple<Vertex const&>&&, std::__1::tuple<>&&) (__hash_table:2304)
+     n1: 480000 0x40DFDE: __emplace_unique_key_args<Vertex, const std::__1::piecewise_construct_t &, std::__1::tuple<const Vertex &>, std::__1::tuple<> > (__hash_table:2021)
+      n1: 480000 0x40DFDE: std::__1::unordered_map<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > >, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > > > >::operator[](Vertex const&) (unordered_map:1386)
+       n1: 480000 0x4088DC: Graph::insertVertex(Vertex) (Graph.cpp:78)
+        n1: 480000 0x406B9F: Graph::createVertices(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) (Graph.cpp:43)
+         n1: 480000 0x405704: Graph::Graph(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:21)
+          n0: 480000 0x403BCF: main (main.cpp:92)
+ n1: 320000 0x41A35D: __allocate (new:228)
+  n1: 320000 0x41A35D: allocate (memory:1793)
+   n1: 320000 0x41A35D: allocate (memory:1547)
+    n1: 320000 0x41A35D: std::__1::unique_ptr<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long, Vertex>, void*>, std::__1::__hash_node_destructor<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long, Vertex>, void*> > > > std::__1::__hash_table<std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::__unordered_map_hasher<unsigned long, std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::hash<unsigned long>, true>, std::__1::__unordered_map_equal<unsigned long, std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::equal_to<unsigned long>, true>, std::__1::allocator<std::__1::__hash_value_type<unsigned long, Vertex> > >::__construct_node_hash<std::__1::pair<unsigned long const, Vertex>>(unsigned long, std::__1::pair<unsigned long const, Vertex>&&) (__hash_table:2304)
+     n1: 320000 0x408E63: __emplace_unique_key_args<unsigned long, std::__1::pair<const unsigned long, Vertex> > (__hash_table:2021)
+      n1: 320000 0x408E63: __insert_unique (__hash_table:1123)
+       n1: 320000 0x408E63: insert (unordered_map:934)
+        n1: 320000 0x408E63: Graph::insertVertex(Vertex) (Graph.cpp:80)
+         n1: 320000 0x406B9F: Graph::createVertices(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) (Graph.cpp:43)
+          n1: 320000 0x405704: Graph::Graph(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:21)
+           n0: 320000 0x403BCF: main (main.cpp:92)
+ n1: 188560 0x41D96A: __allocate (new:228)
+  n1: 188560 0x41D96A: allocate (memory:1793)
+   n1: 188560 0x41D96A: allocate (memory:1547)
+    n1: 188560 0x41D96A: std::__1::unique_ptr<std::__1::__hash_node<std::__1::__hash_value_type<Vertex, Edge>, void*>, std::__1::__hash_node_destructor<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<Vertex, Edge>, void*> > > > std::__1::__hash_table<std::__1::__hash_value_type<Vertex, Edge>, std::__1::__unordered_map_hasher<Vertex, std::__1::__hash_value_type<Vertex, Edge>, VertexHashFunction, true>, std::__1::__unordered_map_equal<Vertex, std::__1::__hash_value_type<Vertex, Edge>, std::__1::equal_to<Vertex>, true>, std::__1::allocator<std::__1::__hash_value_type<Vertex, Edge> > >::__construct_node_hash<std::__1::pair<Vertex const, Edge>>(unsigned long, std::__1::pair<Vertex const, Edge>&&) (__hash_table:2304)
+     n1: 188560 0x40A51A: __emplace_unique_key_args<Vertex, std::__1::pair<const Vertex, Edge> > (__hash_table:2021)
+      n1: 188560 0x40A51A: __insert_unique (__hash_table:1123)
+       n1: 188560 0x40A51A: insert (unordered_map:934)
+        n1: 188560 0x40A51A: Graph::insertEdge(Vertex&, Vertex&) (Graph.cpp:137)
+         n1: 188560 0x408486: Graph::createEdges(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:68)
+          n1: 188560 0x40571A: Graph::Graph(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:22)
+           n0: 188560 0x403BCF: main (main.cpp:92)
+ n1: 51368 0x418EA7: __allocate (new:228)
+  n1: 51368 0x418EA7: allocate (memory:1793)
+   n1: 51368 0x418EA7: allocate (memory:1547)
+    n1: 51368 0x418EA7: std::__1::__hash_table<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, std::__1::__unordered_map_hasher<Vertex, std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, VertexHashFunction, true>, std::__1::__unordered_map_equal<Vertex, std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, std::__1::equal_to<Vertex>, true>, std::__1::allocator<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > > > >::__rehash(unsigned long) (__hash_table:2168)
+     n1: 51368 0x418959: std::__1::__hash_table<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, std::__1::__unordered_map_hasher<Vertex, std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, VertexHashFunction, true>, std::__1::__unordered_map_equal<Vertex, std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, std::__1::equal_to<Vertex>, true>, std::__1::allocator<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > > > >::rehash(unsigned long) (__hash_table:2145)
+      n1: 51368 0x40E397: __emplace_unique_key_args<Vertex, const std::__1::piecewise_construct_t &, std::__1::tuple<const Vertex &>, std::__1::tuple<> > (__hash_table:2027)
+       n1: 51368 0x40E397: std::__1::unordered_map<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > >, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > > > >::operator[](Vertex const&) (unordered_map:1386)
+        n1: 51368 0x4088DC: Graph::insertVertex(Vertex) (Graph.cpp:78)
+         n1: 51368 0x406B9F: Graph::createVertices(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) (Graph.cpp:43)
+          n1: 51368 0x405704: Graph::Graph(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:21)
+           n0: 51368 0x403BCF: main (main.cpp:92)
+ n1: 51368 0x41B0A5: __allocate (new:228)
+  n1: 51368 0x41B0A5: allocate (memory:1793)
+   n1: 51368 0x41B0A5: allocate (memory:1547)
+    n1: 51368 0x41B0A5: std::__1::__hash_table<std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::__unordered_map_hasher<unsigned long, std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::hash<unsigned long>, true>, std::__1::__unordered_map_equal<unsigned long, std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::equal_to<unsigned long>, true>, std::__1::allocator<std::__1::__hash_value_type<unsigned long, Vertex> > >::__rehash(unsigned long) (__hash_table:2168)
+     n1: 51368 0x41AB29: std::__1::__hash_table<std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::__unordered_map_hasher<unsigned long, std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::hash<unsigned long>, true>, std::__1::__unordered_map_equal<unsigned long, std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::equal_to<unsigned long>, true>, std::__1::allocator<std::__1::__hash_value_type<unsigned long, Vertex> > >::rehash(unsigned long) (__hash_table:2145)
+      n1: 51368 0x40921E: __emplace_unique_key_args<unsigned long, std::__1::pair<const unsigned long, Vertex> > (__hash_table:2027)
+       n1: 51368 0x40921E: __insert_unique (__hash_table:1123)
+        n1: 51368 0x40921E: insert (unordered_map:934)
+         n1: 51368 0x40921E: Graph::insertVertex(Vertex) (Graph.cpp:80)
+          n1: 51368 0x406B9F: Graph::createVertices(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) (Graph.cpp:43)
+           n1: 51368 0x405704: Graph::Graph(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:21)
+            n0: 51368 0x403BCF: main (main.cpp:92)
+ n1: 31928 0x4151D7: __allocate (new:228)
+  n1: 31928 0x4151D7: allocate (memory:1793)
+   n1: 31928 0x4151D7: allocate (memory:1547)
+    n1: 31928 0x4151D7: std::__1::__hash_table<std::__1::__hash_value_type<Vertex, Edge>, std::__1::__unordered_map_hasher<Vertex, std::__1::__hash_value_type<Vertex, Edge>, VertexHashFunction, true>, std::__1::__unordered_map_equal<Vertex, std::__1::__hash_value_type<Vertex, Edge>, std::__1::equal_to<Vertex>, true>, std::__1::allocator<std::__1::__hash_value_type<Vertex, Edge> > >::__rehash(unsigned long) (__hash_table:2168)
+     n1: 31928 0x414C89: std::__1::__hash_table<std::__1::__hash_value_type<Vertex, Edge>, std::__1::__unordered_map_hasher<Vertex, std::__1::__hash_value_type<Vertex, Edge>, VertexHashFunction, true>, std::__1::__unordered_map_equal<Vertex, std::__1::__hash_value_type<Vertex, Edge>, std::__1::equal_to<Vertex>, true>, std::__1::allocator<std::__1::__hash_value_type<Vertex, Edge> > >::rehash(unsigned long) (__hash_table:2145)
+      n1: 31928 0x40A8D5: __emplace_unique_key_args<Vertex, std::__1::pair<const Vertex, Edge> > (__hash_table:2027)
+       n1: 31928 0x40A8D5: __insert_unique (__hash_table:1123)
+        n1: 31928 0x40A8D5: insert (unordered_map:934)
+         n1: 31928 0x40A8D5: Graph::insertEdge(Vertex&, Vertex&) (Graph.cpp:137)
+          n1: 31928 0x408486: Graph::createEdges(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:68)
+           n1: 31928 0x40571A: Graph::Graph(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:22)
+            n0: 31928 0x403BCF: main (main.cpp:92)
+ n0: 9768 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=26
+#-----------
+time=105092208
+mem_heap_B=1156856
+mem_heap_extra_B=102016
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=27
+#-----------
+time=108138617
+mem_heap_B=1175336
+mem_heap_extra_B=103864
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=28
+#-----------
+time=113086613
+mem_heap_B=1209072
+mem_heap_extra_B=106952
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=29
+#-----------
+time=118997165
+mem_heap_B=1260568
+mem_heap_extra_B=110520
+mem_stacks_B=0
+heap_tree=detailed
+n7: 1260568 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 480000 0x417D98: __allocate (new:228)
+  n1: 480000 0x417D98: allocate (memory:1793)
+   n1: 480000 0x417D98: allocate (memory:1547)
+    n1: 480000 0x417D98: std::__1::unique_ptr<std::__1::__hash_node<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, void*>, std::__1::__hash_node_destructor<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, void*> > > > std::__1::__hash_table<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, std::__1::__unordered_map_hasher<Vertex, std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, VertexHashFunction, true>, std::__1::__unordered_map_equal<Vertex, std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, std::__1::equal_to<Vertex>, true>, std::__1::allocator<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > > > >::__construct_node_hash<std::__1::piecewise_construct_t const&, std::__1::tuple<Vertex const&>, std::__1::tuple<> >(unsigned long, std::__1::piecewise_construct_t const&, std::__1::tuple<Vertex const&>&&, std::__1::tuple<>&&) (__hash_table:2304)
+     n1: 480000 0x40DFDE: __emplace_unique_key_args<Vertex, const std::__1::piecewise_construct_t &, std::__1::tuple<const Vertex &>, std::__1::tuple<> > (__hash_table:2021)
+      n1: 480000 0x40DFDE: std::__1::unordered_map<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > >, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > > > >::operator[](Vertex const&) (unordered_map:1386)
+       n1: 480000 0x4088DC: Graph::insertVertex(Vertex) (Graph.cpp:78)
+        n1: 480000 0x406B9F: Graph::createVertices(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) (Graph.cpp:43)
+         n1: 480000 0x405704: Graph::Graph(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:21)
+          n0: 480000 0x403BCF: main (main.cpp:92)
+ n1: 320000 0x41A35D: __allocate (new:228)
+  n1: 320000 0x41A35D: allocate (memory:1793)
+   n1: 320000 0x41A35D: allocate (memory:1547)
+    n1: 320000 0x41A35D: std::__1::unique_ptr<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long, Vertex>, void*>, std::__1::__hash_node_destructor<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long, Vertex>, void*> > > > std::__1::__hash_table<std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::__unordered_map_hasher<unsigned long, std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::hash<unsigned long>, true>, std::__1::__unordered_map_equal<unsigned long, std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::equal_to<unsigned long>, true>, std::__1::allocator<std::__1::__hash_value_type<unsigned long, Vertex> > >::__construct_node_hash<std::__1::pair<unsigned long const, Vertex>>(unsigned long, std::__1::pair<unsigned long const, Vertex>&&) (__hash_table:2304)
+     n1: 320000 0x408E63: __emplace_unique_key_args<unsigned long, std::__1::pair<const unsigned long, Vertex> > (__hash_table:2021)
+      n1: 320000 0x408E63: __insert_unique (__hash_table:1123)
+       n1: 320000 0x408E63: insert (unordered_map:934)
+        n1: 320000 0x408E63: Graph::insertVertex(Vertex) (Graph.cpp:80)
+         n1: 320000 0x406B9F: Graph::createVertices(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) (Graph.cpp:43)
+          n1: 320000 0x405704: Graph::Graph(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:21)
+           n0: 320000 0x403BCF: main (main.cpp:92)
+ n1: 303360 0x41D96A: __allocate (new:228)
+  n1: 303360 0x41D96A: allocate (memory:1793)
+   n1: 303360 0x41D96A: allocate (memory:1547)
+    n1: 303360 0x41D96A: std::__1::unique_ptr<std::__1::__hash_node<std::__1::__hash_value_type<Vertex, Edge>, void*>, std::__1::__hash_node_destructor<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<Vertex, Edge>, void*> > > > std::__1::__hash_table<std::__1::__hash_value_type<Vertex, Edge>, std::__1::__unordered_map_hasher<Vertex, std::__1::__hash_value_type<Vertex, Edge>, VertexHashFunction, true>, std::__1::__unordered_map_equal<Vertex, std::__1::__hash_value_type<Vertex, Edge>, std::__1::equal_to<Vertex>, true>, std::__1::allocator<std::__1::__hash_value_type<Vertex, Edge> > >::__construct_node_hash<std::__1::pair<Vertex const, Edge>>(unsigned long, std::__1::pair<Vertex const, Edge>&&) (__hash_table:2304)
+     n1: 303360 0x40A51A: __emplace_unique_key_args<Vertex, std::__1::pair<const Vertex, Edge> > (__hash_table:2021)
+      n1: 303360 0x40A51A: __insert_unique (__hash_table:1123)
+       n1: 303360 0x40A51A: insert (unordered_map:934)
+        n1: 303360 0x40A51A: Graph::insertEdge(Vertex&, Vertex&) (Graph.cpp:137)
+         n1: 303360 0x408486: Graph::createEdges(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:68)
+          n1: 303360 0x40571A: Graph::Graph(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:22)
+           n0: 303360 0x403BCF: main (main.cpp:92)
+ n1: 51368 0x418EA7: __allocate (new:228)
+  n1: 51368 0x418EA7: allocate (memory:1793)
+   n1: 51368 0x418EA7: allocate (memory:1547)
+    n1: 51368 0x418EA7: std::__1::__hash_table<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, std::__1::__unordered_map_hasher<Vertex, std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, VertexHashFunction, true>, std::__1::__unordered_map_equal<Vertex, std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, std::__1::equal_to<Vertex>, true>, std::__1::allocator<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > > > >::__rehash(unsigned long) (__hash_table:2168)
+     n1: 51368 0x418959: std::__1::__hash_table<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, std::__1::__unordered_map_hasher<Vertex, std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, VertexHashFunction, true>, std::__1::__unordered_map_equal<Vertex, std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, std::__1::equal_to<Vertex>, true>, std::__1::allocator<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > > > >::rehash(unsigned long) (__hash_table:2145)
+      n1: 51368 0x40E397: __emplace_unique_key_args<Vertex, const std::__1::piecewise_construct_t &, std::__1::tuple<const Vertex &>, std::__1::tuple<> > (__hash_table:2027)
+       n1: 51368 0x40E397: std::__1::unordered_map<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > >, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > > > >::operator[](Vertex const&) (unordered_map:1386)
+        n1: 51368 0x4088DC: Graph::insertVertex(Vertex) (Graph.cpp:78)
+         n1: 51368 0x406B9F: Graph::createVertices(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) (Graph.cpp:43)
+          n1: 51368 0x405704: Graph::Graph(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:21)
+           n0: 51368 0x403BCF: main (main.cpp:92)
+ n1: 51368 0x41B0A5: __allocate (new:228)
+  n1: 51368 0x41B0A5: allocate (memory:1793)
+   n1: 51368 0x41B0A5: allocate (memory:1547)
+    n1: 51368 0x41B0A5: std::__1::__hash_table<std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::__unordered_map_hasher<unsigned long, std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::hash<unsigned long>, true>, std::__1::__unordered_map_equal<unsigned long, std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::equal_to<unsigned long>, true>, std::__1::allocator<std::__1::__hash_value_type<unsigned long, Vertex> > >::__rehash(unsigned long) (__hash_table:2168)
+     n1: 51368 0x41AB29: std::__1::__hash_table<std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::__unordered_map_hasher<unsigned long, std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::hash<unsigned long>, true>, std::__1::__unordered_map_equal<unsigned long, std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::equal_to<unsigned long>, true>, std::__1::allocator<std::__1::__hash_value_type<unsigned long, Vertex> > >::rehash(unsigned long) (__hash_table:2145)
+      n1: 51368 0x40921E: __emplace_unique_key_args<unsigned long, std::__1::pair<const unsigned long, Vertex> > (__hash_table:2027)
+       n1: 51368 0x40921E: __insert_unique (__hash_table:1123)
+        n1: 51368 0x40921E: insert (unordered_map:934)
+         n1: 51368 0x40921E: Graph::insertVertex(Vertex) (Graph.cpp:80)
+          n1: 51368 0x406B9F: Graph::createVertices(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) (Graph.cpp:43)
+           n1: 51368 0x405704: Graph::Graph(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:21)
+            n0: 51368 0x403BCF: main (main.cpp:92)
+ n1: 44704 0x4151D7: __allocate (new:228)
+  n1: 44704 0x4151D7: allocate (memory:1793)
+   n1: 44704 0x4151D7: allocate (memory:1547)
+    n1: 44704 0x4151D7: std::__1::__hash_table<std::__1::__hash_value_type<Vertex, Edge>, std::__1::__unordered_map_hasher<Vertex, std::__1::__hash_value_type<Vertex, Edge>, VertexHashFunction, true>, std::__1::__unordered_map_equal<Vertex, std::__1::__hash_value_type<Vertex, Edge>, std::__1::equal_to<Vertex>, true>, std::__1::allocator<std::__1::__hash_value_type<Vertex, Edge> > >::__rehash(unsigned long) (__hash_table:2168)
+     n1: 44704 0x414C89: std::__1::__hash_table<std::__1::__hash_value_type<Vertex, Edge>, std::__1::__unordered_map_hasher<Vertex, std::__1::__hash_value_type<Vertex, Edge>, VertexHashFunction, true>, std::__1::__unordered_map_equal<Vertex, std::__1::__hash_value_type<Vertex, Edge>, std::__1::equal_to<Vertex>, true>, std::__1::allocator<std::__1::__hash_value_type<Vertex, Edge> > >::rehash(unsigned long) (__hash_table:2145)
+      n1: 44704 0x40A8D5: __emplace_unique_key_args<Vertex, std::__1::pair<const Vertex, Edge> > (__hash_table:2027)
+       n1: 44704 0x40A8D5: __insert_unique (__hash_table:1123)
+        n1: 44704 0x40A8D5: insert (unordered_map:934)
+         n1: 44704 0x40A8D5: Graph::insertEdge(Vertex&, Vertex&) (Graph.cpp:137)
+          n1: 44704 0x408486: Graph::createEdges(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:68)
+           n1: 44704 0x40571A: Graph::Graph(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:22)
+            n0: 44704 0x403BCF: main (main.cpp:92)
+ n0: 9768 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=30
+#-----------
+time=123050130
+mem_heap_B=1278272
+mem_heap_extra_B=112912
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=31
+#-----------
+time=128406095
+mem_heap_B=1310808
+mem_heap_extra_B=116184
+mem_stacks_B=0
+heap_tree=detailed
+n7: 1310808 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 480000 0x417D98: __allocate (new:228)
+  n1: 480000 0x417D98: allocate (memory:1793)
+   n1: 480000 0x417D98: allocate (memory:1547)
+    n1: 480000 0x417D98: std::__1::unique_ptr<std::__1::__hash_node<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, void*>, std::__1::__hash_node_destructor<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, void*> > > > std::__1::__hash_table<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, std::__1::__unordered_map_hasher<Vertex, std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, VertexHashFunction, true>, std::__1::__unordered_map_equal<Vertex, std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, std::__1::equal_to<Vertex>, true>, std::__1::allocator<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > > > >::__construct_node_hash<std::__1::piecewise_construct_t const&, std::__1::tuple<Vertex const&>, std::__1::tuple<> >(unsigned long, std::__1::piecewise_construct_t const&, std::__1::tuple<Vertex const&>&&, std::__1::tuple<>&&) (__hash_table:2304)
+     n1: 480000 0x40DFDE: __emplace_unique_key_args<Vertex, const std::__1::piecewise_construct_t &, std::__1::tuple<const Vertex &>, std::__1::tuple<> > (__hash_table:2021)
+      n1: 480000 0x40DFDE: std::__1::unordered_map<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > >, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > > > >::operator[](Vertex const&) (unordered_map:1386)
+       n1: 480000 0x4088DC: Graph::insertVertex(Vertex) (Graph.cpp:78)
+        n1: 480000 0x406B9F: Graph::createVertices(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) (Graph.cpp:43)
+         n1: 480000 0x405704: Graph::Graph(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:21)
+          n0: 480000 0x403BCF: main (main.cpp:92)
+ n1: 359920 0x41D96A: __allocate (new:228)
+  n1: 359920 0x41D96A: allocate (memory:1793)
+   n1: 359920 0x41D96A: allocate (memory:1547)
+    n1: 359920 0x41D96A: std::__1::unique_ptr<std::__1::__hash_node<std::__1::__hash_value_type<Vertex, Edge>, void*>, std::__1::__hash_node_destructor<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<Vertex, Edge>, void*> > > > std::__1::__hash_table<std::__1::__hash_value_type<Vertex, Edge>, std::__1::__unordered_map_hasher<Vertex, std::__1::__hash_value_type<Vertex, Edge>, VertexHashFunction, true>, std::__1::__unordered_map_equal<Vertex, std::__1::__hash_value_type<Vertex, Edge>, std::__1::equal_to<Vertex>, true>, std::__1::allocator<std::__1::__hash_value_type<Vertex, Edge> > >::__construct_node_hash<std::__1::pair<Vertex const, Edge>>(unsigned long, std::__1::pair<Vertex const, Edge>&&) (__hash_table:2304)
+     n1: 359920 0x40A51A: __emplace_unique_key_args<Vertex, std::__1::pair<const Vertex, Edge> > (__hash_table:2021)
+      n1: 359920 0x40A51A: __insert_unique (__hash_table:1123)
+       n1: 359920 0x40A51A: insert (unordered_map:934)
+        n1: 359920 0x40A51A: Graph::insertEdge(Vertex&, Vertex&) (Graph.cpp:137)
+         n1: 359920 0x408486: Graph::createEdges(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:68)
+          n1: 359920 0x40571A: Graph::Graph(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:22)
+           n0: 359920 0x403BCF: main (main.cpp:92)
+ n1: 320000 0x41A35D: __allocate (new:228)
+  n1: 320000 0x41A35D: allocate (memory:1793)
+   n1: 320000 0x41A35D: allocate (memory:1547)
+    n1: 320000 0x41A35D: std::__1::unique_ptr<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long, Vertex>, void*>, std::__1::__hash_node_destructor<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long, Vertex>, void*> > > > std::__1::__hash_table<std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::__unordered_map_hasher<unsigned long, std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::hash<unsigned long>, true>, std::__1::__unordered_map_equal<unsigned long, std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::equal_to<unsigned long>, true>, std::__1::allocator<std::__1::__hash_value_type<unsigned long, Vertex> > >::__construct_node_hash<std::__1::pair<unsigned long const, Vertex>>(unsigned long, std::__1::pair<unsigned long const, Vertex>&&) (__hash_table:2304)
+     n1: 320000 0x408E63: __emplace_unique_key_args<unsigned long, std::__1::pair<const unsigned long, Vertex> > (__hash_table:2021)
+      n1: 320000 0x408E63: __insert_unique (__hash_table:1123)
+       n1: 320000 0x408E63: insert (unordered_map:934)
+        n1: 320000 0x408E63: Graph::insertVertex(Vertex) (Graph.cpp:80)
+         n1: 320000 0x406B9F: Graph::createVertices(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) (Graph.cpp:43)
+          n1: 320000 0x405704: Graph::Graph(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:21)
+           n0: 320000 0x403BCF: main (main.cpp:92)
+ n1: 51368 0x418EA7: __allocate (new:228)
+  n1: 51368 0x418EA7: allocate (memory:1793)
+   n1: 51368 0x418EA7: allocate (memory:1547)
+    n1: 51368 0x418EA7: std::__1::__hash_table<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, std::__1::__unordered_map_hasher<Vertex, std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, VertexHashFunction, true>, std::__1::__unordered_map_equal<Vertex, std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, std::__1::equal_to<Vertex>, true>, std::__1::allocator<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > > > >::__rehash(unsigned long) (__hash_table:2168)
+     n1: 51368 0x418959: std::__1::__hash_table<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, std::__1::__unordered_map_hasher<Vertex, std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, VertexHashFunction, true>, std::__1::__unordered_map_equal<Vertex, std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, std::__1::equal_to<Vertex>, true>, std::__1::allocator<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > > > >::rehash(unsigned long) (__hash_table:2145)
+      n1: 51368 0x40E397: __emplace_unique_key_args<Vertex, const std::__1::piecewise_construct_t &, std::__1::tuple<const Vertex &>, std::__1::tuple<> > (__hash_table:2027)
+       n1: 51368 0x40E397: std::__1::unordered_map<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > >, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > > > >::operator[](Vertex const&) (unordered_map:1386)
+        n1: 51368 0x4088DC: Graph::insertVertex(Vertex) (Graph.cpp:78)
+         n1: 51368 0x406B9F: Graph::createVertices(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) (Graph.cpp:43)
+          n1: 51368 0x405704: Graph::Graph(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:21)
+           n0: 51368 0x403BCF: main (main.cpp:92)
+ n1: 51368 0x41B0A5: __allocate (new:228)
+  n1: 51368 0x41B0A5: allocate (memory:1793)
+   n1: 51368 0x41B0A5: allocate (memory:1547)
+    n1: 51368 0x41B0A5: std::__1::__hash_table<std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::__unordered_map_hasher<unsigned long, std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::hash<unsigned long>, true>, std::__1::__unordered_map_equal<unsigned long, std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::equal_to<unsigned long>, true>, std::__1::allocator<std::__1::__hash_value_type<unsigned long, Vertex> > >::__rehash(unsigned long) (__hash_table:2168)
+     n1: 51368 0x41AB29: std::__1::__hash_table<std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::__unordered_map_hasher<unsigned long, std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::hash<unsigned long>, true>, std::__1::__unordered_map_equal<unsigned long, std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::equal_to<unsigned long>, true>, std::__1::allocator<std::__1::__hash_value_type<unsigned long, Vertex> > >::rehash(unsigned long) (__hash_table:2145)
+      n1: 51368 0x40921E: __emplace_unique_key_args<unsigned long, std::__1::pair<const unsigned long, Vertex> > (__hash_table:2027)
+       n1: 51368 0x40921E: __insert_unique (__hash_table:1123)
+        n1: 51368 0x40921E: insert (unordered_map:934)
+         n1: 51368 0x40921E: Graph::insertVertex(Vertex) (Graph.cpp:80)
+          n1: 51368 0x406B9F: Graph::createVertices(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) (Graph.cpp:43)
+           n1: 51368 0x405704: Graph::Graph(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:21)
+            n0: 51368 0x403BCF: main (main.cpp:92)
+ n1: 38384 0x4151D7: __allocate (new:228)
+  n1: 38384 0x4151D7: allocate (memory:1793)
+   n1: 38384 0x4151D7: allocate (memory:1547)
+    n1: 38384 0x4151D7: std::__1::__hash_table<std::__1::__hash_value_type<Vertex, Edge>, std::__1::__unordered_map_hasher<Vertex, std::__1::__hash_value_type<Vertex, Edge>, VertexHashFunction, true>, std::__1::__unordered_map_equal<Vertex, std::__1::__hash_value_type<Vertex, Edge>, std::__1::equal_to<Vertex>, true>, std::__1::allocator<std::__1::__hash_value_type<Vertex, Edge> > >::__rehash(unsigned long) (__hash_table:2168)
+     n1: 38384 0x414C89: std::__1::__hash_table<std::__1::__hash_value_type<Vertex, Edge>, std::__1::__unordered_map_hasher<Vertex, std::__1::__hash_value_type<Vertex, Edge>, VertexHashFunction, true>, std::__1::__unordered_map_equal<Vertex, std::__1::__hash_value_type<Vertex, Edge>, std::__1::equal_to<Vertex>, true>, std::__1::allocator<std::__1::__hash_value_type<Vertex, Edge> > >::rehash(unsigned long) (__hash_table:2145)
+      n1: 38384 0x40A8D5: __emplace_unique_key_args<Vertex, std::__1::pair<const Vertex, Edge> > (__hash_table:2027)
+       n1: 38384 0x40A8D5: __insert_unique (__hash_table:1123)
+        n1: 38384 0x40A8D5: insert (unordered_map:934)
+         n1: 38384 0x40A8D5: Graph::insertEdge(Vertex&, Vertex&) (Graph.cpp:137)
+          n1: 38384 0x408486: Graph::createEdges(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:68)
+           n1: 38384 0x40571A: Graph::Graph(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:22)
+            n0: 38384 0x403BCF: main (main.cpp:92)
+ n0: 9768 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=32
+#-----------
+time=132523447
+mem_heap_B=1339448
+mem_heap_extra_B=118744
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=33
+#-----------
+time=135143686
+mem_heap_B=1358248
+mem_heap_extra_B=120304
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=34
+#-----------
+time=138857786
+mem_heap_B=1393504
+mem_heap_extra_B=122568
+mem_stacks_B=0
+heap_tree=detailed
+n7: 1393504 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 480000 0x417D98: __allocate (new:228)
+  n1: 480000 0x417D98: allocate (memory:1793)
+   n1: 480000 0x417D98: allocate (memory:1547)
+    n1: 480000 0x417D98: std::__1::unique_ptr<std::__1::__hash_node<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, void*>, std::__1::__hash_node_destructor<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, void*> > > > std::__1::__hash_table<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, std::__1::__unordered_map_hasher<Vertex, std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, VertexHashFunction, true>, std::__1::__unordered_map_equal<Vertex, std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, std::__1::equal_to<Vertex>, true>, std::__1::allocator<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > > > >::__construct_node_hash<std::__1::piecewise_construct_t const&, std::__1::tuple<Vertex const&>, std::__1::tuple<> >(unsigned long, std::__1::piecewise_construct_t const&, std::__1::tuple<Vertex const&>&&, std::__1::tuple<>&&) (__hash_table:2304)
+     n1: 480000 0x40DFDE: __emplace_unique_key_args<Vertex, const std::__1::piecewise_construct_t &, std::__1::tuple<const Vertex &>, std::__1::tuple<> > (__hash_table:2021)
+      n1: 480000 0x40DFDE: std::__1::unordered_map<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > >, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > > > >::operator[](Vertex const&) (unordered_map:1386)
+       n1: 480000 0x4088DC: Graph::insertVertex(Vertex) (Graph.cpp:78)
+        n1: 480000 0x406B9F: Graph::createVertices(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) (Graph.cpp:43)
+         n1: 480000 0x405704: Graph::Graph(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:21)
+          n0: 480000 0x403BCF: main (main.cpp:92)
+ n1: 423520 0x41D96A: __allocate (new:228)
+  n1: 423520 0x41D96A: allocate (memory:1793)
+   n1: 423520 0x41D96A: allocate (memory:1547)
+    n1: 423520 0x41D96A: std::__1::unique_ptr<std::__1::__hash_node<std::__1::__hash_value_type<Vertex, Edge>, void*>, std::__1::__hash_node_destructor<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<Vertex, Edge>, void*> > > > std::__1::__hash_table<std::__1::__hash_value_type<Vertex, Edge>, std::__1::__unordered_map_hasher<Vertex, std::__1::__hash_value_type<Vertex, Edge>, VertexHashFunction, true>, std::__1::__unordered_map_equal<Vertex, std::__1::__hash_value_type<Vertex, Edge>, std::__1::equal_to<Vertex>, true>, std::__1::allocator<std::__1::__hash_value_type<Vertex, Edge> > >::__construct_node_hash<std::__1::pair<Vertex const, Edge>>(unsigned long, std::__1::pair<Vertex const, Edge>&&) (__hash_table:2304)
+     n1: 423520 0x40A51A: __emplace_unique_key_args<Vertex, std::__1::pair<const Vertex, Edge> > (__hash_table:2021)
+      n1: 423520 0x40A51A: __insert_unique (__hash_table:1123)
+       n1: 423520 0x40A51A: insert (unordered_map:934)
+        n1: 423520 0x40A51A: Graph::insertEdge(Vertex&, Vertex&) (Graph.cpp:137)
+         n1: 423520 0x408486: Graph::createEdges(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:68)
+          n1: 423520 0x40571A: Graph::Graph(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:22)
+           n0: 423520 0x403BCF: main (main.cpp:92)
+ n1: 320000 0x41A35D: __allocate (new:228)
+  n1: 320000 0x41A35D: allocate (memory:1793)
+   n1: 320000 0x41A35D: allocate (memory:1547)
+    n1: 320000 0x41A35D: std::__1::unique_ptr<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long, Vertex>, void*>, std::__1::__hash_node_destructor<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long, Vertex>, void*> > > > std::__1::__hash_table<std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::__unordered_map_hasher<unsigned long, std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::hash<unsigned long>, true>, std::__1::__unordered_map_equal<unsigned long, std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::equal_to<unsigned long>, true>, std::__1::allocator<std::__1::__hash_value_type<unsigned long, Vertex> > >::__construct_node_hash<std::__1::pair<unsigned long const, Vertex>>(unsigned long, std::__1::pair<unsigned long const, Vertex>&&) (__hash_table:2304)
+     n1: 320000 0x408E63: __emplace_unique_key_args<unsigned long, std::__1::pair<const unsigned long, Vertex> > (__hash_table:2021)
+      n1: 320000 0x408E63: __insert_unique (__hash_table:1123)
+       n1: 320000 0x408E63: insert (unordered_map:934)
+        n1: 320000 0x408E63: Graph::insertVertex(Vertex) (Graph.cpp:80)
+         n1: 320000 0x406B9F: Graph::createVertices(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) (Graph.cpp:43)
+          n1: 320000 0x405704: Graph::Graph(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:21)
+           n0: 320000 0x403BCF: main (main.cpp:92)
+ n1: 57480 0x4151D7: __allocate (new:228)
+  n1: 57480 0x4151D7: allocate (memory:1793)
+   n1: 57480 0x4151D7: allocate (memory:1547)
+    n1: 57480 0x4151D7: std::__1::__hash_table<std::__1::__hash_value_type<Vertex, Edge>, std::__1::__unordered_map_hasher<Vertex, std::__1::__hash_value_type<Vertex, Edge>, VertexHashFunction, true>, std::__1::__unordered_map_equal<Vertex, std::__1::__hash_value_type<Vertex, Edge>, std::__1::equal_to<Vertex>, true>, std::__1::allocator<std::__1::__hash_value_type<Vertex, Edge> > >::__rehash(unsigned long) (__hash_table:2168)
+     n1: 57480 0x414C89: std::__1::__hash_table<std::__1::__hash_value_type<Vertex, Edge>, std::__1::__unordered_map_hasher<Vertex, std::__1::__hash_value_type<Vertex, Edge>, VertexHashFunction, true>, std::__1::__unordered_map_equal<Vertex, std::__1::__hash_value_type<Vertex, Edge>, std::__1::equal_to<Vertex>, true>, std::__1::allocator<std::__1::__hash_value_type<Vertex, Edge> > >::rehash(unsigned long) (__hash_table:2145)
+      n1: 57480 0x40A8D5: __emplace_unique_key_args<Vertex, std::__1::pair<const Vertex, Edge> > (__hash_table:2027)
+       n1: 57480 0x40A8D5: __insert_unique (__hash_table:1123)
+        n1: 57480 0x40A8D5: insert (unordered_map:934)
+         n1: 57480 0x40A8D5: Graph::insertEdge(Vertex&, Vertex&) (Graph.cpp:137)
+          n1: 57480 0x408486: Graph::createEdges(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:68)
+           n1: 57480 0x40571A: Graph::Graph(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:22)
+            n0: 57480 0x403BCF: main (main.cpp:92)
+ n1: 51368 0x418EA7: __allocate (new:228)
+  n1: 51368 0x418EA7: allocate (memory:1793)
+   n1: 51368 0x418EA7: allocate (memory:1547)
+    n1: 51368 0x418EA7: std::__1::__hash_table<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, std::__1::__unordered_map_hasher<Vertex, std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, VertexHashFunction, true>, std::__1::__unordered_map_equal<Vertex, std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, std::__1::equal_to<Vertex>, true>, std::__1::allocator<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > > > >::__rehash(unsigned long) (__hash_table:2168)
+     n1: 51368 0x418959: std::__1::__hash_table<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, std::__1::__unordered_map_hasher<Vertex, std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, VertexHashFunction, true>, std::__1::__unordered_map_equal<Vertex, std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, std::__1::equal_to<Vertex>, true>, std::__1::allocator<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > > > >::rehash(unsigned long) (__hash_table:2145)
+      n1: 51368 0x40E397: __emplace_unique_key_args<Vertex, const std::__1::piecewise_construct_t &, std::__1::tuple<const Vertex &>, std::__1::tuple<> > (__hash_table:2027)
+       n1: 51368 0x40E397: std::__1::unordered_map<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > >, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > > > >::operator[](Vertex const&) (unordered_map:1386)
+        n1: 51368 0x4088DC: Graph::insertVertex(Vertex) (Graph.cpp:78)
+         n1: 51368 0x406B9F: Graph::createVertices(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) (Graph.cpp:43)
+          n1: 51368 0x405704: Graph::Graph(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:21)
+           n0: 51368 0x403BCF: main (main.cpp:92)
+ n1: 51368 0x41B0A5: __allocate (new:228)
+  n1: 51368 0x41B0A5: allocate (memory:1793)
+   n1: 51368 0x41B0A5: allocate (memory:1547)
+    n1: 51368 0x41B0A5: std::__1::__hash_table<std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::__unordered_map_hasher<unsigned long, std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::hash<unsigned long>, true>, std::__1::__unordered_map_equal<unsigned long, std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::equal_to<unsigned long>, true>, std::__1::allocator<std::__1::__hash_value_type<unsigned long, Vertex> > >::__rehash(unsigned long) (__hash_table:2168)
+     n1: 51368 0x41AB29: std::__1::__hash_table<std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::__unordered_map_hasher<unsigned long, std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::hash<unsigned long>, true>, std::__1::__unordered_map_equal<unsigned long, std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::equal_to<unsigned long>, true>, std::__1::allocator<std::__1::__hash_value_type<unsigned long, Vertex> > >::rehash(unsigned long) (__hash_table:2145)
+      n1: 51368 0x40921E: __emplace_unique_key_args<unsigned long, std::__1::pair<const unsigned long, Vertex> > (__hash_table:2027)
+       n1: 51368 0x40921E: __insert_unique (__hash_table:1123)
+        n1: 51368 0x40921E: insert (unordered_map:934)
+         n1: 51368 0x40921E: Graph::insertVertex(Vertex) (Graph.cpp:80)
+          n1: 51368 0x406B9F: Graph::createVertices(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) (Graph.cpp:43)
+           n1: 51368 0x405704: Graph::Graph(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:21)
+            n0: 51368 0x403BCF: main (main.cpp:92)
+ n0: 9768 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=35
+#-----------
+time=143692083
+mem_heap_B=1415928
+mem_heap_extra_B=125432
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=36
+#-----------
+time=146913295
+mem_heap_B=1435448
+mem_heap_extra_B=127384
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=37
+#-----------
+time=149923177
+mem_heap_B=1455504
+mem_heap_extra_B=129264
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=38
+#-----------
+time=155043515
+mem_heap_B=1491424
+mem_heap_extra_B=132376
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=39
+#-----------
+time=158756044
+mem_heap_B=1526680
+mem_heap_extra_B=134640
+mem_stacks_B=0
+heap_tree=detailed
+n7: 1526680 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 543920 0x41D96A: __allocate (new:228)
+  n1: 543920 0x41D96A: allocate (memory:1793)
+   n1: 543920 0x41D96A: allocate (memory:1547)
+    n1: 543920 0x41D96A: std::__1::unique_ptr<std::__1::__hash_node<std::__1::__hash_value_type<Vertex, Edge>, void*>, std::__1::__hash_node_destructor<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<Vertex, Edge>, void*> > > > std::__1::__hash_table<std::__1::__hash_value_type<Vertex, Edge>, std::__1::__unordered_map_hasher<Vertex, std::__1::__hash_value_type<Vertex, Edge>, VertexHashFunction, true>, std::__1::__unordered_map_equal<Vertex, std::__1::__hash_value_type<Vertex, Edge>, std::__1::equal_to<Vertex>, true>, std::__1::allocator<std::__1::__hash_value_type<Vertex, Edge> > >::__construct_node_hash<std::__1::pair<Vertex const, Edge>>(unsigned long, std::__1::pair<Vertex const, Edge>&&) (__hash_table:2304)
+     n1: 543920 0x40A51A: __emplace_unique_key_args<Vertex, std::__1::pair<const Vertex, Edge> > (__hash_table:2021)
+      n1: 543920 0x40A51A: __insert_unique (__hash_table:1123)
+       n1: 543920 0x40A51A: insert (unordered_map:934)
+        n1: 543920 0x40A51A: Graph::insertEdge(Vertex&, Vertex&) (Graph.cpp:137)
+         n1: 543920 0x408486: Graph::createEdges(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:68)
+          n1: 543920 0x40571A: Graph::Graph(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:22)
+           n0: 543920 0x403BCF: main (main.cpp:92)
+ n1: 480000 0x417D98: __allocate (new:228)
+  n1: 480000 0x417D98: allocate (memory:1793)
+   n1: 480000 0x417D98: allocate (memory:1547)
+    n1: 480000 0x417D98: std::__1::unique_ptr<std::__1::__hash_node<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, void*>, std::__1::__hash_node_destructor<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, void*> > > > std::__1::__hash_table<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, std::__1::__unordered_map_hasher<Vertex, std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, VertexHashFunction, true>, std::__1::__unordered_map_equal<Vertex, std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, std::__1::equal_to<Vertex>, true>, std::__1::allocator<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > > > >::__construct_node_hash<std::__1::piecewise_construct_t const&, std::__1::tuple<Vertex const&>, std::__1::tuple<> >(unsigned long, std::__1::piecewise_construct_t const&, std::__1::tuple<Vertex const&>&&, std::__1::tuple<>&&) (__hash_table:2304)
+     n1: 480000 0x40DFDE: __emplace_unique_key_args<Vertex, const std::__1::piecewise_construct_t &, std::__1::tuple<const Vertex &>, std::__1::tuple<> > (__hash_table:2021)
+      n1: 480000 0x40DFDE: std::__1::unordered_map<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > >, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > > > >::operator[](Vertex const&) (unordered_map:1386)
+       n1: 480000 0x4088DC: Graph::insertVertex(Vertex) (Graph.cpp:78)
+        n1: 480000 0x406B9F: Graph::createVertices(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) (Graph.cpp:43)
+         n1: 480000 0x405704: Graph::Graph(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:21)
+          n0: 480000 0x403BCF: main (main.cpp:92)
+ n1: 320000 0x41A35D: __allocate (new:228)
+  n1: 320000 0x41A35D: allocate (memory:1793)
+   n1: 320000 0x41A35D: allocate (memory:1547)
+    n1: 320000 0x41A35D: std::__1::unique_ptr<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long, Vertex>, void*>, std::__1::__hash_node_destructor<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long, Vertex>, void*> > > > std::__1::__hash_table<std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::__unordered_map_hasher<unsigned long, std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::hash<unsigned long>, true>, std::__1::__unordered_map_equal<unsigned long, std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::equal_to<unsigned long>, true>, std::__1::allocator<std::__1::__hash_value_type<unsigned long, Vertex> > >::__construct_node_hash<std::__1::pair<unsigned long const, Vertex>>(unsigned long, std::__1::pair<unsigned long const, Vertex>&&) (__hash_table:2304)
+     n1: 320000 0x408E63: __emplace_unique_key_args<unsigned long, std::__1::pair<const unsigned long, Vertex> > (__hash_table:2021)
+      n1: 320000 0x408E63: __insert_unique (__hash_table:1123)
+       n1: 320000 0x408E63: insert (unordered_map:934)
+        n1: 320000 0x408E63: Graph::insertVertex(Vertex) (Graph.cpp:80)
+         n1: 320000 0x406B9F: Graph::createVertices(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) (Graph.cpp:43)
+          n1: 320000 0x405704: Graph::Graph(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:21)
+           n0: 320000 0x403BCF: main (main.cpp:92)
+ n1: 70256 0x4151D7: __allocate (new:228)
+  n1: 70256 0x4151D7: allocate (memory:1793)
+   n1: 70256 0x4151D7: allocate (memory:1547)
+    n1: 70256 0x4151D7: std::__1::__hash_table<std::__1::__hash_value_type<Vertex, Edge>, std::__1::__unordered_map_hasher<Vertex, std::__1::__hash_value_type<Vertex, Edge>, VertexHashFunction, true>, std::__1::__unordered_map_equal<Vertex, std::__1::__hash_value_type<Vertex, Edge>, std::__1::equal_to<Vertex>, true>, std::__1::allocator<std::__1::__hash_value_type<Vertex, Edge> > >::__rehash(unsigned long) (__hash_table:2168)
+     n1: 70256 0x414C89: std::__1::__hash_table<std::__1::__hash_value_type<Vertex, Edge>, std::__1::__unordered_map_hasher<Vertex, std::__1::__hash_value_type<Vertex, Edge>, VertexHashFunction, true>, std::__1::__unordered_map_equal<Vertex, std::__1::__hash_value_type<Vertex, Edge>, std::__1::equal_to<Vertex>, true>, std::__1::allocator<std::__1::__hash_value_type<Vertex, Edge> > >::rehash(unsigned long) (__hash_table:2145)
+      n1: 70256 0x40A8D5: __emplace_unique_key_args<Vertex, std::__1::pair<const Vertex, Edge> > (__hash_table:2027)
+       n1: 70256 0x40A8D5: __insert_unique (__hash_table:1123)
+        n1: 70256 0x40A8D5: insert (unordered_map:934)
+         n1: 70256 0x40A8D5: Graph::insertEdge(Vertex&, Vertex&) (Graph.cpp:137)
+          n1: 70256 0x408486: Graph::createEdges(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:68)
+           n1: 70256 0x40571A: Graph::Graph(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:22)
+            n0: 70256 0x403BCF: main (main.cpp:92)
+ n1: 51368 0x418EA7: __allocate (new:228)
+  n1: 51368 0x418EA7: allocate (memory:1793)
+   n1: 51368 0x418EA7: allocate (memory:1547)
+    n1: 51368 0x418EA7: std::__1::__hash_table<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, std::__1::__unordered_map_hasher<Vertex, std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, VertexHashFunction, true>, std::__1::__unordered_map_equal<Vertex, std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, std::__1::equal_to<Vertex>, true>, std::__1::allocator<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > > > >::__rehash(unsigned long) (__hash_table:2168)
+     n1: 51368 0x418959: std::__1::__hash_table<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, std::__1::__unordered_map_hasher<Vertex, std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, VertexHashFunction, true>, std::__1::__unordered_map_equal<Vertex, std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, std::__1::equal_to<Vertex>, true>, std::__1::allocator<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > > > >::rehash(unsigned long) (__hash_table:2145)
+      n1: 51368 0x40E397: __emplace_unique_key_args<Vertex, const std::__1::piecewise_construct_t &, std::__1::tuple<const Vertex &>, std::__1::tuple<> > (__hash_table:2027)
+       n1: 51368 0x40E397: std::__1::unordered_map<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > >, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > > > >::operator[](Vertex const&) (unordered_map:1386)
+        n1: 51368 0x4088DC: Graph::insertVertex(Vertex) (Graph.cpp:78)
+         n1: 51368 0x406B9F: Graph::createVertices(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) (Graph.cpp:43)
+          n1: 51368 0x405704: Graph::Graph(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:21)
+           n0: 51368 0x403BCF: main (main.cpp:92)
+ n1: 51368 0x41B0A5: __allocate (new:228)
+  n1: 51368 0x41B0A5: allocate (memory:1793)
+   n1: 51368 0x41B0A5: allocate (memory:1547)
+    n1: 51368 0x41B0A5: std::__1::__hash_table<std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::__unordered_map_hasher<unsigned long, std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::hash<unsigned long>, true>, std::__1::__unordered_map_equal<unsigned long, std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::equal_to<unsigned long>, true>, std::__1::allocator<std::__1::__hash_value_type<unsigned long, Vertex> > >::__rehash(unsigned long) (__hash_table:2168)
+     n1: 51368 0x41AB29: std::__1::__hash_table<std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::__unordered_map_hasher<unsigned long, std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::hash<unsigned long>, true>, std::__1::__unordered_map_equal<unsigned long, std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::equal_to<unsigned long>, true>, std::__1::allocator<std::__1::__hash_value_type<unsigned long, Vertex> > >::rehash(unsigned long) (__hash_table:2145)
+      n1: 51368 0x40921E: __emplace_unique_key_args<unsigned long, std::__1::pair<const unsigned long, Vertex> > (__hash_table:2027)
+       n1: 51368 0x40921E: __insert_unique (__hash_table:1123)
+        n1: 51368 0x40921E: insert (unordered_map:934)
+         n1: 51368 0x40921E: Graph::insertVertex(Vertex) (Graph.cpp:80)
+          n1: 51368 0x406B9F: Graph::createVertices(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) (Graph.cpp:43)
+           n1: 51368 0x405704: Graph::Graph(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:21)
+            n0: 51368 0x403BCF: main (main.cpp:92)
+ n0: 9768 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=40
+#-----------
+time=161989715
+mem_heap_B=1539424
+mem_heap_extra_B=136536
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=41
+#-----------
+time=165213124
+mem_heap_B=1558944
+mem_heap_extra_B=138488
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=42
+#-----------
+time=168393456
+mem_heap_B=1578280
+mem_heap_extra_B=140440
+mem_stacks_B=0
+heap_tree=detailed
+n7: 1578280 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 601840 0x41D96A: __allocate (new:228)
+  n1: 601840 0x41D96A: allocate (memory:1793)
+   n1: 601840 0x41D96A: allocate (memory:1547)
+    n1: 601840 0x41D96A: std::__1::unique_ptr<std::__1::__hash_node<std::__1::__hash_value_type<Vertex, Edge>, void*>, std::__1::__hash_node_destructor<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<Vertex, Edge>, void*> > > > std::__1::__hash_table<std::__1::__hash_value_type<Vertex, Edge>, std::__1::__unordered_map_hasher<Vertex, std::__1::__hash_value_type<Vertex, Edge>, VertexHashFunction, true>, std::__1::__unordered_map_equal<Vertex, std::__1::__hash_value_type<Vertex, Edge>, std::__1::equal_to<Vertex>, true>, std::__1::allocator<std::__1::__hash_value_type<Vertex, Edge> > >::__construct_node_hash<std::__1::pair<Vertex const, Edge>>(unsigned long, std::__1::pair<Vertex const, Edge>&&) (__hash_table:2304)
+     n1: 601840 0x40A51A: __emplace_unique_key_args<Vertex, std::__1::pair<const Vertex, Edge> > (__hash_table:2021)
+      n1: 601840 0x40A51A: __insert_unique (__hash_table:1123)
+       n1: 601840 0x40A51A: insert (unordered_map:934)
+        n1: 601840 0x40A51A: Graph::insertEdge(Vertex&, Vertex&) (Graph.cpp:137)
+         n1: 601840 0x408486: Graph::createEdges(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:68)
+          n1: 601840 0x40571A: Graph::Graph(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:22)
+           n0: 601840 0x403BCF: main (main.cpp:92)
+ n1: 480000 0x417D98: __allocate (new:228)
+  n1: 480000 0x417D98: allocate (memory:1793)
+   n1: 480000 0x417D98: allocate (memory:1547)
+    n1: 480000 0x417D98: std::__1::unique_ptr<std::__1::__hash_node<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, void*>, std::__1::__hash_node_destructor<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, void*> > > > std::__1::__hash_table<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, std::__1::__unordered_map_hasher<Vertex, std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, VertexHashFunction, true>, std::__1::__unordered_map_equal<Vertex, std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, std::__1::equal_to<Vertex>, true>, std::__1::allocator<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > > > >::__construct_node_hash<std::__1::piecewise_construct_t const&, std::__1::tuple<Vertex const&>, std::__1::tuple<> >(unsigned long, std::__1::piecewise_construct_t const&, std::__1::tuple<Vertex const&>&&, std::__1::tuple<>&&) (__hash_table:2304)
+     n1: 480000 0x40DFDE: __emplace_unique_key_args<Vertex, const std::__1::piecewise_construct_t &, std::__1::tuple<const Vertex &>, std::__1::tuple<> > (__hash_table:2021)
+      n1: 480000 0x40DFDE: std::__1::unordered_map<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > >, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > > > >::operator[](Vertex const&) (unordered_map:1386)
+       n1: 480000 0x4088DC: Graph::insertVertex(Vertex) (Graph.cpp:78)
+        n1: 480000 0x406B9F: Graph::createVertices(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) (Graph.cpp:43)
+         n1: 480000 0x405704: Graph::Graph(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:21)
+          n0: 480000 0x403BCF: main (main.cpp:92)
+ n1: 320000 0x41A35D: __allocate (new:228)
+  n1: 320000 0x41A35D: allocate (memory:1793)
+   n1: 320000 0x41A35D: allocate (memory:1547)
+    n1: 320000 0x41A35D: std::__1::unique_ptr<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long, Vertex>, void*>, std::__1::__hash_node_destructor<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long, Vertex>, void*> > > > std::__1::__hash_table<std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::__unordered_map_hasher<unsigned long, std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::hash<unsigned long>, true>, std::__1::__unordered_map_equal<unsigned long, std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::equal_to<unsigned long>, true>, std::__1::allocator<std::__1::__hash_value_type<unsigned long, Vertex> > >::__construct_node_hash<std::__1::pair<unsigned long const, Vertex>>(unsigned long, std::__1::pair<unsigned long const, Vertex>&&) (__hash_table:2304)
+     n1: 320000 0x408E63: __emplace_unique_key_args<unsigned long, std::__1::pair<const unsigned long, Vertex> > (__hash_table:2021)
+      n1: 320000 0x408E63: __insert_unique (__hash_table:1123)
+       n1: 320000 0x408E63: insert (unordered_map:934)
+        n1: 320000 0x408E63: Graph::insertVertex(Vertex) (Graph.cpp:80)
+         n1: 320000 0x406B9F: Graph::createVertices(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) (Graph.cpp:43)
+          n1: 320000 0x405704: Graph::Graph(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:21)
+           n0: 320000 0x403BCF: main (main.cpp:92)
+ n1: 63936 0x4151D7: __allocate (new:228)
+  n1: 63936 0x4151D7: allocate (memory:1793)
+   n1: 63936 0x4151D7: allocate (memory:1547)
+    n1: 63936 0x4151D7: std::__1::__hash_table<std::__1::__hash_value_type<Vertex, Edge>, std::__1::__unordered_map_hasher<Vertex, std::__1::__hash_value_type<Vertex, Edge>, VertexHashFunction, true>, std::__1::__unordered_map_equal<Vertex, std::__1::__hash_value_type<Vertex, Edge>, std::__1::equal_to<Vertex>, true>, std::__1::allocator<std::__1::__hash_value_type<Vertex, Edge> > >::__rehash(unsigned long) (__hash_table:2168)
+     n1: 63936 0x414C89: std::__1::__hash_table<std::__1::__hash_value_type<Vertex, Edge>, std::__1::__unordered_map_hasher<Vertex, std::__1::__hash_value_type<Vertex, Edge>, VertexHashFunction, true>, std::__1::__unordered_map_equal<Vertex, std::__1::__hash_value_type<Vertex, Edge>, std::__1::equal_to<Vertex>, true>, std::__1::allocator<std::__1::__hash_value_type<Vertex, Edge> > >::rehash(unsigned long) (__hash_table:2145)
+      n1: 63936 0x40A8D5: __emplace_unique_key_args<Vertex, std::__1::pair<const Vertex, Edge> > (__hash_table:2027)
+       n1: 63936 0x40A8D5: __insert_unique (__hash_table:1123)
+        n1: 63936 0x40A8D5: insert (unordered_map:934)
+         n1: 63936 0x40A8D5: Graph::insertEdge(Vertex&, Vertex&) (Graph.cpp:137)
+          n1: 63936 0x408486: Graph::createEdges(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:68)
+           n1: 63936 0x40571A: Graph::Graph(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:22)
+            n0: 63936 0x403BCF: main (main.cpp:92)
+ n1: 51368 0x418EA7: __allocate (new:228)
+  n1: 51368 0x418EA7: allocate (memory:1793)
+   n1: 51368 0x418EA7: allocate (memory:1547)
+    n1: 51368 0x418EA7: std::__1::__hash_table<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, std::__1::__unordered_map_hasher<Vertex, std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, VertexHashFunction, true>, std::__1::__unordered_map_equal<Vertex, std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, std::__1::equal_to<Vertex>, true>, std::__1::allocator<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > > > >::__rehash(unsigned long) (__hash_table:2168)
+     n1: 51368 0x418959: std::__1::__hash_table<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, std::__1::__unordered_map_hasher<Vertex, std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, VertexHashFunction, true>, std::__1::__unordered_map_equal<Vertex, std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, std::__1::equal_to<Vertex>, true>, std::__1::allocator<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > > > >::rehash(unsigned long) (__hash_table:2145)
+      n1: 51368 0x40E397: __emplace_unique_key_args<Vertex, const std::__1::piecewise_construct_t &, std::__1::tuple<const Vertex &>, std::__1::tuple<> > (__hash_table:2027)
+       n1: 51368 0x40E397: std::__1::unordered_map<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > >, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > > > >::operator[](Vertex const&) (unordered_map:1386)
+        n1: 51368 0x4088DC: Graph::insertVertex(Vertex) (Graph.cpp:78)
+         n1: 51368 0x406B9F: Graph::createVertices(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) (Graph.cpp:43)
+          n1: 51368 0x405704: Graph::Graph(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:21)
+           n0: 51368 0x403BCF: main (main.cpp:92)
+ n1: 51368 0x41B0A5: __allocate (new:228)
+  n1: 51368 0x41B0A5: allocate (memory:1793)
+   n1: 51368 0x41B0A5: allocate (memory:1547)
+    n1: 51368 0x41B0A5: std::__1::__hash_table<std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::__unordered_map_hasher<unsigned long, std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::hash<unsigned long>, true>, std::__1::__unordered_map_equal<unsigned long, std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::equal_to<unsigned long>, true>, std::__1::allocator<std::__1::__hash_value_type<unsigned long, Vertex> > >::__rehash(unsigned long) (__hash_table:2168)
+     n1: 51368 0x41AB29: std::__1::__hash_table<std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::__unordered_map_hasher<unsigned long, std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::hash<unsigned long>, true>, std::__1::__unordered_map_equal<unsigned long, std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::equal_to<unsigned long>, true>, std::__1::allocator<std::__1::__hash_value_type<unsigned long, Vertex> > >::rehash(unsigned long) (__hash_table:2145)
+      n1: 51368 0x40921E: __emplace_unique_key_args<unsigned long, std::__1::pair<const unsigned long, Vertex> > (__hash_table:2027)
+       n1: 51368 0x40921E: __insert_unique (__hash_table:1123)
+        n1: 51368 0x40921E: insert (unordered_map:934)
+         n1: 51368 0x40921E: Graph::insertVertex(Vertex) (Graph.cpp:80)
+          n1: 51368 0x406B9F: Graph::createVertices(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) (Graph.cpp:43)
+           n1: 51368 0x405704: Graph::Graph(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:21)
+            n0: 51368 0x403BCF: main (main.cpp:92)
+ n0: 9768 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=43
+#-----------
+time=172509458
+mem_heap_B=1606920
+mem_heap_extra_B=143000
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=44
+#-----------
+time=175123743
+mem_heap_B=1625720
+mem_heap_extra_B=144560
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=45
+#-----------
+time=178834313
+mem_heap_B=1660976
+mem_heap_extra_B=146824
+mem_stacks_B=0
+heap_tree=detailed
+n7: 1660976 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 665440 0x41D96A: __allocate (new:228)
+  n1: 665440 0x41D96A: allocate (memory:1793)
+   n1: 665440 0x41D96A: allocate (memory:1547)
+    n1: 665440 0x41D96A: std::__1::unique_ptr<std::__1::__hash_node<std::__1::__hash_value_type<Vertex, Edge>, void*>, std::__1::__hash_node_destructor<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<Vertex, Edge>, void*> > > > std::__1::__hash_table<std::__1::__hash_value_type<Vertex, Edge>, std::__1::__unordered_map_hasher<Vertex, std::__1::__hash_value_type<Vertex, Edge>, VertexHashFunction, true>, std::__1::__unordered_map_equal<Vertex, std::__1::__hash_value_type<Vertex, Edge>, std::__1::equal_to<Vertex>, true>, std::__1::allocator<std::__1::__hash_value_type<Vertex, Edge> > >::__construct_node_hash<std::__1::pair<Vertex const, Edge>>(unsigned long, std::__1::pair<Vertex const, Edge>&&) (__hash_table:2304)
+     n1: 665440 0x40A51A: __emplace_unique_key_args<Vertex, std::__1::pair<const Vertex, Edge> > (__hash_table:2021)
+      n1: 665440 0x40A51A: __insert_unique (__hash_table:1123)
+       n1: 665440 0x40A51A: insert (unordered_map:934)
+        n1: 665440 0x40A51A: Graph::insertEdge(Vertex&, Vertex&) (Graph.cpp:137)
+         n1: 665440 0x408486: Graph::createEdges(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:68)
+          n1: 665440 0x40571A: Graph::Graph(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:22)
+           n0: 665440 0x403BCF: main (main.cpp:92)
+ n1: 480000 0x417D98: __allocate (new:228)
+  n1: 480000 0x417D98: allocate (memory:1793)
+   n1: 480000 0x417D98: allocate (memory:1547)
+    n1: 480000 0x417D98: std::__1::unique_ptr<std::__1::__hash_node<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, void*>, std::__1::__hash_node_destructor<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, void*> > > > std::__1::__hash_table<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, std::__1::__unordered_map_hasher<Vertex, std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, VertexHashFunction, true>, std::__1::__unordered_map_equal<Vertex, std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, std::__1::equal_to<Vertex>, true>, std::__1::allocator<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > > > >::__construct_node_hash<std::__1::piecewise_construct_t const&, std::__1::tuple<Vertex const&>, std::__1::tuple<> >(unsigned long, std::__1::piecewise_construct_t const&, std::__1::tuple<Vertex const&>&&, std::__1::tuple<>&&) (__hash_table:2304)
+     n1: 480000 0x40DFDE: __emplace_unique_key_args<Vertex, const std::__1::piecewise_construct_t &, std::__1::tuple<const Vertex &>, std::__1::tuple<> > (__hash_table:2021)
+      n1: 480000 0x40DFDE: std::__1::unordered_map<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > >, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > > > >::operator[](Vertex const&) (unordered_map:1386)
+       n1: 480000 0x4088DC: Graph::insertVertex(Vertex) (Graph.cpp:78)
+        n1: 480000 0x406B9F: Graph::createVertices(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) (Graph.cpp:43)
+         n1: 480000 0x405704: Graph::Graph(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:21)
+          n0: 480000 0x403BCF: main (main.cpp:92)
+ n1: 320000 0x41A35D: __allocate (new:228)
+  n1: 320000 0x41A35D: allocate (memory:1793)
+   n1: 320000 0x41A35D: allocate (memory:1547)
+    n1: 320000 0x41A35D: std::__1::unique_ptr<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long, Vertex>, void*>, std::__1::__hash_node_destructor<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long, Vertex>, void*> > > > std::__1::__hash_table<std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::__unordered_map_hasher<unsigned long, std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::hash<unsigned long>, true>, std::__1::__unordered_map_equal<unsigned long, std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::equal_to<unsigned long>, true>, std::__1::allocator<std::__1::__hash_value_type<unsigned long, Vertex> > >::__construct_node_hash<std::__1::pair<unsigned long const, Vertex>>(unsigned long, std::__1::pair<unsigned long const, Vertex>&&) (__hash_table:2304)
+     n1: 320000 0x408E63: __emplace_unique_key_args<unsigned long, std::__1::pair<const unsigned long, Vertex> > (__hash_table:2021)
+      n1: 320000 0x408E63: __insert_unique (__hash_table:1123)
+       n1: 320000 0x408E63: insert (unordered_map:934)
+        n1: 320000 0x408E63: Graph::insertVertex(Vertex) (Graph.cpp:80)
+         n1: 320000 0x406B9F: Graph::createVertices(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) (Graph.cpp:43)
+          n1: 320000 0x405704: Graph::Graph(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:21)
+           n0: 320000 0x403BCF: main (main.cpp:92)
+ n1: 83032 0x4151D7: __allocate (new:228)
+  n1: 83032 0x4151D7: allocate (memory:1793)
+   n1: 83032 0x4151D7: allocate (memory:1547)
+    n1: 83032 0x4151D7: std::__1::__hash_table<std::__1::__hash_value_type<Vertex, Edge>, std::__1::__unordered_map_hasher<Vertex, std::__1::__hash_value_type<Vertex, Edge>, VertexHashFunction, true>, std::__1::__unordered_map_equal<Vertex, std::__1::__hash_value_type<Vertex, Edge>, std::__1::equal_to<Vertex>, true>, std::__1::allocator<std::__1::__hash_value_type<Vertex, Edge> > >::__rehash(unsigned long) (__hash_table:2168)
+     n1: 83032 0x414C89: std::__1::__hash_table<std::__1::__hash_value_type<Vertex, Edge>, std::__1::__unordered_map_hasher<Vertex, std::__1::__hash_value_type<Vertex, Edge>, VertexHashFunction, true>, std::__1::__unordered_map_equal<Vertex, std::__1::__hash_value_type<Vertex, Edge>, std::__1::equal_to<Vertex>, true>, std::__1::allocator<std::__1::__hash_value_type<Vertex, Edge> > >::rehash(unsigned long) (__hash_table:2145)
+      n1: 83032 0x40A8D5: __emplace_unique_key_args<Vertex, std::__1::pair<const Vertex, Edge> > (__hash_table:2027)
+       n1: 83032 0x40A8D5: __insert_unique (__hash_table:1123)
+        n1: 83032 0x40A8D5: insert (unordered_map:934)
+         n1: 83032 0x40A8D5: Graph::insertEdge(Vertex&, Vertex&) (Graph.cpp:137)
+          n1: 83032 0x408486: Graph::createEdges(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:68)
+           n1: 83032 0x40571A: Graph::Graph(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:22)
+            n0: 83032 0x403BCF: main (main.cpp:92)
+ n1: 51368 0x418EA7: __allocate (new:228)
+  n1: 51368 0x418EA7: allocate (memory:1793)
+   n1: 51368 0x418EA7: allocate (memory:1547)
+    n1: 51368 0x418EA7: std::__1::__hash_table<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, std::__1::__unordered_map_hasher<Vertex, std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, VertexHashFunction, true>, std::__1::__unordered_map_equal<Vertex, std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, std::__1::equal_to<Vertex>, true>, std::__1::allocator<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > > > >::__rehash(unsigned long) (__hash_table:2168)
+     n1: 51368 0x418959: std::__1::__hash_table<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, std::__1::__unordered_map_hasher<Vertex, std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, VertexHashFunction, true>, std::__1::__unordered_map_equal<Vertex, std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, std::__1::equal_to<Vertex>, true>, std::__1::allocator<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > > > >::rehash(unsigned long) (__hash_table:2145)
+      n1: 51368 0x40E397: __emplace_unique_key_args<Vertex, const std::__1::piecewise_construct_t &, std::__1::tuple<const Vertex &>, std::__1::tuple<> > (__hash_table:2027)
+       n1: 51368 0x40E397: std::__1::unordered_map<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > >, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > > > >::operator[](Vertex const&) (unordered_map:1386)
+        n1: 51368 0x4088DC: Graph::insertVertex(Vertex) (Graph.cpp:78)
+         n1: 51368 0x406B9F: Graph::createVertices(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) (Graph.cpp:43)
+          n1: 51368 0x405704: Graph::Graph(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:21)
+           n0: 51368 0x403BCF: main (main.cpp:92)
+ n1: 51368 0x41B0A5: __allocate (new:228)
+  n1: 51368 0x41B0A5: allocate (memory:1793)
+   n1: 51368 0x41B0A5: allocate (memory:1547)
+    n1: 51368 0x41B0A5: std::__1::__hash_table<std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::__unordered_map_hasher<unsigned long, std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::hash<unsigned long>, true>, std::__1::__unordered_map_equal<unsigned long, std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::equal_to<unsigned long>, true>, std::__1::allocator<std::__1::__hash_value_type<unsigned long, Vertex> > >::__rehash(unsigned long) (__hash_table:2168)
+     n1: 51368 0x41AB29: std::__1::__hash_table<std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::__unordered_map_hasher<unsigned long, std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::hash<unsigned long>, true>, std::__1::__unordered_map_equal<unsigned long, std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::equal_to<unsigned long>, true>, std::__1::allocator<std::__1::__hash_value_type<unsigned long, Vertex> > >::rehash(unsigned long) (__hash_table:2145)
+      n1: 51368 0x40921E: __emplace_unique_key_args<unsigned long, std::__1::pair<const unsigned long, Vertex> > (__hash_table:2027)
+       n1: 51368 0x40921E: __insert_unique (__hash_table:1123)
+        n1: 51368 0x40921E: insert (unordered_map:934)
+         n1: 51368 0x40921E: Graph::insertVertex(Vertex) (Graph.cpp:80)
+          n1: 51368 0x406B9F: Graph::createVertices(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) (Graph.cpp:43)
+           n1: 51368 0x405704: Graph::Graph(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:21)
+            n0: 51368 0x403BCF: main (main.cpp:92)
+ n0: 9768 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=46
+#-----------
+time=182058979
+mem_heap_B=1673640
+mem_heap_extra_B=148712
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=47
+#-----------
+time=188219855
+mem_heap_B=1711056
+mem_heap_extra_B=152472
+mem_stacks_B=0
+heap_tree=detailed
+n7: 1711056 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 721840 0x41D96A: __allocate (new:228)
+  n1: 721840 0x41D96A: allocate (memory:1793)
+   n1: 721840 0x41D96A: allocate (memory:1547)
+    n1: 721840 0x41D96A: std::__1::unique_ptr<std::__1::__hash_node<std::__1::__hash_value_type<Vertex, Edge>, void*>, std::__1::__hash_node_destructor<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<Vertex, Edge>, void*> > > > std::__1::__hash_table<std::__1::__hash_value_type<Vertex, Edge>, std::__1::__unordered_map_hasher<Vertex, std::__1::__hash_value_type<Vertex, Edge>, VertexHashFunction, true>, std::__1::__unordered_map_equal<Vertex, std::__1::__hash_value_type<Vertex, Edge>, std::__1::equal_to<Vertex>, true>, std::__1::allocator<std::__1::__hash_value_type<Vertex, Edge> > >::__construct_node_hash<std::__1::pair<Vertex const, Edge>>(unsigned long, std::__1::pair<Vertex const, Edge>&&) (__hash_table:2304)
+     n1: 721840 0x40A51A: __emplace_unique_key_args<Vertex, std::__1::pair<const Vertex, Edge> > (__hash_table:2021)
+      n1: 721840 0x40A51A: __insert_unique (__hash_table:1123)
+       n1: 721840 0x40A51A: insert (unordered_map:934)
+        n1: 721840 0x40A51A: Graph::insertEdge(Vertex&, Vertex&) (Graph.cpp:137)
+         n1: 721840 0x408486: Graph::createEdges(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:68)
+          n1: 721840 0x40571A: Graph::Graph(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:22)
+           n0: 721840 0x403BCF: main (main.cpp:92)
+ n1: 480000 0x417D98: __allocate (new:228)
+  n1: 480000 0x417D98: allocate (memory:1793)
+   n1: 480000 0x417D98: allocate (memory:1547)
+    n1: 480000 0x417D98: std::__1::unique_ptr<std::__1::__hash_node<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, void*>, std::__1::__hash_node_destructor<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, void*> > > > std::__1::__hash_table<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, std::__1::__unordered_map_hasher<Vertex, std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, VertexHashFunction, true>, std::__1::__unordered_map_equal<Vertex, std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, std::__1::equal_to<Vertex>, true>, std::__1::allocator<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > > > >::__construct_node_hash<std::__1::piecewise_construct_t const&, std::__1::tuple<Vertex const&>, std::__1::tuple<> >(unsigned long, std::__1::piecewise_construct_t const&, std::__1::tuple<Vertex const&>&&, std::__1::tuple<>&&) (__hash_table:2304)
+     n1: 480000 0x40DFDE: __emplace_unique_key_args<Vertex, const std::__1::piecewise_construct_t &, std::__1::tuple<const Vertex &>, std::__1::tuple<> > (__hash_table:2021)
+      n1: 480000 0x40DFDE: std::__1::unordered_map<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > >, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > > > >::operator[](Vertex const&) (unordered_map:1386)
+       n1: 480000 0x4088DC: Graph::insertVertex(Vertex) (Graph.cpp:78)
+        n1: 480000 0x406B9F: Graph::createVertices(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) (Graph.cpp:43)
+         n1: 480000 0x405704: Graph::Graph(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:21)
+          n0: 480000 0x403BCF: main (main.cpp:92)
+ n1: 320000 0x41A35D: __allocate (new:228)
+  n1: 320000 0x41A35D: allocate (memory:1793)
+   n1: 320000 0x41A35D: allocate (memory:1547)
+    n1: 320000 0x41A35D: std::__1::unique_ptr<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long, Vertex>, void*>, std::__1::__hash_node_destructor<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long, Vertex>, void*> > > > std::__1::__hash_table<std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::__unordered_map_hasher<unsigned long, std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::hash<unsigned long>, true>, std::__1::__unordered_map_equal<unsigned long, std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::equal_to<unsigned long>, true>, std::__1::allocator<std::__1::__hash_value_type<unsigned long, Vertex> > >::__construct_node_hash<std::__1::pair<unsigned long const, Vertex>>(unsigned long, std::__1::pair<unsigned long const, Vertex>&&) (__hash_table:2304)
+     n1: 320000 0x408E63: __emplace_unique_key_args<unsigned long, std::__1::pair<const unsigned long, Vertex> > (__hash_table:2021)
+      n1: 320000 0x408E63: __insert_unique (__hash_table:1123)
+       n1: 320000 0x408E63: insert (unordered_map:934)
+        n1: 320000 0x408E63: Graph::insertVertex(Vertex) (Graph.cpp:80)
+         n1: 320000 0x406B9F: Graph::createVertices(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) (Graph.cpp:43)
+          n1: 320000 0x405704: Graph::Graph(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:21)
+           n0: 320000 0x403BCF: main (main.cpp:92)
+ n1: 76712 0x4151D7: __allocate (new:228)
+  n1: 76712 0x4151D7: allocate (memory:1793)
+   n1: 76712 0x4151D7: allocate (memory:1547)
+    n1: 76712 0x4151D7: std::__1::__hash_table<std::__1::__hash_value_type<Vertex, Edge>, std::__1::__unordered_map_hasher<Vertex, std::__1::__hash_value_type<Vertex, Edge>, VertexHashFunction, true>, std::__1::__unordered_map_equal<Vertex, std::__1::__hash_value_type<Vertex, Edge>, std::__1::equal_to<Vertex>, true>, std::__1::allocator<std::__1::__hash_value_type<Vertex, Edge> > >::__rehash(unsigned long) (__hash_table:2168)
+     n1: 76712 0x414C89: std::__1::__hash_table<std::__1::__hash_value_type<Vertex, Edge>, std::__1::__unordered_map_hasher<Vertex, std::__1::__hash_value_type<Vertex, Edge>, VertexHashFunction, true>, std::__1::__unordered_map_equal<Vertex, std::__1::__hash_value_type<Vertex, Edge>, std::__1::equal_to<Vertex>, true>, std::__1::allocator<std::__1::__hash_value_type<Vertex, Edge> > >::rehash(unsigned long) (__hash_table:2145)
+      n1: 76712 0x40A8D5: __emplace_unique_key_args<Vertex, std::__1::pair<const Vertex, Edge> > (__hash_table:2027)
+       n1: 76712 0x40A8D5: __insert_unique (__hash_table:1123)
+        n1: 76712 0x40A8D5: insert (unordered_map:934)
+         n1: 76712 0x40A8D5: Graph::insertEdge(Vertex&, Vertex&) (Graph.cpp:137)
+          n1: 76712 0x408486: Graph::createEdges(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:68)
+           n1: 76712 0x40571A: Graph::Graph(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:22)
+            n0: 76712 0x403BCF: main (main.cpp:92)
+ n1: 51368 0x418EA7: __allocate (new:228)
+  n1: 51368 0x418EA7: allocate (memory:1793)
+   n1: 51368 0x418EA7: allocate (memory:1547)
+    n1: 51368 0x418EA7: std::__1::__hash_table<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, std::__1::__unordered_map_hasher<Vertex, std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, VertexHashFunction, true>, std::__1::__unordered_map_equal<Vertex, std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, std::__1::equal_to<Vertex>, true>, std::__1::allocator<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > > > >::__rehash(unsigned long) (__hash_table:2168)
+     n1: 51368 0x418959: std::__1::__hash_table<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, std::__1::__unordered_map_hasher<Vertex, std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, VertexHashFunction, true>, std::__1::__unordered_map_equal<Vertex, std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, std::__1::equal_to<Vertex>, true>, std::__1::allocator<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > > > >::rehash(unsigned long) (__hash_table:2145)
+      n1: 51368 0x40E397: __emplace_unique_key_args<Vertex, const std::__1::piecewise_construct_t &, std::__1::tuple<const Vertex &>, std::__1::tuple<> > (__hash_table:2027)
+       n1: 51368 0x40E397: std::__1::unordered_map<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > >, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > > > >::operator[](Vertex const&) (unordered_map:1386)
+        n1: 51368 0x4088DC: Graph::insertVertex(Vertex) (Graph.cpp:78)
+         n1: 51368 0x406B9F: Graph::createVertices(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) (Graph.cpp:43)
+          n1: 51368 0x405704: Graph::Graph(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:21)
+           n0: 51368 0x403BCF: main (main.cpp:92)
+ n1: 51368 0x41B0A5: __allocate (new:228)
+  n1: 51368 0x41B0A5: allocate (memory:1793)
+   n1: 51368 0x41B0A5: allocate (memory:1547)
+    n1: 51368 0x41B0A5: std::__1::__hash_table<std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::__unordered_map_hasher<unsigned long, std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::hash<unsigned long>, true>, std::__1::__unordered_map_equal<unsigned long, std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::equal_to<unsigned long>, true>, std::__1::allocator<std::__1::__hash_value_type<unsigned long, Vertex> > >::__rehash(unsigned long) (__hash_table:2168)
+     n1: 51368 0x41AB29: std::__1::__hash_table<std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::__unordered_map_hasher<unsigned long, std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::hash<unsigned long>, true>, std::__1::__unordered_map_equal<unsigned long, std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::equal_to<unsigned long>, true>, std::__1::allocator<std::__1::__hash_value_type<unsigned long, Vertex> > >::rehash(unsigned long) (__hash_table:2145)
+      n1: 51368 0x40921E: __emplace_unique_key_args<unsigned long, std::__1::pair<const unsigned long, Vertex> > (__hash_table:2027)
+       n1: 51368 0x40921E: __insert_unique (__hash_table:1123)
+        n1: 51368 0x40921E: insert (unordered_map:934)
+         n1: 51368 0x40921E: Graph::insertVertex(Vertex) (Graph.cpp:80)
+          n1: 51368 0x406B9F: Graph::createVertices(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) (Graph.cpp:43)
+           n1: 51368 0x405704: Graph::Graph(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:21)
+            n0: 51368 0x403BCF: main (main.cpp:92)
+ n0: 9768 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=48
+#-----------
+time=193331784
+mem_heap_B=1752152
+mem_heap_extra_B=155656
+mem_stacks_B=0
+heap_tree=detailed
+n7: 1752152 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 753440 0x41D96A: __allocate (new:228)
+  n1: 753440 0x41D96A: allocate (memory:1793)
+   n1: 753440 0x41D96A: allocate (memory:1547)
+    n1: 753440 0x41D96A: std::__1::unique_ptr<std::__1::__hash_node<std::__1::__hash_value_type<Vertex, Edge>, void*>, std::__1::__hash_node_destructor<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<Vertex, Edge>, void*> > > > std::__1::__hash_table<std::__1::__hash_value_type<Vertex, Edge>, std::__1::__unordered_map_hasher<Vertex, std::__1::__hash_value_type<Vertex, Edge>, VertexHashFunction, true>, std::__1::__unordered_map_equal<Vertex, std::__1::__hash_value_type<Vertex, Edge>, std::__1::equal_to<Vertex>, true>, std::__1::allocator<std::__1::__hash_value_type<Vertex, Edge> > >::__construct_node_hash<std::__1::pair<Vertex const, Edge>>(unsigned long, std::__1::pair<Vertex const, Edge>&&) (__hash_table:2304)
+     n1: 753440 0x40A51A: __emplace_unique_key_args<Vertex, std::__1::pair<const Vertex, Edge> > (__hash_table:2021)
+      n1: 753440 0x40A51A: __insert_unique (__hash_table:1123)
+       n1: 753440 0x40A51A: insert (unordered_map:934)
+        n1: 753440 0x40A51A: Graph::insertEdge(Vertex&, Vertex&) (Graph.cpp:137)
+         n1: 753440 0x408486: Graph::createEdges(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:68)
+          n1: 753440 0x40571A: Graph::Graph(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:22)
+           n0: 753440 0x403BCF: main (main.cpp:92)
+ n1: 480000 0x417D98: __allocate (new:228)
+  n1: 480000 0x417D98: allocate (memory:1793)
+   n1: 480000 0x417D98: allocate (memory:1547)
+    n1: 480000 0x417D98: std::__1::unique_ptr<std::__1::__hash_node<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, void*>, std::__1::__hash_node_destructor<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, void*> > > > std::__1::__hash_table<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, std::__1::__unordered_map_hasher<Vertex, std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, VertexHashFunction, true>, std::__1::__unordered_map_equal<Vertex, std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, std::__1::equal_to<Vertex>, true>, std::__1::allocator<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > > > >::__construct_node_hash<std::__1::piecewise_construct_t const&, std::__1::tuple<Vertex const&>, std::__1::tuple<> >(unsigned long, std::__1::piecewise_construct_t const&, std::__1::tuple<Vertex const&>&&, std::__1::tuple<>&&) (__hash_table:2304)
+     n1: 480000 0x40DFDE: __emplace_unique_key_args<Vertex, const std::__1::piecewise_construct_t &, std::__1::tuple<const Vertex &>, std::__1::tuple<> > (__hash_table:2021)
+      n1: 480000 0x40DFDE: std::__1::unordered_map<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > >, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > > > >::operator[](Vertex const&) (unordered_map:1386)
+       n1: 480000 0x4088DC: Graph::insertVertex(Vertex) (Graph.cpp:78)
+        n1: 480000 0x406B9F: Graph::createVertices(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) (Graph.cpp:43)
+         n1: 480000 0x405704: Graph::Graph(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:21)
+          n0: 480000 0x403BCF: main (main.cpp:92)
+ n1: 320000 0x41A35D: __allocate (new:228)
+  n1: 320000 0x41A35D: allocate (memory:1793)
+   n1: 320000 0x41A35D: allocate (memory:1547)
+    n1: 320000 0x41A35D: std::__1::unique_ptr<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long, Vertex>, void*>, std::__1::__hash_node_destructor<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long, Vertex>, void*> > > > std::__1::__hash_table<std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::__unordered_map_hasher<unsigned long, std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::hash<unsigned long>, true>, std::__1::__unordered_map_equal<unsigned long, std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::equal_to<unsigned long>, true>, std::__1::allocator<std::__1::__hash_value_type<unsigned long, Vertex> > >::__construct_node_hash<std::__1::pair<unsigned long const, Vertex>>(unsigned long, std::__1::pair<unsigned long const, Vertex>&&) (__hash_table:2304)
+     n1: 320000 0x408E63: __emplace_unique_key_args<unsigned long, std::__1::pair<const unsigned long, Vertex> > (__hash_table:2021)
+      n1: 320000 0x408E63: __insert_unique (__hash_table:1123)
+       n1: 320000 0x408E63: insert (unordered_map:934)
+        n1: 320000 0x408E63: Graph::insertVertex(Vertex) (Graph.cpp:80)
+         n1: 320000 0x406B9F: Graph::createVertices(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) (Graph.cpp:43)
+          n1: 320000 0x405704: Graph::Graph(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:21)
+           n0: 320000 0x403BCF: main (main.cpp:92)
+ n1: 86208 0x4151D7: __allocate (new:228)
+  n1: 86208 0x4151D7: allocate (memory:1793)
+   n1: 86208 0x4151D7: allocate (memory:1547)
+    n1: 86208 0x4151D7: std::__1::__hash_table<std::__1::__hash_value_type<Vertex, Edge>, std::__1::__unordered_map_hasher<Vertex, std::__1::__hash_value_type<Vertex, Edge>, VertexHashFunction, true>, std::__1::__unordered_map_equal<Vertex, std::__1::__hash_value_type<Vertex, Edge>, std::__1::equal_to<Vertex>, true>, std::__1::allocator<std::__1::__hash_value_type<Vertex, Edge> > >::__rehash(unsigned long) (__hash_table:2168)
+     n1: 86208 0x414C89: std::__1::__hash_table<std::__1::__hash_value_type<Vertex, Edge>, std::__1::__unordered_map_hasher<Vertex, std::__1::__hash_value_type<Vertex, Edge>, VertexHashFunction, true>, std::__1::__unordered_map_equal<Vertex, std::__1::__hash_value_type<Vertex, Edge>, std::__1::equal_to<Vertex>, true>, std::__1::allocator<std::__1::__hash_value_type<Vertex, Edge> > >::rehash(unsigned long) (__hash_table:2145)
+      n1: 86208 0x40A8D5: __emplace_unique_key_args<Vertex, std::__1::pair<const Vertex, Edge> > (__hash_table:2027)
+       n1: 86208 0x40A8D5: __insert_unique (__hash_table:1123)
+        n1: 86208 0x40A8D5: insert (unordered_map:934)
+         n1: 86208 0x40A8D5: Graph::insertEdge(Vertex&, Vertex&) (Graph.cpp:137)
+          n1: 86208 0x408486: Graph::createEdges(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:68)
+           n1: 86208 0x40571A: Graph::Graph(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:22)
+            n0: 86208 0x403BCF: main (main.cpp:92)
+ n1: 51368 0x418EA7: __allocate (new:228)
+  n1: 51368 0x418EA7: allocate (memory:1793)
+   n1: 51368 0x418EA7: allocate (memory:1547)
+    n1: 51368 0x418EA7: std::__1::__hash_table<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, std::__1::__unordered_map_hasher<Vertex, std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, VertexHashFunction, true>, std::__1::__unordered_map_equal<Vertex, std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, std::__1::equal_to<Vertex>, true>, std::__1::allocator<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > > > >::__rehash(unsigned long) (__hash_table:2168)
+     n1: 51368 0x418959: std::__1::__hash_table<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, std::__1::__unordered_map_hasher<Vertex, std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, VertexHashFunction, true>, std::__1::__unordered_map_equal<Vertex, std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, std::__1::equal_to<Vertex>, true>, std::__1::allocator<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > > > >::rehash(unsigned long) (__hash_table:2145)
+      n1: 51368 0x40E397: __emplace_unique_key_args<Vertex, const std::__1::piecewise_construct_t &, std::__1::tuple<const Vertex &>, std::__1::tuple<> > (__hash_table:2027)
+       n1: 51368 0x40E397: std::__1::unordered_map<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > >, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > > > >::operator[](Vertex const&) (unordered_map:1386)
+        n1: 51368 0x4088DC: Graph::insertVertex(Vertex) (Graph.cpp:78)
+         n1: 51368 0x406B9F: Graph::createVertices(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) (Graph.cpp:43)
+          n1: 51368 0x405704: Graph::Graph(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:21)
+           n0: 51368 0x403BCF: main (main.cpp:92)
+ n1: 51368 0x41B0A5: __allocate (new:228)
+  n1: 51368 0x41B0A5: allocate (memory:1793)
+   n1: 51368 0x41B0A5: allocate (memory:1547)
+    n1: 51368 0x41B0A5: std::__1::__hash_table<std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::__unordered_map_hasher<unsigned long, std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::hash<unsigned long>, true>, std::__1::__unordered_map_equal<unsigned long, std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::equal_to<unsigned long>, true>, std::__1::allocator<std::__1::__hash_value_type<unsigned long, Vertex> > >::__rehash(unsigned long) (__hash_table:2168)
+     n1: 51368 0x41AB29: std::__1::__hash_table<std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::__unordered_map_hasher<unsigned long, std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::hash<unsigned long>, true>, std::__1::__unordered_map_equal<unsigned long, std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::equal_to<unsigned long>, true>, std::__1::allocator<std::__1::__hash_value_type<unsigned long, Vertex> > >::rehash(unsigned long) (__hash_table:2145)
+      n1: 51368 0x40921E: __emplace_unique_key_args<unsigned long, std::__1::pair<const unsigned long, Vertex> > (__hash_table:2027)
+       n1: 51368 0x40921E: __insert_unique (__hash_table:1123)
+        n1: 51368 0x40921E: insert (unordered_map:934)
+         n1: 51368 0x40921E: Graph::insertVertex(Vertex) (Graph.cpp:80)
+          n1: 51368 0x406B9F: Graph::createVertices(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) (Graph.cpp:43)
+           n1: 51368 0x405704: Graph::Graph(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:21)
+            n0: 51368 0x403BCF: main (main.cpp:92)
+ n0: 9768 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=49
+#-----------
+time=198161126
+mem_heap_B=1778016
+mem_heap_extra_B=158544
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=50
+#-----------
+time=198651434
+mem_heap_B=1793752
+mem_heap_extra_B=158856
+mem_stacks_B=0
+heap_tree=peak
+n7: 1793752 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 785440 0x41D96A: __allocate (new:228)
+  n1: 785440 0x41D96A: allocate (memory:1793)
+   n1: 785440 0x41D96A: allocate (memory:1547)
+    n1: 785440 0x41D96A: std::__1::unique_ptr<std::__1::__hash_node<std::__1::__hash_value_type<Vertex, Edge>, void*>, std::__1::__hash_node_destructor<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<Vertex, Edge>, void*> > > > std::__1::__hash_table<std::__1::__hash_value_type<Vertex, Edge>, std::__1::__unordered_map_hasher<Vertex, std::__1::__hash_value_type<Vertex, Edge>, VertexHashFunction, true>, std::__1::__unordered_map_equal<Vertex, std::__1::__hash_value_type<Vertex, Edge>, std::__1::equal_to<Vertex>, true>, std::__1::allocator<std::__1::__hash_value_type<Vertex, Edge> > >::__construct_node_hash<std::__1::pair<Vertex const, Edge>>(unsigned long, std::__1::pair<Vertex const, Edge>&&) (__hash_table:2304)
+     n1: 785440 0x40A51A: __emplace_unique_key_args<Vertex, std::__1::pair<const Vertex, Edge> > (__hash_table:2021)
+      n1: 785440 0x40A51A: __insert_unique (__hash_table:1123)
+       n1: 785440 0x40A51A: insert (unordered_map:934)
+        n1: 785440 0x40A51A: Graph::insertEdge(Vertex&, Vertex&) (Graph.cpp:137)
+         n1: 785440 0x408486: Graph::createEdges(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:68)
+          n1: 785440 0x40571A: Graph::Graph(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:22)
+           n0: 785440 0x403BCF: main (main.cpp:92)
+ n1: 480000 0x417D98: __allocate (new:228)
+  n1: 480000 0x417D98: allocate (memory:1793)
+   n1: 480000 0x417D98: allocate (memory:1547)
+    n1: 480000 0x417D98: std::__1::unique_ptr<std::__1::__hash_node<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, void*>, std::__1::__hash_node_destructor<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, void*> > > > std::__1::__hash_table<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, std::__1::__unordered_map_hasher<Vertex, std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, VertexHashFunction, true>, std::__1::__unordered_map_equal<Vertex, std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, std::__1::equal_to<Vertex>, true>, std::__1::allocator<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > > > >::__construct_node_hash<std::__1::piecewise_construct_t const&, std::__1::tuple<Vertex const&>, std::__1::tuple<> >(unsigned long, std::__1::piecewise_construct_t const&, std::__1::tuple<Vertex const&>&&, std::__1::tuple<>&&) (__hash_table:2304)
+     n1: 480000 0x40DFDE: __emplace_unique_key_args<Vertex, const std::__1::piecewise_construct_t &, std::__1::tuple<const Vertex &>, std::__1::tuple<> > (__hash_table:2021)
+      n1: 480000 0x40DFDE: std::__1::unordered_map<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > >, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > > > >::operator[](Vertex const&) (unordered_map:1386)
+       n1: 480000 0x4088DC: Graph::insertVertex(Vertex) (Graph.cpp:78)
+        n1: 480000 0x406B9F: Graph::createVertices(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) (Graph.cpp:43)
+         n1: 480000 0x405704: Graph::Graph(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:21)
+          n0: 480000 0x403BCF: main (main.cpp:92)
+ n1: 320000 0x41A35D: __allocate (new:228)
+  n1: 320000 0x41A35D: allocate (memory:1793)
+   n1: 320000 0x41A35D: allocate (memory:1547)
+    n1: 320000 0x41A35D: std::__1::unique_ptr<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long, Vertex>, void*>, std::__1::__hash_node_destructor<std::__1::allocator<std::__1::__hash_node<std::__1::__hash_value_type<unsigned long, Vertex>, void*> > > > std::__1::__hash_table<std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::__unordered_map_hasher<unsigned long, std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::hash<unsigned long>, true>, std::__1::__unordered_map_equal<unsigned long, std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::equal_to<unsigned long>, true>, std::__1::allocator<std::__1::__hash_value_type<unsigned long, Vertex> > >::__construct_node_hash<std::__1::pair<unsigned long const, Vertex>>(unsigned long, std::__1::pair<unsigned long const, Vertex>&&) (__hash_table:2304)
+     n1: 320000 0x408E63: __emplace_unique_key_args<unsigned long, std::__1::pair<const unsigned long, Vertex> > (__hash_table:2021)
+      n1: 320000 0x408E63: __insert_unique (__hash_table:1123)
+       n1: 320000 0x408E63: insert (unordered_map:934)
+        n1: 320000 0x408E63: Graph::insertVertex(Vertex) (Graph.cpp:80)
+         n1: 320000 0x406B9F: Graph::createVertices(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) (Graph.cpp:43)
+          n1: 320000 0x405704: Graph::Graph(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:21)
+           n0: 320000 0x403BCF: main (main.cpp:92)
+ n1: 95808 0x4151D7: __allocate (new:228)
+  n1: 95808 0x4151D7: allocate (memory:1793)
+   n1: 95808 0x4151D7: allocate (memory:1547)
+    n1: 95808 0x4151D7: std::__1::__hash_table<std::__1::__hash_value_type<Vertex, Edge>, std::__1::__unordered_map_hasher<Vertex, std::__1::__hash_value_type<Vertex, Edge>, VertexHashFunction, true>, std::__1::__unordered_map_equal<Vertex, std::__1::__hash_value_type<Vertex, Edge>, std::__1::equal_to<Vertex>, true>, std::__1::allocator<std::__1::__hash_value_type<Vertex, Edge> > >::__rehash(unsigned long) (__hash_table:2168)
+     n1: 95808 0x414C89: std::__1::__hash_table<std::__1::__hash_value_type<Vertex, Edge>, std::__1::__unordered_map_hasher<Vertex, std::__1::__hash_value_type<Vertex, Edge>, VertexHashFunction, true>, std::__1::__unordered_map_equal<Vertex, std::__1::__hash_value_type<Vertex, Edge>, std::__1::equal_to<Vertex>, true>, std::__1::allocator<std::__1::__hash_value_type<Vertex, Edge> > >::rehash(unsigned long) (__hash_table:2145)
+      n1: 95808 0x40A8D5: __emplace_unique_key_args<Vertex, std::__1::pair<const Vertex, Edge> > (__hash_table:2027)
+       n1: 95808 0x40A8D5: __insert_unique (__hash_table:1123)
+        n1: 95808 0x40A8D5: insert (unordered_map:934)
+         n1: 95808 0x40A8D5: Graph::insertEdge(Vertex&, Vertex&) (Graph.cpp:137)
+          n1: 95808 0x408486: Graph::createEdges(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:68)
+           n1: 95808 0x40571A: Graph::Graph(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:22)
+            n0: 95808 0x403BCF: main (main.cpp:92)
+ n1: 51368 0x418EA7: __allocate (new:228)
+  n1: 51368 0x418EA7: allocate (memory:1793)
+   n1: 51368 0x418EA7: allocate (memory:1547)
+    n1: 51368 0x418EA7: std::__1::__hash_table<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, std::__1::__unordered_map_hasher<Vertex, std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, VertexHashFunction, true>, std::__1::__unordered_map_equal<Vertex, std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, std::__1::equal_to<Vertex>, true>, std::__1::allocator<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > > > >::__rehash(unsigned long) (__hash_table:2168)
+     n1: 51368 0x418959: std::__1::__hash_table<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, std::__1::__unordered_map_hasher<Vertex, std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, VertexHashFunction, true>, std::__1::__unordered_map_equal<Vertex, std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > >, std::__1::equal_to<Vertex>, true>, std::__1::allocator<std::__1::__hash_value_type<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > > > >::rehash(unsigned long) (__hash_table:2145)
+      n1: 51368 0x40E397: __emplace_unique_key_args<Vertex, const std::__1::piecewise_construct_t &, std::__1::tuple<const Vertex &>, std::__1::tuple<> > (__hash_table:2027)
+       n1: 51368 0x40E397: std::__1::unordered_map<Vertex, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > >, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, std::__1::unordered_map<Vertex, Edge, VertexHashFunction, std::__1::equal_to<Vertex>, std::__1::allocator<std::__1::pair<Vertex const, Edge> > > > > >::operator[](Vertex const&) (unordered_map:1386)
+        n1: 51368 0x4088DC: Graph::insertVertex(Vertex) (Graph.cpp:78)
+         n1: 51368 0x406B9F: Graph::createVertices(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) (Graph.cpp:43)
+          n1: 51368 0x405704: Graph::Graph(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:21)
+           n0: 51368 0x403BCF: main (main.cpp:92)
+ n1: 51368 0x41B0A5: __allocate (new:228)
+  n1: 51368 0x41B0A5: allocate (memory:1793)
+   n1: 51368 0x41B0A5: allocate (memory:1547)
+    n1: 51368 0x41B0A5: std::__1::__hash_table<std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::__unordered_map_hasher<unsigned long, std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::hash<unsigned long>, true>, std::__1::__unordered_map_equal<unsigned long, std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::equal_to<unsigned long>, true>, std::__1::allocator<std::__1::__hash_value_type<unsigned long, Vertex> > >::__rehash(unsigned long) (__hash_table:2168)
+     n1: 51368 0x41AB29: std::__1::__hash_table<std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::__unordered_map_hasher<unsigned long, std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::hash<unsigned long>, true>, std::__1::__unordered_map_equal<unsigned long, std::__1::__hash_value_type<unsigned long, Vertex>, std::__1::equal_to<unsigned long>, true>, std::__1::allocator<std::__1::__hash_value_type<unsigned long, Vertex> > >::rehash(unsigned long) (__hash_table:2145)
+      n1: 51368 0x40921E: __emplace_unique_key_args<unsigned long, std::__1::pair<const unsigned long, Vertex> > (__hash_table:2027)
+       n1: 51368 0x40921E: __insert_unique (__hash_table:1123)
+        n1: 51368 0x40921E: insert (unordered_map:934)
+         n1: 51368 0x40921E: Graph::insertVertex(Vertex) (Graph.cpp:80)
+          n1: 51368 0x406B9F: Graph::createVertices(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) (Graph.cpp:43)
+           n1: 51368 0x405704: Graph::Graph(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, unsigned long) (Graph.cpp:21)
+            n0: 51368 0x403BCF: main (main.cpp:92)
+ n0: 9768 in 3 places, all below massif's threshold (1.00%)
+#-----------
+snapshot=51
+#-----------
+time=201265794
+mem_heap_B=1729016
+mem_heap_extra_B=152240
+mem_stacks_B=0
+heap_tree=empty

@@ -16,10 +16,10 @@ Graph::Graph(){
     num_edges = 0;
 };
 
-Graph::Graph(const std::string & verticesFileName, const std::string & edgesFileName)
+Graph::Graph(const std::string & verticesFileName, const std::string & edgesFileName, size_t limit)
     : Graph() {
     createVertices(verticesFileName);
-    createEdges(edgesFileName);
+    createEdges(edgesFileName, limit);
 };
 
 void Graph::createVertices(const std::string & verticesFileName){
@@ -47,12 +47,12 @@ void Graph::createVertices(const std::string & verticesFileName){
     cout<<endl;
 };
 
-void Graph::createEdges(const std::string & edgesFileName){     
+void Graph::createEdges(const std::string & edgesFileName, size_t limit){     
     std::ifstream edgesFile(edgesFileName);
     if(!edgesFile.is_open()) throw std::runtime_error("Could not open file");
 
     std::string line;
-    int edgeCount = 0;
+    size_t edgeCount = 0;
     while(edgesFile.good()){
         std::getline(edgesFile, line);
         std::stringstream line_stream(line);
@@ -63,7 +63,8 @@ void Graph::createEdges(const std::string & edgesFileName){
         if (from_node_id_str[0] == '#' || !from_node_id_str[0]) continue;
         size_t from_node_id = stoi(from_node_id_str);
         size_t to_node_id = stoi(to_node_id_str);
-        if((vertices.find(from_node_id) != vertices.end())&&(vertices.find(to_node_id) != vertices.end())){
+        if((vertices.find(from_node_id) != vertices.end())&&(vertices.find(to_node_id) != vertices.end())) {
+            if (edgeCount > limit) break;
             insertEdge(vertices.at(from_node_id), vertices.at(to_node_id));
             cout << "\rEdges Loaded: " << edgeCount << flush;
             edgeCount++;

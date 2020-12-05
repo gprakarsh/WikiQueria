@@ -36,67 +36,65 @@ Graph basicTree() {
     return g;
 }
 int main(int argc, char* argv[]){
-    Vertex v0 = Vertex(0, "zero");
-    Vertex v1 = Vertex(1, "one");
-    Vertex v2 = Vertex(2, "two");
-    Vertex v3 = Vertex(3, "three");
+    // Vertex v0 = Vertex(0, "zero");
+    // Vertex v1 = Vertex(1, "one");
+    // Vertex v2 = Vertex(2, "two");
+    // Vertex v3 = Vertex(3, "three");
 
-    Graph g = Graph();
+    // Graph g = Graph();
 
-    g.insertVertex(v0);
-    g.insertVertex(v1);
-    g.insertVertex(v2);
-    g.insertVertex(v3);
+    // g.insertVertex(v0);
+    // g.insertVertex(v1);
+    // g.insertVertex(v2);
+    // g.insertVertex(v3);
     
-    g.insertEdge(v0, v1);
-    g.insertEdge(v1, v1);
-    g.insertEdge(v1, v2);
-    g.insertEdge(v2, v3);
-    g.insertEdge(v3, v0);
+    // g.insertEdge(v0, v1);
+    // g.insertEdge(v1, v1);
+    // g.insertEdge(v1, v2);
+    // g.insertEdge(v2, v3);
+    // g.insertEdge(v3, v0);
 
-    g.displayGraph();
+    // g.displayGraph();
 
-    Graph treeGraph = basicTree();
-    std::cout << "Treelike structure\n";
-    treeGraph.displayGraph();
+    // Graph treeGraph = basicTree();
+    // std::cout << "Treelike structure\n";
+    // treeGraph.displayGraph();
 
-    std::cout << "BFS Traversal from root='0':\n";
+    // std::cout << "BFS Traversal from root='0':\n";
 
-    for (auto v : treeGraph.getBFS(Vertex(0, "0"))) {
-        std::cout << v << ", ";
-    }
-    std::cout << '\n';
+    // for (auto v : treeGraph.getBFS(Vertex(0, "0"))) {
+    //     std::cout << v << ", ";
+    // }
+    // std::cout << '\n';
 
-    std::cout << "BFS Traversal from subroot='1':\n";
+    // std::cout << "BFS Traversal from subroot='1':\n";
 
-    for (auto v : treeGraph.getBFS(Vertex(1, "1"))) {
-        std::cout << v << ", ";
-    }
-    std::cout << '\n';
+    // for (auto v : treeGraph.getBFS(Vertex(1, "1"))) {
+    //     std::cout << v << ", ";
+    // }
+    // std::cout << '\n';
 
-    auto bfs = treeGraph.getBFS(Vertex(0, "0"));
-    for (auto it = bfs.begin(); it != bfs.end(); ++it) {
-        std::cout << *it; 
-        if(!it.arrivalEdge().isEmpty){
-            std::cout<<", origin: " << it.arrivalEdge().source_node_id_ << '\n';
-        } else {
-            std::cout<<" (root)"<<std::endl;
-        }
-    }
-    bfs = treeGraph.getBFS(Vertex(1, "1"));
+    // auto bfs = treeGraph.getBFS(Vertex(0, "0"));
+    // for (auto it = bfs.begin(); it != bfs.end(); ++it) {
+    //     std::cout << *it; 
+    //     if(!it.arrivalEdge().isEmpty){
+    //         std::cout<<", origin: " << it.arrivalEdge().source_node_id_ << '\n';
+    //     } else {
+    //         std::cout<<" (root)"<<std::endl;
+    //     }
+    // }
+    // bfs = treeGraph.getBFS(Vertex(1, "1"));
 
     ////////////Preprocessing//////////////
-
+    std::cout<<"Started preprocessing"<<std::endl;
+    std::string verticesFile = argv[1];
+    std::string edgesFile = argv[2];
+    { Graph g = Graph(verticesFile, edgesFile, atoi(argv[3])); }
+    return 0;
+    Graph pGraph = Graph();
+    std::cout<<"Preprocessing successful"<<std::endl;
+    
     if (argc >= 4){
-        std::cout<<"Started preprocessing"<<std::endl;
-
-        std::string verticesFile = argv[1];
-        std::string edgesFile = argv[2];
-
-        Graph pGraph(verticesFile,edgesFile);
-
-        std::cout<<"Preprocessing successful"<<std::endl;
-
 
         //////////////////User-Interface/////////////////////////
         if (std::string(argv[3]) == "--interactive" || std::string(argv[3]) == "-i") {
