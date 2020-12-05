@@ -33,7 +33,10 @@ SCCGraph::SCCGraph(const std::string & verticesFileName, const std::string & edg
         } 
         i++;
     }
-
+    delete[] disc;
+    delete[] low;
+    delete[] stackMember;
+    delete st;
     condense_graph_dfs();
 };
 
@@ -96,6 +99,7 @@ void SCCGraph::condense_graph_dfs(){
         }
         i++;
     }
+    delete[] visited;
 };
 
 void SCCGraph::condense_graph_dfs_util(int start, bool* visited){
