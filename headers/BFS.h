@@ -40,3 +40,28 @@ public:
     virtual Vertex& peek(Iterator& it) const;
     virtual bool empty(Iterator& it) const;
 };
+
+class FullBFS {
+protected:
+    Graph& g_;
+    Vertex start_;
+public:
+    FullBFS(Graph& g, const Vertex& start);
+    class FullIterator : std::iterator<std::forward_iterator_tag, Vertex> {
+    public:
+        FullIterator(Vertex start, Graph& g, bool depleted);
+        FullIterator& operator++();
+        Vertex& operator*();
+        bool operator!=(const FullIterator& other) const;
+        bool visited(const Vertex& v) const;
+    private:
+        Vertex curr_vertex_;
+        Graph& g_;
+        BFSTraversal current_;
+        BFSTraversal::Iterator current_iterator_;
+        bool depleted_;
+        VisitedSet visited_;
+    };
+    virtual FullIterator begin();
+    virtual FullIterator end();
+};

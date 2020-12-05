@@ -1,6 +1,8 @@
+#include <iostream>
 #include "BFS.h"
 
 using Iterator = BFSTraversal::Iterator;
+using FullIterator = FullBFS::FullIterator;
 
 Iterator::Iterator(BFSTraversal& traversal, bool finished)
 : traversal_{&traversal}, finished_{finished} {
@@ -67,4 +69,68 @@ Vertex& BFSTraversal::peek(Iterator& it) const {
 
 bool BFSTraversal::empty(Iterator& it) const {
     return it.queue_.empty();
+};
+
+// class FullBFS {
+// protected:
+//     Graph& g_;
+//     Vertex start_;
+// public:
+//     FullBFS(Graph& g, const Vertex& start);
+//     class Iterator : std::iterator<std::forward_iterator_tag, Vertex> {
+//     public:
+//         Iterator(Vertex start, Graph& g, bool depleted);
+//         BFSTraversal::Iterator current_;
+//         VisitedSet visited_;
+//     };
+//     virtual Iterator begin();
+//     virtual Iterator end();
+// };
+
+FullBFS::FullBFS(Graph& g, const Vertex& start)
+    : g_{g}, start_{start} { /* nothing */ };
+
+FullIterator::FullIterator(Vertex start, Graph& g, bool depleted)
+    : curr_vertex_{start}, g_{g}, current_{g_.getBFS(start)}, current_iterator_{current_.begin()}, depleted_{depleted} {
+        /* nothing */
+    if (!depleted) {
+        visited_.insert(*current_iterator_);
+    }
+};
+
+FullIterator& FullIterator::operator++() {
+    // Go through the iterator while we've already visited the vertex
+    while (visited_.find(*current_iterator_) != visited_.end() && current_iterator_ != current_.end()) {
+        ++current_iterator_;
+    }
+    // In the case we deplete, try to rejuvenate with a new BFS.
+    if (!(current_iterator_ != current_.end())) {
+        for (auto tuple : g_.vertices) {
+            if (visited_.find(tuple.second) == visited_.end()) {
+                curr_vertex_ = tuple.second;
+                current_ = g_.getBFS(curr_vertex_);
+                current_iterator_ = current_.begin();
+                return *this;
+            }
+        }
+        depleted_ = true;
+        return *this;
+    } 
+    visited_.insert(*current_iterator_);
+    return *this;
 }
+
+bool FullIterator::operator!=(const FullIterator& other) const{
+    return other.depleted_ != depleted_;
+}
+Vertex& FullIterator::operator*() {
+    return *current_iterator_;
+}
+
+FullIterator FullBFS::begin() {
+    return FullIterator(start_, g_, false);
+};
+
+FullIterator FullBFS::end() {
+    return FullIterator(start_, g_, true);
+};

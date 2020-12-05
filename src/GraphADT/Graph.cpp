@@ -4,6 +4,7 @@
 #include <iostream>
 #include <fstream>
 #include <sstream> 
+#include <algorithm>
 
 using std::cout;
 using std::endl;
@@ -78,6 +79,7 @@ void Graph::insertVertex(Vertex v){
     adjacency_list[v] = unordered_map<Vertex, Edge, VertexHashFunction>();
     // Simultaneously makes a pair to insert
     vertices.insert({v.node_id_, v});
+    page_to_id.insert({v.page_name_, v.node_id_});
     num_vertices++;
 };
 
@@ -177,4 +179,36 @@ void Graph::displayGraph(){
 
 BFSTraversal Graph::getBFS(const Vertex& v) {
     return BFSTraversal(*this, v);
+}
+
+FullBFS Graph::getFullBFS(const Vertex& v) {
+    return FullBFS(*this, v);
+}
+
+
+vector<Edge> Graph::getShortestPath(const Vertex start, const Vertex end) {
+    vector<Edge> path;
+    unordered_map<size_t, Edge> originEdge;
+    originEdge[start.node_id_];
+    bool found = false;
+    BFSTraversal searchBFS = getBFS(start);
+    for (auto it = searchBFS.begin(); it != searchBFS.end(); ++it) {
+        originEdge.insert({(*it).node_id_, it.arrivalEdge()});
+        if (*it == end) {
+            found = true;
+            break;
+        }
+    }
+
+    if (!found) return path;
+    else {
+        size_t last = end.node_id_;
+        while (last != start.node_id_) {
+            path.push_back(originEdge.at(last));
+            last = originEdge.at(last).source_node_id_;
+        }
+    }
+    
+    std::reverse(path.begin(), path.end());
+    return path;
 }
