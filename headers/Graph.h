@@ -35,14 +35,16 @@ class Graph{
     vector<Edge> incidentEdges(const Vertex& v) const;
     BFSTraversal getBFS(const Vertex& v);
     void displayGraph();
-    void SCC();
+    // void SCC();
     size_t num_vertices;
     size_t num_edges;
-  private:
-    void SCCUtil(int u, int disc[], int low[], stack<int> *st, bool stackMember[]);
-    void createVertices(const std::string & verticesFileName);
-    void createEdges(const std::string & edgesFileName);
+  protected:
     unordered_map<Vertex, unordered_map<Vertex, Edge, VertexHashFunction>, VertexHashFunction> adjacency_list;
     unordered_map<size_t, Vertex> vertices;
+  private:
+    // void SCCUtil(int u, int disc[], int low[], stack<int> *st, bool stackMember[]);
+    void createVertices(const std::string & verticesFileName);
+    void createEdges(const std::string & edgesFileName);
+    // vector<size_t> rep_node_ids; // rep_node_ids[0] gives the rep_node_id of the Vertex with node_id 0;  
 };
 

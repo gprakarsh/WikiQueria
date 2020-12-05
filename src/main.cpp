@@ -95,7 +95,7 @@ int main(int argc, char* argv[]){
         std::string verticesFile = argv[1];
         std::string edgesFile = argv[2];
 
-        Graph pGraph(verticesFile,edgesFile);
+        SCCGraph pGraph(verticesFile,edgesFile);
 
         std::cout<<"Preprocessing successful"<<std::endl;
 
@@ -116,7 +116,7 @@ int main(int argc, char* argv[]){
                     pGraph.displayGraph();
                 }else if(option == 2){
                     std::cout<<"Following are the Strongly Connected Components:"<<std::endl;
-                    pGraph.SCC();
+                    pGraph.displayRepNodes();
                     // exit = true;
                 }else if(option ==3){
                     system("clear");

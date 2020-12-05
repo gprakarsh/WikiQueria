@@ -4,9 +4,7 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
-#include <algorithm> 
 
-#define UNVISITED -1
 
 using std::cout;
 using std::endl;
@@ -69,9 +67,8 @@ void Graph::createEdges(const std::string & edgesFileName){
         size_t to_node_id = stoi(to_node_id_str);
         if((vertices.find(from_node_id) != vertices.end())&&(vertices.find(to_node_id) != vertices.end())){
             insertEdge(vertices.at(from_node_id), vertices.at(to_node_id));
-            cout << vertices.at(from_node_id) << endl;
             edgeCount++;
-            cout << "\rEdges Loaded: " << edgeCount << endl;
+            cout << "\rEdges Loaded: " << edgeCount << flush;
         }
     }
     cout<<endl;
@@ -179,65 +176,65 @@ void Graph::displayGraph(){
     }
 };
 
-void Graph::SCC(){
-    int *disc = new int[num_vertices]; 
-    int *low = new int[num_vertices]; 
-    bool *stackMember = new bool[num_vertices]; 
-    stack<int> *st = new stack<int>(); 
+// void Graph::SCC(){
+//     int *disc = new int[num_vertices]; 
+//     int *low = new int[num_vertices]; 
+//     bool *stackMember = new bool[num_vertices]; 
+//     stack<int> *st = new stack<int>(); 
 
-    size_t i = 0;
-    while(i<num_vertices){
-        disc[i] = UNVISITED; 
-        low[i] = UNVISITED; 
-        stackMember[i] = false; 
-        i++;
-    }
+//     size_t i = 0;
+//     while(i<num_vertices){
+//         disc[i] = UNVISITED; 
+//         low[i] = UNVISITED; 
+//         stackMember[i] = false; 
+//         i++;
+//     }
 
-    i = 0;
-    while(i < num_vertices){
-        if (disc[i] == UNVISITED){
-            SCCUtil(i, disc, low, st, stackMember);
-        } 
-        i++;
-    }
+//     i = 0;
+//     while(i < num_vertices){
+//         if (disc[i] == UNVISITED){
+//             SCCUtil(i, disc, low, st, stackMember);
+//         } 
+//         i++;
+//     }
 
-}
+// }
 
-void Graph::SCCUtil(int u, int disc[], int low[], stack<int> *st, bool stackMember[]){
+// void Graph::SCCUtil(int u, int disc[], int low[], stack<int> *st, bool stackMember[]){
     
-    static int time = 0; 
+//     static int time = 0; 
 
-    disc[u] = low[u] = ++time;
-    st->push(u); 
-    stackMember[u] = true; 
+//     disc[u] = low[u] = ++time;
+//     st->push(u); 
+//     stackMember[u] = true; 
     
-    vector<Vertex> adjVertices = incidentVertices(vertices.at(u));
+//     vector<Vertex> adjVertices = incidentVertices(vertices.at(u));
 
-    int i = 0;
-    for(i = 0; i < (int) adjVertices.size(); i++){
-        int v = adjVertices[i].node_id_;
-        if(disc[v] == UNVISITED){
-            SCCUtil(v, disc, low, st, stackMember);
-            low[u] = min(low[u], low[v]);
-        } else if(stackMember[v] == true){
-            low[u] = min(low[u], low[v]);
-        }
-    }
+//     int i = 0;
+//     for(i = 0; i < (int) adjVertices.size(); i++){
+//         int v = adjVertices[i].node_id_;
+//         if(disc[v] == UNVISITED){
+//             SCCUtil(v, disc, low, st, stackMember);
+//             low[u] = min(low[u], low[v]);
+//         } else if(stackMember[v] == true){
+//             low[u] = min(low[u], low[v]);
+//         }
+//     }
 
-    i = 0;
-    if(low[u] == disc[u]){
-        while(st->top() != u){
-            i = st->top();
-            cout << i << " ";
-            stackMember[i] = false; 
-            st->pop(); 
-        }
-        i = st->top(); 
-        cout << i << endl; 
-        stackMember[i] = false; 
-        st->pop(); 
-    }
-};
+//     i = 0;
+//     if(low[u] == disc[u]){
+//         while(st->top() != u){
+//             i = st->top();
+//             cout << i << " ";
+//             stackMember[i] = false; 
+//             st->pop(); 
+//         }
+//         i = st->top(); 
+//         cout << i << endl; 
+//         stackMember[i] = false; 
+//         st->pop(); 
+//     }
+// };
 
 BFSTraversal Graph::getBFS(const Vertex& v) {
     return BFSTraversal(*this, v);
