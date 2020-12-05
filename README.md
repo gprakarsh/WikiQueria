@@ -40,12 +40,16 @@ There are four required arguments, and they must appear in this order:
 
 `CONNECTEDNESS`
 * a decimal from [0, 1.0] representing the probability any given directed edge exists
-* example: `0.3`
+* example: `0.03`
 
 An example invocation with the example arguments listed above would look like this:
 
 ```
-python3 ./make-mock.py data/wiki-names.txt data/wiki-edges.txt 10 0.3
+python3 ./make-mock.py data/wiki-names.txt data/wiki-edges.txt 10 0.03
 ```
 
 This will output the vertex name labels to a file `data/wiki-names.txt`, and the edge list to a file `data/wiki-edges.txt`.
+
+**Warning!** The expected number of edges using this file, given probability `p` and vertex count `n` is `n(n-1)p/2`.
+For example, with `n=5000` and `p=0.05`, the expected number of edges is `624875`. 
+The program will output your expected number of edges before you continue. Please be careful and pay attention, you might wreck your RAM otherwise!
