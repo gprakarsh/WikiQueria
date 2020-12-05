@@ -5,75 +5,40 @@
 #include "Edge.h"
 #include "Graph.h"
 #include "BFS.h"
+#include "Mock.h"
 
-// Uses Universal Addressing to help with visualizing the tree
-// Every child has one more `.`, except for the root=0
-// http://courses.ics.hawaii.edu/ReviewICS241/morea/trees/TreeTraversal-QA.pdf
 
-Graph basicTree() {
-    Graph g = Graph();
+void demo() {
     Vertex v0 = Vertex(0, "0");
     Vertex v1 = Vertex(1, "1");
     Vertex v2 = Vertex(2, "2");
-    Vertex v1_1 = Vertex(3, "1.1");
-    Vertex v1_2 = Vertex(4, "1.2");
-    Vertex v2_1 = Vertex(5, "2.1");
-    Vertex v2_2 = Vertex(6, "2.2");
-    g.insertVertex(v0);
-    g.insertVertex(v1);
-    g.insertVertex(v2);
-    g.insertVertex(v1_1);
-    g.insertVertex(v1_2);
-    g.insertVertex(v2_1);
-    g.insertVertex(v2_2);
+    Vertex v3 = Vertex(3, "3");
 
-    g.insertEdge(v0, v1);
-    g.insertEdge(v0, v2);
-    g.insertEdge(v1, v1_1);
-    g.insertEdge(v1, v1_2);
-    g.insertEdge(v2, v2_1);
-    g.insertEdge(v2, v2_2);
-    return g;
-}
-int main(int argc, char* argv[]){
-    Vertex v0 = Vertex(0, "zero");
-    Vertex v1 = Vertex(1, "one");
-    Vertex v2 = Vertex(2, "two");
-    Vertex v3 = Vertex(3, "three");
-
-    Graph g = Graph();
-
-    g.insertVertex(v0);
-    g.insertVertex(v1);
-    g.insertVertex(v2);
-    g.insertVertex(v3);
-    
-    g.insertEdge(v0, v1);
-    g.insertEdge(v1, v1);
-    g.insertEdge(v1, v2);
-    g.insertEdge(v2, v3);
-    g.insertEdge(v3, v0);
-
+    Graph g;
+    insertBasicCycle(g, 0);
+    std::cout << "Cyclical structure\n";
     g.displayGraph();
 
-    Graph treeGraph = basicTree();
+    Graph treeGraph;
+    insertBasicTree(treeGraph, 0);
     std::cout << "Treelike structure\n";
     treeGraph.displayGraph();
 
-    std::cout << "BFS Traversal from root='0':\n";
+    std::cout << "BFS Traversal of tree from root='0':\n";
 
     for (auto v : treeGraph.getBFS(Vertex(0, "0"))) {
         std::cout << v << ", ";
     }
     std::cout << '\n';
 
-    std::cout << "BFS Traversal from subroot='1':\n";
+    std::cout << "BFS Traversal of tree from subroot='0.1':\n";
 
-    for (auto v : treeGraph.getBFS(Vertex(1, "1"))) {
+    for (auto v : treeGraph.getBFS(Vertex(1, "0.1"))) {
         std::cout << v << ", ";
     }
     std::cout << '\n';
 
+    std::cout << "Demonstration of BFS and obtaining predecessors.\n";
     auto bfs = treeGraph.getBFS(Vertex(0, "0"));
     for (auto it = bfs.begin(); it != bfs.end(); ++it) {
         std::cout << *it; 
@@ -84,7 +49,11 @@ int main(int argc, char* argv[]){
         }
     }
     bfs = treeGraph.getBFS(Vertex(1, "1"));
+}
 
+int main(int argc, char* argv[]){
+
+    demo();
     ////////////Preprocessing//////////////
 
     if (argc >= 4){
