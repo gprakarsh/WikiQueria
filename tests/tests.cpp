@@ -142,3 +142,9 @@ TEST_CASE("Making sure the full (disconnected) BFS works", "[BFS]") {
     }
     REQUIRE(count == 4);
 }
+
+TEST_CASE("An empty edge is equivalent to all other empty edges", "[GraphADT]") {
+    Edge e;
+    REQUIRE(e.isEmpty() == true);
+    REQUIRE(Edge(-1, -1).isEmpty() == true);
+}
