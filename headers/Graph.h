@@ -21,7 +21,7 @@ class FullBFS;
 class Graph{
   public:
     Graph();
-    Graph(const std::string & verticesFileName, const std::string & EdgesFileName);
+    Graph(const std::string & verticesFileName, const std::string & EdgesFileName, size_t limit = 10000);
     void insertVertex(Vertex v);
     void removeVertex(const Vertex& v);
     bool edgeExists(const Vertex& source,const Vertex& destination);
@@ -40,7 +40,7 @@ class Graph{
     unordered_map<std::string, size_t> page_to_id;
   private:
     void createVertices(const std::string & verticesFileName);
-    void createEdges(const std::string & edgesFileName);
+    void createEdges(const std::string & edgesFileName, size_t limit);
     unordered_map<Vertex, unordered_map<Vertex, Edge, VertexHashFunction>, VertexHashFunction> adjacency_list;
 };
 

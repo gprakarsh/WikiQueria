@@ -47,47 +47,57 @@ void demo() {
         } else {
             std::cout<<" (root)"<<std::endl;
         }
-    }
+    }   
     bfs = treeGraph.getBFS(Vertex(1, "1"));
 }
 
 int main(int argc, char* argv[]){
-
-    demo();
-    ////////////Preprocessing//////////////
-
-    if (argc >= 4){
-        std::cout<<"Started preprocessing"<<std::endl;
-
-        std::string verticesFile = argv[1];
-        std::string edgesFile = argv[2];
-
-        Graph pGraph(verticesFile,edgesFile);
-
-        std::cout<<"Preprocessing successful"<<std::endl;
-
-
-    //////////////////User-Interface/////////////////////////
-        if (std::string(argv[3]) == "--interactive" || std::string(argv[3]) == "-i") {
-            bool exit = false;
-            while(!exit){
-                std::cout<<"What would you like to do?"<<std::endl;
-                std::cout<<"1) See full graph"<<std::endl;
-                std::cout<<"2) Clear Screen"<<std::endl;
-                //Add more options here
-                std::cout<<"Type the corresponding number to the desired option or anything else to exit"<<std::endl;
-                int option;
-                std::cin>>option;
-                if(option==1){
-                    pGraph.displayGraph();
-                }else if(option==2){
-                    system("clear");
-                }else{
-                    exit = true;
-                }
-            }
-        }
+    if (argc == 1) {
+        demo();
+        std::cout << "===================\n";
+        std::cout << "Usage: ./finalproj VERTEXFILE EDGEFILE [-i|-x] EDGELIMIT" << '\n';
+        std::cout << "-i : Launch interactively." << '\n';
+        std::cout << "-x : Do not launch interactively and only load the graph (benchmarking)." << '\n';
+        return 1;
     }
+    ////////////Preprocessing//////////////
+    std::string verticesFile = argv[1];
+    std::string edgesFile = argv[2];
+    
+    if (argc >= 4){
+        if (std::string(argv[3]) == "-x") {
+                std::cout << "Benchmarking only.\n";
+                Graph g = Graph(verticesFile, edgesFile, atoi(argv[4]));
+                return 0;
+        }
+        //////////////////User-Interface/////////////////////////
+        else if (std::string(argv[3]) == "--interactive" || std::string(argv[3]) == "-i") {
+                std::cout<<"Started preprocessing"<<std::endl;
+                Graph pGraph;
+                if (argc >= 5) 
+                    pGraph = Graph(verticesFile, edgesFile, atoi(argv[4]));
+                else
+                    pGraph = Graph(verticesFile, edgesFile, -1);
+                std::cout<<"Preprocessing successful"<<std::endl;
+                bool exit = false;
+                while(!exit){
+                    std::cout<<"What would you like to do?"<<std::endl;
+                    std::cout<<"1) See full graph"<<std::endl;
+                    std::cout<<"2) Clear Screen"<<std::endl;
+                    //Add more options here
+                    std::cout<<"Type the corresponding number to the desired option or anything else to exit"<<std::endl;
+                    int option;
+                    std::cin>>option;
+                    if(option==1){
+                        pGraph.displayGraph();
+                    }else if(option==2){
+                        system("clear");
+                    }else{
+                        exit = true;
+                    }
+                }
+        }
+    } 
     //////////////////////////////////////
 
     return 0;
