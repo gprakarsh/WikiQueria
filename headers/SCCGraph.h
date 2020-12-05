@@ -1,7 +1,6 @@
 #pragma once
 
 #include "Graph.h"
-
 #include<iostream>
 
 class SCCGraph : public Graph {
@@ -14,7 +13,7 @@ class SCCGraph : public Graph {
         size_t num_SCC_edges;
         void SCCUtil(int u, int disc[], int low[], stack<int> *st, bool stackMember[]);
         void condense_graph_dfs();
-        void condense_graph_dfs_util(int u, bool* visited, unordered_map<Vertex, unordered_map<Vertex, Edge, VertexHashFunction>, VertexHashFunction> comp_adj_list);
+        void condense_graph_dfs_util(int u, bool* visited, unordered_map<Vertex, unordered_map<Vertex, Edge, VertexHashFunction>, VertexHashFunction>* comp_adj_list);
         vector<size_t> rep_node_ids;
         unordered_map<size_t, size_t> rep_node_finder;
         // unordered_map<Vertex, unordered_map<Vertex, Edge, VertexHashFunction>, VertexHashFunction> comp_adj_list; 
