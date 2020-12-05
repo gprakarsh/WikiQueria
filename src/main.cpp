@@ -77,7 +77,7 @@ int main(int argc, char* argv[]){
     auto bfs = treeGraph.getBFS(Vertex(0, "0"));
     for (auto it = bfs.begin(); it != bfs.end(); ++it) {
         std::cout << *it; 
-        if(!it.arrivalEdge().isEmpty){
+        if(!it.arrivalEdge().isEmpty()){
             std::cout<<", origin: " << it.arrivalEdge().source_node_id_ << '\n';
         } else {
             std::cout<<" (root)"<<std::endl;
@@ -98,7 +98,7 @@ int main(int argc, char* argv[]){
         std::cout<<"Preprocessing successful"<<std::endl;
 
 
-        //////////////////User-Interface/////////////////////////
+    //////////////////User-Interface/////////////////////////
         if (std::string(argv[3]) == "--interactive" || std::string(argv[3]) == "-i") {
             bool exit = false;
             while(!exit){
