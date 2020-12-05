@@ -21,7 +21,7 @@ pip3 install --user networkx
 After you do this, simply invoke the python script by running it in this manner:
 
 ```
-python3 ./make-mock.py OUTNAMES OUTEDGES VERTEXCOUNT CONNECTEDNESS
+python3 ./make-mock.py OUTNAMES OUTEDGES OUTSCCFILE VERTEXCOUNT CONNECTEDNESS
 ```
 
 There are four required arguments, and they must appear in this order:
@@ -33,6 +33,10 @@ There are four required arguments, and they must appear in this order:
 `OUTEDGES`:
 * output filename for generated edges
 * example: `data/wiki-edges.txt`
+
+`OUTSCCFILE`:
+* output filename for detected strongly connected components by `networkx`
+* example: `data/wiki-scc.txt`
 
 `VERTEXCOUNT`
 * number of vertices
