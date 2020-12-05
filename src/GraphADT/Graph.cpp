@@ -177,3 +177,7 @@ void Graph::displayGraph(){
 BFSTraversal Graph::getBFS(const Vertex& v) {
     return BFSTraversal(*this, v);
 }
+
+FullBFS Graph::getFullBFS(const Vertex& v) {
+    return FullBFS(*this, v);
+}

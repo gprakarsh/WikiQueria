@@ -16,6 +16,7 @@ using std::list;
 using std::vector;
 
 class BFSTraversal;
+class FullBFS;
 
 class Graph{
   public:
@@ -30,13 +31,14 @@ class Graph{
     vector<Vertex> incidentVertices(const Vertex& v) const;
     vector<Edge> incidentEdges(const Vertex& v) const;
     BFSTraversal getBFS(const Vertex& v);
+    FullBFS getFullBFS(const Vertex& v);
     void displayGraph();
     size_t num_vertices;
     size_t num_edges;
+    unordered_map<size_t, Vertex> vertices;
   private:
     void createVertices(const std::string & verticesFileName);
     void createEdges(const std::string & edgesFileName);
     unordered_map<Vertex, unordered_map<Vertex, Edge, VertexHashFunction>, VertexHashFunction> adjacency_list;
-    unordered_map<size_t, Vertex> vertices;
 };
 
