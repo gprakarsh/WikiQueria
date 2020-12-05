@@ -148,3 +148,9 @@ TEST_CASE("An empty edge is equivalent to all other empty edges", "[GraphADT]") 
     REQUIRE(e.isEmpty() == true);
     REQUIRE(Edge(-1, -1).isEmpty() == true);
 }
+
+TEST_CASE("We are able to retrieve the node_id using the name of the vertex.") {
+    Graph g = basicTestGraph();
+    Vertex v0(0, "zero");
+    REQUIRE(g.page_to_id.at("zero") == 0);
+}

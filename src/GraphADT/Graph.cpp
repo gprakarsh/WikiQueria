@@ -77,6 +77,7 @@ void Graph::insertVertex(Vertex v){
     adjacency_list[v] = unordered_map<Vertex, Edge, VertexHashFunction>();
     // Simultaneously makes a pair to insert
     vertices.insert({v.node_id_, v});
+    page_to_id.insert({v.page_name_, v.node_id_});
     num_vertices++;
 };
 

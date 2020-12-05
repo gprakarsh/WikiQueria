@@ -36,6 +36,7 @@ class Graph{
     size_t num_vertices;
     size_t num_edges;
     unordered_map<size_t, Vertex> vertices;
+    unordered_map<std::string, size_t> page_to_id;
   private:
     void createVertices(const std::string & verticesFileName);
     void createEdges(const std::string & edgesFileName);
