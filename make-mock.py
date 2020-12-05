@@ -44,13 +44,29 @@ def random_words(count, size):
             word = word + random.choice(pv)
     return words
 
-G = nx.gnp_random_graph(10, 0.1, directed=True)
-words = random_words(len(G.nodes()), 12)
-for i in range(len(G.nodes())):
-    G.nodes[i]['page'] = words[i]
+def simple_words(count):
+    return ["page {}".format(i) for i in range(count)]
 
+if vertexcount > 5000 and probability > 0.3:
+    print("Vertexcount and connectedness too high! Please reduce vertexcount to <5000 and connectedness<0.3")
+    exit(1)
+
+G = nx.gnp_random_graph(vertexcount, probability, directed=True)
+#words = simple_words(len(G.nodes()))
+# for i in range(len(G.nodes())):
+#     G.nodes[i]['page'] = words[i]
+#for i in range(len(G.nodes())):
+#    G.nodes[i]['page'] = "Page {}".format(i)
 nx.write_edgelist(G, outedgefile, data=False)
 
+# with open(outnamefile, 'w') as of:
+#     for i in G.nodes():
+#         of.write('{},"{}"\n'.format(i, G.nodes[i]['page']))
+
+# with open(outnamefile, 'w') as of:
+#     for i in range(len(G.nodes())):
+#         of.write('{},"{}"\n'.format(i, "Page {}".format(i)))
+
+outstr = '\n'.join(['{},"{}"'.format(i, "Page {}".format(i)) for i in range(len(G.nodes()))])
 with open(outnamefile, 'w') as of:
-    for i in G.nodes():
-        of.write('{},"{}"\n'.format(i, G.nodes[i]['page']))
+    of.write(outstr)
