@@ -30,6 +30,7 @@ class Graph{
     void removeEdge(const Vertex& source,const Vertex& destination);
     vector<Vertex> incidentVertices(const Vertex& v) const;
     vector<Edge> incidentEdges(const Vertex& v) const;
+    vector<Edge> getShortestPath(const Vertex start, const Vertex end);
     BFSTraversal getBFS(const Vertex& v);
     FullBFS getFullBFS(const Vertex& v);
     void displayGraph();

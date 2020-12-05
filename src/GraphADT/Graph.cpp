@@ -182,3 +182,15 @@ BFSTraversal Graph::getBFS(const Vertex& v) {
 FullBFS Graph::getFullBFS(const Vertex& v) {
     return FullBFS(*this, v);
 }
+
+
+vector<Edge> Graph::getShortestPath(const Vertex start, const Vertex end) {
+    vector<Edge> path;
+    unordered_map<Vertex, Edge> edgeToVertex;
+    edgeToVertex[start] = Edge();
+    for (auto v : g_.getBFS(start)) {
+        edgeToVertex[v] = v->arrivalEdge();
+        if (v == end) break;
+    }
+    Edge e;   
+}
