@@ -170,7 +170,7 @@ bool SCCGraph::pathExists(const Vertex& start, const Vertex& end) {
 vector<Edge> SCCGraph::getShortestPathFast(const Vertex& start, const Vertex& end) {
     vector<Edge> emptyPath;
     if(pathExists(start, end)){
-        return getShortestPath(start, end);
+        return original.getShortestPath(start, end);
     };
     return emptyPath;
 }

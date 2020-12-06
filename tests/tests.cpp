@@ -222,3 +222,26 @@ TEST_CASE("BFS Shortest Path returns nothing if path does not exist", "[BFS]") {
     auto path = g.getShortestPath(v3, v0);
     REQUIRE(path.size() == 0);
 }
+
+TEST_CASE("getShortestPathFast returns the same result as getShortestPath if a path exists") {
+    Graph g;insertBasicCycle(g, 0);
+    SCCGraph sG = SCCGraph(g);
+    Vertex v0(0, "0");
+    Vertex v3(3, "3");
+    auto path = sG.getShortestPathFast(v0, v3);
+    for (auto p : path) {
+        std::cout << p.source_node_id_ << "->" << p.destination_node_id_ << '\n';
+    }
+    REQUIRE(path.size() == 3);
+
+}
+
+TEST_CASE("getShortestPathFast returns the same result as getShortestPath if a path doesn't exist") {
+    Graph g;insertBasicCycle(g, 0);
+    SCCGraph sG = SCCGraph(g);
+    Vertex v0(0, "0");
+    Vertex v3(3, "3");
+    g.removeEdge(v3, v0);
+    auto path = sG.getShortestPathFast(v3, v0);
+    REQUIRE(path.size() == 0);
+}
