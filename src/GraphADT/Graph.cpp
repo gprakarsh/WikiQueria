@@ -3,8 +3,8 @@
 
 #include <iostream>
 #include <fstream>
-#include <sstream>
-
+#include <sstream> 
+#include <algorithm>
 
 using std::cout;
 using std::endl;
@@ -18,10 +18,10 @@ Graph::Graph(){
     num_edges = 0;
 };
 
-Graph::Graph(const std::string & verticesFileName, const std::string & edgesFileName)
+Graph::Graph(const std::string & verticesFileName, const std::string & edgesFileName, size_t limit)
     : Graph() {
     createVertices(verticesFileName);
-    createEdges(edgesFileName);
+    createEdges(edgesFileName, limit);
 };
 
 void Graph::createVertices(const std::string & verticesFileName){
@@ -49,12 +49,12 @@ void Graph::createVertices(const std::string & verticesFileName){
     cout<<endl;
 };
 
-void Graph::createEdges(const std::string & edgesFileName){     
+void Graph::createEdges(const std::string & edgesFileName, size_t limit){     
     std::ifstream edgesFile(edgesFileName);
     if(!edgesFile.is_open()) throw std::runtime_error("Could not open file");
 
     std::string line;
-    int edgeCount = 0;
+    size_t edgeCount = 0;
     while(edgesFile.good()){
         std::getline(edgesFile, line);
         std::stringstream line_stream(line);
@@ -65,7 +65,8 @@ void Graph::createEdges(const std::string & edgesFileName){
         if (from_node_id_str[0] == '#' || !from_node_id_str[0]) continue;
         size_t from_node_id = stoi(from_node_id_str);
         size_t to_node_id = stoi(to_node_id_str);
-        if((vertices.find(from_node_id) != vertices.end())&&(vertices.find(to_node_id) != vertices.end())){
+        if((vertices.find(from_node_id) != vertices.end())&&(vertices.find(to_node_id) != vertices.end())) {
+            if (limit != static_cast<size_t>(-1) && edgeCount > limit) break;
             insertEdge(vertices.at(from_node_id), vertices.at(to_node_id));
             edgeCount++;
             cout << "\rEdges Loaded: " << edgeCount << flush;
@@ -77,6 +78,7 @@ void Graph::createEdges(const std::string & edgesFileName){
 void Graph::insertVertex(Vertex v){
     adjacency_list[v] = unordered_map<Vertex, Edge, VertexHashFunction>();
     vertices.insert({v.node_id_, v});
+    page_to_id.insert({v.page_name_, v.node_id_});
     num_vertices++;
 };
 
@@ -238,4 +240,36 @@ BFSTraversal Graph::getBFS(const Vertex& v) {
 
 BFSTraversal Graph::getBFS(size_t id) {
     return BFSTraversal(*this, vertices.at(id));
+}
+
+FullBFS Graph::getFullBFS(const Vertex& v) {
+    return FullBFS(*this, v);
+}
+
+
+vector<Edge> Graph::getShortestPath(const Vertex start, const Vertex end) {
+    vector<Edge> path;
+    unordered_map<size_t, Edge> originEdge;
+    originEdge[start.node_id_];
+    bool found = false;
+    BFSTraversal searchBFS = getBFS(start);
+    for (auto it = searchBFS.begin(); it != searchBFS.end(); ++it) {
+        originEdge.insert({(*it).node_id_, it.arrivalEdge()});
+        if (*it == end) {
+            found = true;
+            break;
+        }
+    }
+
+    if (!found) return path;
+    else {
+        size_t last = end.node_id_;
+        while (last != start.node_id_) {
+            path.push_back(originEdge.at(last));
+            last = originEdge.at(last).source_node_id_;
+        }
+    }
+    
+    std::reverse(path.begin(), path.end());
+    return path;
 }

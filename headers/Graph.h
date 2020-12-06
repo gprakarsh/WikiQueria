@@ -20,11 +20,12 @@ using std::vector;
 using std::stack;
 
 class BFSTraversal;
+class FullBFS;
 
 class Graph{
   public:
     Graph();
-    Graph(const std::string & verticesFileName, const std::string & edgesFileName);
+    Graph(const std::string & verticesFileName, const std::string & EdgesFileName, size_t limit = -1);
     void insertVertex(Vertex v);
     virtual void removeVertex(const Vertex& v);
     bool edgeExists(const Vertex& source,const Vertex& destination);
@@ -33,16 +34,19 @@ class Graph{
     virtual void removeEdge(const Vertex& source,const Vertex& destination);
     vector<Vertex> incidentVertices(const Vertex& v) const;
     vector<Edge> incidentEdges(const Vertex& v) const;
+    vector<Edge> getShortestPath(const Vertex start, const Vertex end);
     BFSTraversal getBFS(const Vertex& v);
     BFSTraversal getBFS(size_t id);
+    FullBFS getFullBFS(const Vertex& v);
     virtual void displayGraph();
     size_t num_vertices;
     size_t num_edges;
     unordered_map<size_t, Vertex> vertices;
+    unordered_map<std::string, size_t> page_to_id;
   protected:
     unordered_map<Vertex, unordered_map<Vertex, Edge, VertexHashFunction>, VertexHashFunction> adjacency_list;
   private:
     void createVertices(const std::string & verticesFileName);
-    void createEdges(const std::string & edgesFileName);
+    void createEdges(const std::string & edgesFileName, size_t limit);
 };
 
