@@ -6,13 +6,11 @@
 
 class SCCGraph : public Graph {
     public:
+        Graph original;
         SCCGraph(const std::string & verticesFileName, const std::string & edgesFileName);
-        void insertVertex(Vertex v){not_supported();};
-        void removeVertex(const Vertex& v){not_supported();};
-        void edgeExists(const Vertex& source,const Vertex& destination){not_supported();};
-        bool vertexExists(const Vertex& v){not_supported();};
-        void insertEdge(Vertex& source,Vertex& destination){not_supported();}; 
-        void removeEdge(const Vertex& source,const Vertex& destination){not_supported();};
+        void removeVertex(const Vertex& v);
+        void removeEdge(const Vertex& source,const Vertex& destination);
+        void loadSCCsAsGraph();
         void displayGraph();
         void displayRepNodes();
     private:

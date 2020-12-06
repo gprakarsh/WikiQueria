@@ -236,3 +236,6 @@ BFSTraversal Graph::getBFS(const Vertex& v) {
     return BFSTraversal(*this, v);
 }
 
+BFSTraversal Graph::getBFS(size_t id) {
+    return BFSTraversal(*this, vertices.at(id));
+}

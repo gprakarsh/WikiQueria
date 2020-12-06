@@ -55,7 +55,7 @@ build/catch.o: tests/catch.cpp tests/catch.hpp
 	$(make-build-dir)
 	$(CXX) $(CXXFLAGS) $< -o $@
 
-test: tests/tests.cpp build/catch.o tests/catchmain.cpp build/Vertex.o build/Graph.o build/Edge.o build/BFS.o
+test: tests/tests.cpp build/catch.o tests/catchmain.cpp build/Vertex.o build/Graph.o build/Edge.o build/BFS.o build/SCCGraph.o
 	$(LD) $^ $(LDFLAGS) -o test
 
 clean:
