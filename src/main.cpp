@@ -94,16 +94,16 @@ int main(int argc, char* argv[]){
             std::cout<<"Preprocessing successful"<<std::endl;
             bool exit = false;
             while(!exit){
-                std::cout<<"What would you like to do?"<<std::endl;
-                std::cout<<"1) See full graph"<<std::endl;
-                std::cout<<"2) Print SCCs"<<std::endl;
-                std::cout<<"3) Print Full BFS"<<std::endl;
-                std::cout<<"4) Find shortest path"<<std::endl;
-                std::cout<<"5) Clear Screen"<<std::endl;
+                std::cout << "What would you like to do?"<<std::endl;
+                std::cout << "1) See full graph"<<std::endl;
+                std::cout << "2) Print SCCs"<<std::endl;
+                std::cout << "3) Print Full BFS"<<std::endl;
+                std::cout << "4) Find shortest path"<<std::endl;
+                std::cout << "5) Clear Screen"<<std::endl;
                 //Add more options here
-                std::cout<<"Type the corresponding number to the desired option or anything else to exit"<<std::endl;
+                std::cout << "Type the corresponding number to the desired option or anything else to exit"<<std::endl;
                 int option;
-                std::cin>>option;
+                std::cin >> option;
                 if (option == 1){
                     pGraph.original.displayGraph();
                 } else if (option == 2){
@@ -129,7 +129,7 @@ int main(int argc, char* argv[]){
                     Graph gr = pGraph.original;
                     size_t sp_id = gr.page_to_id.at(start_page);
                     size_t ep_id = gr.page_to_id.at(end_page);
-                    vector<Edge> shortestPathEdges = gr.getShortestPath(gr.vertices.at(sp_id), gr.vertices.at(ep_id));
+                    vector<Edge> shortestPathEdges = pGraph.getShortestPathFast(gr.vertices.at(sp_id), gr.vertices.at(ep_id));
 
                     std::cout << "No. of edges in shortest path : " << shortestPathEdges.size() << std::endl;
                     
@@ -137,7 +137,7 @@ int main(int argc, char* argv[]){
                         std::string next_page = gr.vertices.at(shortestPathEdges[i].destination_node_id_).page_name_;
                         std::cout << next_page << std::endl;
                     }
-                    std::cout << gr.num_vertices << "\n";
+                    
                 } else if (option == 5) {
                     system("clear");
                 } else {

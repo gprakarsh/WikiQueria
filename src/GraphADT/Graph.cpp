@@ -38,7 +38,6 @@ void Graph::createVertices(const std::string & verticesFileName){
         std::stringstream line_stream(line);
         std::string page_name;
         std::string node_id_str;
-        // if (lineCount % 20000 == 0) {cout << "."; cout.flush(); lineCount = 1;}
         std::getline(line_stream, node_id_str, ',');
         std::getline(line_stream, trash, '"');
         std::getline(line_stream, page_name, '"');
@@ -273,7 +272,6 @@ vector<Edge> Graph::getShortestPath(const Vertex start, const Vertex end) {
         while (last != start.node_id_) {
             path.push_back(originEdge.at(last));
             last = originEdge.at(last).source_node_id_;
-            std::cout<<"hit"<<std::endl;
         }
         std::reverse(path.begin(), path.end());
     }
