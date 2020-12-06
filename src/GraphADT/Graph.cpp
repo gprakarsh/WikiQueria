@@ -1,5 +1,6 @@
 #include "Graph.h"
 #include "BFS.h"
+#include "FullBFS.h"
 
 #include <iostream>
 #include <fstream>

@@ -6,6 +6,7 @@
 #include "Edge.h"
 #include "Graph.h"
 #include "BFS.h"
+#include "FullBFS.h"
 #include "SCCGraph.h"
 #include "Mock.h"
 

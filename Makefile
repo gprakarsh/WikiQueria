@@ -19,7 +19,7 @@ endef
 
 all : $(EXENAME)
 
-$(EXENAME): build/main.o build/Graph.o build/Vertex.o build/Edge.o build/BFS.o build/Mock.o build/SCCGraph.o
+$(EXENAME): build/main.o build/Graph.o build/Vertex.o build/Edge.o build/BFS.o build/Mock.o build/SCCGraph.o build/FullBFS.o
 	$(LD) $^ $(LDFLAGS) -o $(EXENAME)
 
 build/readFromFile.o: src/readFromFile.cpp headers/readFromFile.hpp
@@ -38,7 +38,6 @@ build/Graph.o: src/GraphADT/Graph.cpp headers/Graph.h headers/Vertex.h headers/E
 	$(make-build-dir)
 	$(CXX) $(CXXFLAGS) $< -o $@
 
-
 build/Vertex.o: src/GraphADT/Vertex.cpp headers/Vertex.h
 	$(make-build-dir)
 	$(CXX) $(CXXFLAGS) $< -o $@
@@ -55,11 +54,15 @@ build/BFS.o: src/BFS/BFS.cpp headers/Graph.h headers/Vertex.h headers/Edge.h hea
 	$(make-build-dir)
 	$(CXX) $(CXXFLAGS) $< -o $@
 
+build/FullBFS.o: src/BFS/FullBFS.cpp headers/Graph.h headers/Vertex.h headers/Edge.h headers/FullBFS.h headers/BFS.h
+	$(make-build-dir)
+	$(CXX) $(CXXFLAGS) $< -o $@
+
 build/catch.o: tests/catch.cpp tests/catch.hpp
 	$(make-build-dir)
 	$(CXX) $(CXXFLAGS) $< -o $@
 
-test: tests/tests.cpp build/catch.o tests/catchmain.cpp build/Vertex.o build/Graph.o build/Edge.o build/BFS.o build/Mock.o build/SCCGraph.o
+test: tests/tests.cpp build/catch.o tests/catchmain.cpp build/Vertex.o build/Graph.o build/Edge.o build/BFS.o build/Mock.o build/SCCGraph.o build/FullBFS.o
 	$(LD) $^ $(LDFLAGS) -o test
 
 clean:
