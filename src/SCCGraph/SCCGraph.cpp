@@ -9,8 +9,8 @@ using std::min;
 
 #define UNVISITED -1
 
-SCCGraph::SCCGraph(const std::string & verticesFileName, const std::string & edgesFileName) : 
-    original{Graph(verticesFileName, edgesFileName)}{
+SCCGraph::SCCGraph(const std::string & verticesFileName, const std::string & edgesFileName, size_t limit) : 
+    original{Graph(verticesFileName, edgesFileName, limit)}{
     
     num_SCC_edges = 0;
     num_SCCs = 0;

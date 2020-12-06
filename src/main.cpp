@@ -19,6 +19,7 @@
 #include "Graph.h"
 #include "BFS.h"
 #include "Mock.h"
+#include "SCCGraph.h"
 
 
 void demo() {
@@ -79,42 +80,43 @@ int main(int argc, char* argv[]){
     std::string edgesFile = argv[2];
 
     if (argc >= 4){
-        std::cout<<"Started preprocessing"<<std::endl;
-
-        std::string verticesFile = argv[1];
-        std::string edgesFile = argv[2];
-
-        SCCGraph pGraph(verticesFile,edgesFile);
-
-        std::cout<<"Preprocessing successful"<<std::endl;
-
-
-    //////////////////User-Interface/////////////////////////
-        if (std::string(argv[3]) == "--interactive" || std::string(argv[3]) == "-i") {
+        if (std::string(argv[3]) == "-x") {
+                std::cout << "Benchmarking only.\n";
+                Graph g = Graph(verticesFile, edgesFile, atoi(argv[4]));
+                return 0;
+        }
+        //////////////////User-Interface/////////////////////////
+        else if (std::string(argv[3]) == "--interactive" || std::string(argv[3]) == "-i") {
+            std::cout<<"Started preprocessing"<<std::endl;
+            size_t limit;
+            if (argc >= 5) 
+                limit = atoi(argv[4]);
+            else
+                limit = -1;
+            SCCGraph pGraph = SCCGraph(verticesFile, edgesFile, limit);
+            std::cout<<"Preprocessing successful"<<std::endl;
             bool exit = false;
-            while(!exit){
-                std::cout<<"What would you like to do?"<<std::endl;
-                std::cout<<"1) See full graph"<<std::endl;
-                std::cout<<"2) Print SCCs"<<std::endl;
-                std::cout<<"3) Clear Screen"<<std::endl;
-                //Add more options here
-                std::cout<<"Type the corresponding number to the desired option or anything else to exit"<<std::endl;
-                int option;
-                std::cin>>option;
-                if(option == 1){
-                    pGraph.displayGraph();
-                }else if(option == 2){
-                    std::cout<<"Following are the Strongly Connected Components:"<<std::endl;
-                    pGraph.displayRepNodes();
-                    // exit = true;
-                }else if(option ==3){
-                    system("clear");
-                }else{
-                    exit = true;
-                }
+            std::cout<<"What would you like to do?"<<std::endl;
+            std::cout<<"1) See full graph"<<std::endl;
+            std::cout<<"2) Print SCCs"<<std::endl;
+            std::cout<<"3) Clear Screen"<<std::endl;
+            //Add more options here
+            std::cout<<"Type the corresponding number to the desired option or anything else to exit"<<std::endl;
+            int option;
+            std::cin>>option;
+            if(option == 1){
+                pGraph.displayGraph();
+            }else if(option == 2){
+                std::cout<<"Following are the Strongly Connected Components:"<<std::endl;
+                pGraph.displayRepNodes();
+                // exit = true;
+            }else if(option ==3){
+                system("clear");
+            }else{
+                exit = true;
             }
         }
-    }
+    } 
     //////////////////////////////////////
 
     return 0;
