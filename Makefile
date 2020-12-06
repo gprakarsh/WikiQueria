@@ -5,6 +5,7 @@ CXX			:=	clang++
 CXXFLAGS	:=	$(CS225) -std=c++1y -stdlib=libc++ -c -g -O0 -Wall -Wextra -pedantic -Iheaders
 LD			:=	clang++
 LDFLAGS		:=	-std=c++1y -stdlib=libc++ -lc++abi -lm -Iheaders
+ALL_HEADERS	:=	headers/BFS.h headers/Edge.h headers/FullBFS.h headers/Graph.h headers/Mock.h headers/SCCGraph.h headers/Vertex.h
 #----------------------------------------------
 
 define make-build-dir
@@ -62,8 +63,28 @@ build/catch.o: tests/catch.cpp tests/catch.hpp
 	$(make-build-dir)
 	$(CXX) $(CXXFLAGS) $< -o $@
 
-test: tests/tests.cpp build/catch.o tests/catchmain.cpp build/Vertex.o build/Graph.o build/Edge.o build/BFS.o build/Mock.o build/SCCGraph.o build/FullBFS.o
+test: build/tests-misc.o build/tests-bfs.o build/tests-graphadt.o build/tests-scc.o build/tests-landmark.o build/catch.o build/Vertex.o build/Graph.o build/Edge.o build/BFS.o build/Mock.o build/SCCGraph.o build/FullBFS.o
 	$(LD) $^ $(LDFLAGS) -o test
+
+build/tests-misc.o: tests/tests-misc.cpp $(ALL_HEADERS)
+	$(make-build-dir)
+	$(CXX) $(CXXFLAGS) $< -o $@
+
+build/tests-bfs.o: tests/tests-bfs.cpp $(ALL_HEADERS)
+	$(make-build-dir)
+	$(CXX) $(CXXFLAGS) $< -o $@
+
+build/tests-graphadt.o: tests/tests-graphadt.cpp $(ALL_HEADERS)
+	$(make-build-dir)
+	$(CXX) $(CXXFLAGS) $< -o $@
+
+build/tests-scc.o: tests/tests-scc.cpp $(ALL_HEADERS)
+	$(make-build-dir)
+	$(CXX) $(CXXFLAGS) $< -o $@
+
+build/tests-landmark.o: tests/tests-landmark.cpp $(ALL_HEADERS)
+	$(make-build-dir)
+	$(CXX) $(CXXFLAGS) $< -o $@
 
 clean:
 	rm -rf build/ $(EXENAME) test
