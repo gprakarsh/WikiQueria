@@ -6,10 +6,12 @@
 
 class SCCGraph : public Graph {
     public:
-        Graph original;
+        Graph& original;
         SCCGraph(const std::string & verticesFileName, const std::string & edgesFileName, size_t limit = -1);
+        SCCGraph(Graph& g);
         void removeVertex(const Vertex& v);
         void removeEdge(const Vertex& source,const Vertex& destination);
+        bool pathExists(const Vertex start, const Vertex end);
         void loadSCCsAsGraph();
         void displayGraph();
         void displayRepNodes();
@@ -23,5 +25,4 @@ class SCCGraph : public Graph {
         vector<size_t> rep_node_ids;
         unordered_map<size_t, size_t> rep_node_finder;
         unordered_map<Vertex, unordered_map<Vertex, Edge, VertexHashFunction>, VertexHashFunction> comp_adj_list;
-
 };

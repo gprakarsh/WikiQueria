@@ -9,8 +9,8 @@ using std::min;
 
 #define UNVISITED -1
 
-SCCGraph::SCCGraph(const std::string & verticesFileName, const std::string & edgesFileName, size_t limit) : 
-    original{Graph(verticesFileName, edgesFileName, limit)}{
+SCCGraph::SCCGraph(Graph& g) : 
+    original{g}{
     
     num_SCC_edges = 0;
     num_SCCs = 0;
@@ -158,4 +158,11 @@ void SCCGraph::removeVertex(const Vertex& v) {
 
 void SCCGraph::removeEdge(const Vertex& source,const Vertex& destination) {
     (void)source; (void)destination; not_supported();
+};
+
+bool SCCGraph::pathExists(const Vertex start, const Vertex end) {
+    size_t parent_start = rep_node_finder.at(start.node_id_);
+    size_t parent_end = rep_node_finder.at(end.node_id_);
+    if (parent_start == parent_end) return true;
+    else return (getShortestPath(vertices.at(parent_start), vertices.at(parent_end)).size() > 0);
 };

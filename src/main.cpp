@@ -5,6 +5,7 @@
 #include "Edge.h"
 #include "Graph.h"
 #include "BFS.h"
+#include "FullBFS.h"
 #include "Mock.h"
 #include "SCCGraph.h"
 
@@ -87,13 +88,15 @@ int main(int argc, char* argv[]){
                 limit = atoi(argv[4]);
             else
                 limit = -1;
-            SCCGraph pGraph = SCCGraph(verticesFile, edgesFile, limit);
+            Graph g = Graph(verticesFile, edgesFile, limit);
+            SCCGraph pGraph = SCCGraph(g);
             std::cout<<"Preprocessing successful"<<std::endl;
             bool exit = false;
             std::cout<<"What would you like to do?"<<std::endl;
             std::cout<<"1) See full graph"<<std::endl;
             std::cout<<"2) Print SCCs"<<std::endl;
             std::cout<<"3) Clear Screen"<<std::endl;
+            std::cout<<"4) Print BFS"<<'\n';
             //Add more options here
             std::cout<<"Type the corresponding number to the desired option or anything else to exit"<<std::endl;
             int option;
@@ -106,7 +109,12 @@ int main(int argc, char* argv[]){
                 // exit = true;
             }else if(option ==3){
                 system("clear");
-            }else{
+            } else if (option == 4) {
+                for (auto v : pGraph.getFullBFS(0)) {
+                    std::cout << v << ' ';
+                }
+            }
+            else{
                 exit = true;
             }
         }

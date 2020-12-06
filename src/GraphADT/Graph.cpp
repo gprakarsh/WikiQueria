@@ -247,6 +247,9 @@ FullBFS Graph::getFullBFS(const Vertex& v) {
     return FullBFS(*this, v);
 }
 
+FullBFS Graph::getFullBFS(size_t id) {
+    return FullBFS(*this, vertices.at(id));
+}
 
 vector<Edge> Graph::getShortestPath(const Vertex start, const Vertex end) {
     vector<Edge> path;

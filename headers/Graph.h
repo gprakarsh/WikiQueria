@@ -38,6 +38,7 @@ class Graph{
     BFSTraversal getBFS(const Vertex& v);
     BFSTraversal getBFS(size_t id);
     FullBFS getFullBFS(const Vertex& v);
+    FullBFS getFullBFS(size_t id);
     virtual void displayGraph();
     size_t num_vertices;
     size_t num_edges;
