@@ -128,7 +128,7 @@ int main(int argc, char* argv[]){
                     
                     Graph gr = pGraph.original;
                     size_t sp_id = gr.page_to_id.at(start_page);
-                    size_t ep_id = gr.page_to_id.(end_page);
+                    size_t ep_id = gr.page_to_id.at(end_page);
                     vector<Edge> shortestPathEdges = gr.getShortestPath(gr.vertices.at(sp_id), gr.vertices.at(ep_id));
                     
                     std::cout << "No. of edges in shortest path : " << shortestPathEdges.size() << std::endl;
