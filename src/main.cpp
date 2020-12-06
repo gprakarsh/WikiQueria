@@ -78,6 +78,7 @@ int main(int argc, char* argv[]){
         if (std::string(argv[3]) == "-x") {
                 std::cout << "Benchmarking only.\n";
                 Graph g = Graph(verticesFile, edgesFile, atoi(argv[4]));
+                SCCGraph pGraph = SCCGraph(g);
                 return 0;
         }
         //////////////////User-Interface/////////////////////////
