@@ -5,19 +5,6 @@
 #include "Edge.h"
 #include "Graph.h"
 #include "BFS.h"
-#include "SCCGraph.h"
-
-// Uses Universal Addressing to help with visualizing the tree
-// Every child has one more `.`, except for the root=0
-// http://courses.ics.hawaii.edu/ReviewICS241/morea/trees/TreeTraversal-QA.pdf
-
-#include <iostream>
-#include <stdlib.h>
-
-#include "Vertex.h"
-#include "Edge.h"
-#include "Graph.h"
-#include "BFS.h"
 #include "Mock.h"
 #include "SCCGraph.h"
 
@@ -37,7 +24,11 @@ void demo() {
     insertBasicTree(treeGraph, 0);
     std::cout << "Treelike structure\n";
     treeGraph.displayGraph();
-
+    std::cout << "BFS Traversal of cycle from root\n";
+    for (auto v : g.getBFS(Vertex(0, "0"))) {
+        std::cout << v << ' ';
+    }
+    std::cout << '\n';
     std::cout << "BFS Traversal of tree from root='0':\n";
 
     for (auto v : treeGraph.getBFS(Vertex(0, "0"))) {
@@ -63,6 +54,9 @@ void demo() {
         }
     }   
     bfs = treeGraph.getBFS(Vertex(1, "1"));
+    auto p = treeGraph.getShortestPath(Vertex(0, "0"), Vertex(1, "1"));
+    auto q = g.getShortestPath(Vertex(3, "3"), Vertex(0, "0"));
+    auto nonexistent = treeGraph.getShortestPath(Vertex(1, "0.1"), Vertex(0, "0"));
 }
 
 int main(int argc, char* argv[]){

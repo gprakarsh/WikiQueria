@@ -17,6 +17,6 @@ Edge::Edge(){
 };
 
 bool Edge::isEmpty(){
-    return (source_node_id_ == -1) && (destination_node_id_ == -1);
+    return (source_node_id_ == static_cast<size_t>(-1)) && (destination_node_id_ == static_cast<size_t>(-1));
 }
 

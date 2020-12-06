@@ -262,15 +262,14 @@ vector<Edge> Graph::getShortestPath(const Vertex start, const Vertex end) {
         }
     }
 
-    if (!found) return path;
-    else {
+    if (found) {
         size_t last = end.node_id_;
         while (last != start.node_id_) {
             path.push_back(originEdge.at(last));
             last = originEdge.at(last).source_node_id_;
         }
+        std::reverse(path.begin(), path.end());
     }
     
-    std::reverse(path.begin(), path.end());
     return path;
 }

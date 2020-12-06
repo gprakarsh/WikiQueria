@@ -173,15 +173,27 @@ TEST_CASE("We are able to retrieve the node_id using the name of the vertex.", "
     REQUIRE(g.page_to_id.at("0") == 0);
 }
 
-TEST_CASE("BFS Shortest Path returns correct path if path exists", "[BFS]") {
+TEST_CASE("BFS Shortest Path returns correct path if path exists (cycle)", "[BFS]") {
     Graph g;insertBasicCycle(g, 0);
     Vertex v0(0, "0");
     Vertex v3(3, "3");
     auto path = g.getShortestPath(v0, v3);
-    REQUIRE(path.size() == 3);
     for (auto p : path) {
         std::cout << p.source_node_id_ << "->" << p.destination_node_id_ << '\n';
     }
+    REQUIRE(path.size() == 3);
+}
+
+TEST_CASE("BFS Shortest Path returns correct path if path exists (tree)", "[BFS]") {
+    Graph g;insertBasicTree(g, 0);
+    Vertex v0(0, "0");
+    Vertex v6(6, "0.2.2");
+    auto path = g.getShortestPath(v0, v6);
+    for (auto p : path) {
+        std::cout << p.source_node_id_ << "->" << p.destination_node_id_ << '\n';
+    }
+    REQUIRE(path.size() == 2);
+
 }
 
 TEST_CASE("BFS Shortest Path returns nothing if path does not exist", "[BFS]") {

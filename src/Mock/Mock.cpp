@@ -6,13 +6,13 @@
 // http://courses.ics.hawaii.edu/ReviewICS241/morea/trees/TreeTraversal-QA.pdf
 void insertBasicTree(Graph& g, size_t start) {
     std::string sep = ".";
-    Vertex v0 = Vertex(start, std::to_string(start));
-    Vertex v1 = Vertex(start+1, std::to_string(start) + sep + std::to_string(1));
-    Vertex v2 = Vertex(start+2, std::to_string(start) + sep + std::to_string(2));
-    Vertex v1_1 = Vertex(start+3, std::to_string(start) + sep + std::to_string(1) + sep + std::to_string(1));
-    Vertex v1_2 = Vertex(start+4, std::to_string(start) + sep + std::to_string(1) + sep + std::to_string(2));
-    Vertex v2_1 = Vertex(start+5, std::to_string(start) + sep + std::to_string(2) + sep + std::to_string(1));
-    Vertex v2_2 = Vertex(start+6, std::to_string(start) + sep + std::to_string(2) + sep + std::to_string(2));
+    Vertex v0 = Vertex(start, std::to_string(start)); // 0
+    Vertex v1 = Vertex(start+1, std::to_string(start) + sep + std::to_string(1)); // 0.1
+    Vertex v2 = Vertex(start+2, std::to_string(start) + sep + std::to_string(2)); // 0.2
+    Vertex v1_1 = Vertex(start+3, std::to_string(start) + sep + std::to_string(1) + sep + std::to_string(1)); // 0.1.1
+    Vertex v1_2 = Vertex(start+4, std::to_string(start) + sep + std::to_string(1) + sep + std::to_string(2)); // 0.1.2
+    Vertex v2_1 = Vertex(start+5, std::to_string(start) + sep + std::to_string(2) + sep + std::to_string(1)); // 0.2.1
+    Vertex v2_2 = Vertex(start+6, std::to_string(start) + sep + std::to_string(2) + sep + std::to_string(2)); // 0.2.2
     g.insertVertex(v0);
     g.insertVertex(v1);
     g.insertVertex(v2);
