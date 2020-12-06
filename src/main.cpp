@@ -9,63 +9,12 @@
 #include "Mock.h"
 #include "SCCGraph.h"
 
-
-void demo() {
-    Vertex v0 = Vertex(0, "0");
-    Vertex v1 = Vertex(1, "1");
-    Vertex v2 = Vertex(2, "2");
-    Vertex v3 = Vertex(3, "3");
-
-    Graph g;
-    insertBasicCycle(g, 0);
-    std::cout << "Cyclical structure\n";
-    g.displayGraph();
-
-    Graph treeGraph;
-    insertBasicTree(treeGraph, 0);
-    std::cout << "Treelike structure\n";
-    treeGraph.displayGraph();
-    std::cout << "BFS Traversal of cycle from root\n";
-    for (auto v : g.getBFS(Vertex(0, "0"))) {
-        std::cout << v << ' ';
-    }
-    std::cout << '\n';
-    std::cout << "BFS Traversal of tree from root='0':\n";
-
-    for (auto v : treeGraph.getBFS(Vertex(0, "0"))) {
-        std::cout << v << ", ";
-    }
-    std::cout << '\n';
-
-    std::cout << "BFS Traversal of tree from subroot='0.1':\n";
-
-    for (auto v : treeGraph.getBFS(Vertex(1, "0.1"))) {
-        std::cout << v << ", ";
-    }
-    std::cout << '\n';
-
-    std::cout << "Demonstration of BFS and obtaining predecessors.\n";
-    auto bfs = treeGraph.getBFS(Vertex(0, "0"));
-    for (auto it = bfs.begin(); it != bfs.end(); ++it) {
-        std::cout << *it; 
-        if(!it.arrivalEdge().isEmpty()){
-            std::cout<<", origin: " << it.arrivalEdge().source_node_id_ << '\n';
-        } else {
-            std::cout<<" (root)"<<std::endl;
-        }
-    }   
-    bfs = treeGraph.getBFS(Vertex(1, "1"));
-    auto p = treeGraph.getShortestPath(Vertex(0, "0"), Vertex(1, "1"));
-    auto q = g.getShortestPath(Vertex(3, "3"), Vertex(0, "0"));
-    auto nonexistent = treeGraph.getShortestPath(Vertex(1, "0.1"), Vertex(0, "0"));
-}
-
 int main(int argc, char* argv[]){
     ////////////Preprocessing//////////////
     if (argc == 1) {
-        demo();
+        std::cout << "Wikipedia Page Query Tool\n";
         std::cout << "===================\n";
-        std::cout << "Usage: ./finalproj VERTEXFILE EDGEFILE [-i|-x] EDGELIMIT" << '\n';
+        std::cout << "Usage: ./finalproj VERTEXFILE EDGEFILE [EDGELIMIT]" << '\n';
         std::cout << "-i : Launch interactively." << '\n';
         std::cout << "-x : Do not launch interactively and only load the graph (benchmarking)." << '\n';
         return 1;
@@ -82,11 +31,11 @@ int main(int argc, char* argv[]){
                 return 0;
         }
         //////////////////User-Interface/////////////////////////
-        else if (std::string(argv[3]) == "--interactive" || std::string(argv[3]) == "-i") {
+        else {
             std::cout<<"Started preprocessing"<<std::endl;
             size_t limit;
-            if (argc >= 5) 
-                limit = atoi(argv[4]);
+            if (argc >= 4) 
+                limit = atoi(argv[3]);
             else
                 limit = -1;
             Graph g = Graph(verticesFile, edgesFile, limit);

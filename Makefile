@@ -1,5 +1,6 @@
 # =================== SETTINGS ===================
-EXENAME = finalproj
+EXENAME := finalproj
+BENCHMARK_NAME := benchmark
 
 CXX			:=	clang++
 CXXFLAGS	:=	$(CS225) -std=c++1y -stdlib=libc++ -c -g -O0 -Wall -Wextra -pedantic -Iheaders
@@ -18,12 +19,15 @@ endef
 # $< = first dependency
 # $@ = target
 
-all : $(EXENAME)
+all : $(EXENAME) $(BENCHMARK_NAME)
 
 $(EXENAME): build/main.o build/Graph.o build/Vertex.o build/Edge.o build/BFS.o build/Mock.o build/SCCGraph.o build/FullBFS.o
-	$(LD) $^ $(LDFLAGS) -o $(EXENAME)
+	$(LD) $^ $(LDFLAGS) -o $@
 
-build/readFromFile.o: src/readFromFile.cpp headers/readFromFile.hpp
+$(BENCHMARK_NAME): build/benchmark-main.o build/Graph.o build/Vertex.o build/Edge.o build/BFS.o build/Mock.o build/SCCGraph.o build/FullBFS.o
+	$(LD) $^ $(LDFLAGS) -o $@
+
+build/benchmark-main.o: src/benchmark-main.cpp headers/Graph.h headers/Vertex.h headers/Edge.h headers/SCCGraph.h
 	$(make-build-dir)
 	$(CXX) $(CXXFLAGS) $< -o $@ 
 
@@ -87,7 +91,7 @@ build/tests-landmark.o: tests/tests-landmark.cpp $(ALL_HEADERS)
 	$(CXX) $(CXXFLAGS) $< -o $@
 
 clean:
-	rm -rf build/ $(EXENAME) test
+	rm -rf build/ $(EXENAME) $(BENCHMARK_NAME) test
 
 # =================== CREATE DATA ===================
 
