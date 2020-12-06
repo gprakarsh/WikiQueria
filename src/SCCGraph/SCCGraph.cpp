@@ -160,9 +160,17 @@ void SCCGraph::removeEdge(const Vertex& source,const Vertex& destination) {
     (void)source; (void)destination; not_supported();
 };
 
-bool SCCGraph::pathExists(const Vertex start, const Vertex end) {
+bool SCCGraph::pathExists(const Vertex& start, const Vertex& end) {
     size_t parent_start = rep_node_finder.at(start.node_id_);
     size_t parent_end = rep_node_finder.at(end.node_id_);
     if (parent_start == parent_end) return true;
     else return (getShortestPath(vertices.at(parent_start), vertices.at(parent_end)).size() > 0);
 };
+
+vector<Edge> SCCGraph::getShortestPathFast(const Vertex& start, const Vertex& end) {
+    vector<Edge> emptyPath;
+    if(pathExists(start, end)){
+        return getShortestPath(start, end);
+    };
+    return emptyPath;
+}

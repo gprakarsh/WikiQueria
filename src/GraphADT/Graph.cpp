@@ -270,6 +270,7 @@ vector<Edge> Graph::getShortestPath(const Vertex start, const Vertex end) {
         while (last != start.node_id_) {
             path.push_back(originEdge.at(last));
             last = originEdge.at(last).source_node_id_;
+            std::cout<<"hit"<<std::endl;
         }
         std::reverse(path.begin(), path.end());
     }

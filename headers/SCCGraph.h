@@ -11,10 +11,11 @@ class SCCGraph : public Graph {
         SCCGraph(Graph& g);
         void removeVertex(const Vertex& v);
         void removeEdge(const Vertex& source,const Vertex& destination);
-        bool pathExists(const Vertex start, const Vertex end);
+        bool pathExists(const Vertex& start, const Vertex& end);
         void loadSCCsAsGraph();
         void displayGraph();
         void displayRepNodes();
+        vector<Edge> getShortestPathFast(const Vertex& start, const Vertex& end);
     private:
         void not_supported();
         void SCCUtil(int u, int disc[], int low[], stack<int> *st, bool stackMember[]);

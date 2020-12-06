@@ -93,30 +93,56 @@ int main(int argc, char* argv[]){
             SCCGraph pGraph = SCCGraph(g);
             std::cout<<"Preprocessing successful"<<std::endl;
             bool exit = false;
-            std::cout<<"What would you like to do?"<<std::endl;
-            std::cout<<"1) See full graph"<<std::endl;
-            std::cout<<"2) Print SCCs"<<std::endl;
-            std::cout<<"3) Clear Screen"<<std::endl;
-            std::cout<<"4) Print BFS"<<'\n';
-            //Add more options here
-            std::cout<<"Type the corresponding number to the desired option or anything else to exit"<<std::endl;
-            int option;
-            std::cin>>option;
-            if(option == 1){
-                pGraph.displayGraph();
-            }else if(option == 2){
-                std::cout<<"Following are the Strongly Connected Components:"<<std::endl;
-                pGraph.displayRepNodes();
-                // exit = true;
-            }else if(option ==3){
-                system("clear");
-            } else if (option == 4) {
-                for (auto v : pGraph.getFullBFS(0)) {
-                    std::cout << v << ' ';
+            while(!exit){
+                std::cout<<"What would you like to do?"<<std::endl;
+                std::cout<<"1) See full graph"<<std::endl;
+                std::cout<<"2) Print SCCs"<<std::endl;
+                std::cout<<"3) Print Full BFS"<<std::endl;
+                std::cout<<"4) Find shortest path"<<std::endl;
+                std::cout<<"5) Clear Screen"<<std::endl;
+                //Add more options here
+                std::cout<<"Type the corresponding number to the desired option or anything else to exit"<<std::endl;
+                int option;
+                std::cin>>option;
+                if (option == 1){
+                    pGraph.original.displayGraph();
+                } else if (option == 2){
+                    std::cout<<"Following are the Strongly Connected Components:"<<std::endl;
+                    pGraph.displayRepNodes();
+                } else if (option == 3){
+                    for (auto v : pGraph.getFullBFS(0)) {
+                        std::cout << v << std::endl;
+                    }
+                } else if (option == 4){
+
+                    std::string start_page, end_page;
+
+                    std::cout << "Enter start page: ";
+                    std::getline(std::cin >> std::ws, start_page);
+
+                    std::cout << "Enter end page: ";
+                    std::getline(std::cin >> std::ws, end_page);
+
+                    std::cout << "Starting Page : " << start_page << "\n";
+                    std::cout << "End Page : " << end_page << "\n";
+                    
+                    Graph gr = pGraph.original;
+                    size_t sp_id = gr.page_to_id[start_page];
+                    size_t ep_id = gr.page_to_id[end_page];
+                    vector<Edge> shortestPathEdges = gr.getShortestPath(gr.vertices.at(sp_id), gr.vertices.at(ep_id));
+                    
+                    std::cout << "No. of edges in shortest path : " << shortestPathEdges.size() << std::endl;
+                    
+                    for(size_t i = 0; i < shortestPathEdges.size(); i++){
+                        std::string next_page = gr.vertices.at(shortestPathEdges[i].destination_node_id_).page_name_;
+                        std::cout << next_page << std::endl;
+                    }
+                    std::cout << gr.num_vertices << "\n";
+                } else if (option == 5) {
+                    system("clear");
+                } else {
+                    exit = true;
                 }
-            }
-            else{
-                exit = true;
             }
         }
     } 
