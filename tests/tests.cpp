@@ -245,3 +245,63 @@ TEST_CASE("getShortestPathFast returns the same result as getShortestPath if a p
     auto path = sG.getShortestPathFast(v3, v0);
     REQUIRE(path.size() == 0);
 }
+
+TEST_CASE("BFS Shortest Path queried by strings returns correct path if path exists", "[UI]") {
+    Graph g;
+    insertBasicCycle(g, 0);
+    std::string start = "0";
+    std::string end = "3";
+    auto path = g.getShortestPath(g.vertices.at(g.page_to_id.at(start)), g.vertices.at(g.page_to_id.at(end)));
+    for (auto p : path) {
+        std::cout << p.source_node_id_ << "->" << p.destination_node_id_ << '\n';
+    }
+    REQUIRE(path.size() == 3);
+}
+
+TEST_CASE("The graph can find string keys generated from a vertex file", "[UI]") {
+    Graph g("./tests/mock-data/scc-examples/scc-names-rand.csv", "./tests/mock-data/scc-examples/scc-edges-rand.txt");
+    for (auto pair : g.page_to_id) {
+        std::cout << '<' << pair.first << "> @ " << pair.second << '\n';
+    }
+    CHECK(g.page_to_id.size() != 0);
+    CHECK(g.page_to_id.find("Hequfegoho a") != g.page_to_id.end());
+    CHECK(g.page_to_id.find("Moxaz,yunobe") != g.page_to_id.end());
+    CHECK(g.page_to_id.find("Gitoxugesido") != g.page_to_id.end());
+    CHECK(g.page_to_id.find("Hasina,fefit") != g.page_to_id.end());
+    CHECK(g.page_to_id.find("Otoyahumirig") != g.page_to_id.end());
+}
+
+TEST_CASE("Querying an SCCGraph via strings works by reading from file", "[UI]") {
+    Graph g("./tests/mock-data/scc-examples/scc-names-rand.csv", "./tests/mock-data/scc-examples/scc-edges-rand.txt");
+    SCCGraph sIO(g);
+    std::string start = "Hequfegoho a";
+    std::string end = "Gitoxugesido";
+    auto path = g.getShortestPath(g.vertices.at(g.page_to_id.at(start)), g.vertices.at(g.page_to_id.at(end)));
+    for (auto p : path) {
+        std::cout << p.source_node_id_ << "->" << p.destination_node_id_ << '\n';
+    }
+    REQUIRE(path.size() > 0);
+}
+
+TEST_CASE("Querying an SCCGraph via size_t works by reading from file", "[UI]") {
+    Graph g("./tests/mock-data/scc-examples/scc-names-rand.csv", "./tests/mock-data/scc-examples/scc-edges-rand.txt");
+    size_t start = 0;
+    size_t end = 32;
+    auto path = g.getShortestPath(g.vertices.at(start), g.vertices.at(end));
+    for (auto p : path) {
+        std::cout << p.source_node_id_ << "->" << p.destination_node_id_ << '\n';
+    }
+    REQUIRE(path.size() > 0);
+}
+
+TEST_CASE("getShortestPath on the original via size_t works by reading from file", "[UI]") {
+    Graph g("./tests/mock-data/scc-examples/scc-names-rand.csv", "./tests/mock-data/scc-examples/scc-edges-rand.txt");
+    SCCGraph s(g);
+    size_t start = 0;
+    size_t end = 32;
+    auto path = s.original.getShortestPath(s.original.vertices.at(start), s.original.vertices.at(end));
+    for (auto p : path) {
+        std::cout << p.source_node_id_ << "->" << p.destination_node_id_ << '\n';
+    }
+    REQUIRE(path.size() > 0);
+}

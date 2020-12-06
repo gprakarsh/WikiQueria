@@ -7,7 +7,7 @@
 class SCCGraph : public Graph {
     public:
         Graph& original;
-        SCCGraph(const std::string & verticesFileName, const std::string & edgesFileName, size_t limit = -1);
+        // SCCGraph(const std::string & verticesFileName, const std::string & edgesFileName, size_t limit = -1);
         SCCGraph(Graph& g);
         void removeVertex(const Vertex& v);
         void removeEdge(const Vertex& source,const Vertex& destination);

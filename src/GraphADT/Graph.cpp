@@ -31,6 +31,7 @@ void Graph::createVertices(const std::string & verticesFileName){
     if(!verticesFile.is_open()) throw std::runtime_error("Could not open file");
 
     std::string line;
+    std::string trash;
     int vertexCount = 0;
     while(verticesFile.good()){
         std::getline(verticesFile, line);
@@ -39,7 +40,8 @@ void Graph::createVertices(const std::string & verticesFileName){
         std::string node_id_str;
         // if (lineCount % 20000 == 0) {cout << "."; cout.flush(); lineCount = 1;}
         std::getline(line_stream, node_id_str, ',');
-        std::getline (line_stream, page_name);
+        std::getline(line_stream, trash, '"');
+        std::getline(line_stream, page_name, '"');
         if (node_id_str[0] == '#' || node_id_str[0] == '"' || !node_id_str[0]) continue;
         size_t node_id = stoi(node_id_str);
         Vertex v(node_id, page_name);
@@ -77,6 +79,7 @@ void Graph::createEdges(const std::string & edgesFileName, size_t limit){
 };
 
 void Graph::insertVertex(Vertex v){
+    // std::cout << "Inserting " << v << "\n";
     adjacency_list[v] = unordered_map<Vertex, Edge, VertexHashFunction>();
     vertices.insert({v.node_id_, v});
     page_to_id.insert({v.page_name_, v.node_id_});

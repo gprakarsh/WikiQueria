@@ -81,7 +81,6 @@ void SCCGraph::SCCUtil(int u, int disc[], int low[], stack<int> *st, bool stackM
 };
 
 void SCCGraph::condense_graph_dfs(){
-    
     int i = 0;
     while(i <(int) rep_node_ids.size()){
         comp_adj_list[original.vertices.at(rep_node_ids[i])] = unordered_map<Vertex, Edge, VertexHashFunction>();
