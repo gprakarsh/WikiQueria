@@ -46,11 +46,13 @@ int main(int argc, char* argv[]){
                 std::cout << "What would you like to do?"<<std::endl;
                 std::cout << "1) See full graph"<<std::endl;
                 std::cout << "2) See compressed graph (compressed using SCCs)"<<std::endl;
-                std::cout << "3) Print SCCs"<<std::endl;
-                std::cout << "4) Print Full BFS"<<std::endl;
-                std::cout << "5) Find shortest path"<<std::endl;
-                std::cout << "6) Find shortest path through landmark"<<std::endl;
-                std::cout << "7) Clear Screen"<<std::endl;
+                std::cout << "3) See full graph image"<<std::endl;
+                std::cout << "4) See compressed graph image"<<std::endl;
+                std::cout << "5) Print SCCs"<<std::endl;
+                std::cout << "6) Print Full BFS"<<std::endl;
+                std::cout << "7) Find shortest path"<<std::endl;
+                std::cout << "8) Find shortest path through landmark"<<std::endl;
+                std::cout << "9) Clear Screen"<<std::endl;
                 //Add more options here
                 std::cout << "Type the corresponding number to the desired option or anything else to exit"<<std::endl;
                 int option;
@@ -60,13 +62,17 @@ int main(int argc, char* argv[]){
                 } else if (option == 2){
                     pGraph.displayGraph();
                 } else if (option == 3){
+                    pGraph.original.savePNG("full_graph");
+                } else if (option == 4){
+                    pGraph.savePNG("compressed_graph");
+                } else if (option == 5){
                     std::cout<<"Following are the Strongly Connected Components:"<<std::endl;
                     pGraph.displaySCCs();
-                } else if (option == 4){
+                } else if (option == 6){
                     for (auto v : pGraph.original.getFullBFS(0)) {
                         std::cout << v.page_name_ << std::endl;
                     }
-                } else if (option == 5){
+                } else if (option == 7){
 
                     std::string start_page, end_page;
 
@@ -94,7 +100,7 @@ int main(int argc, char* argv[]){
                             std::cout << next_page << std::endl;
                         }
                     }
-                } else if (option == 6){
+                } else if (option == 8){
 
                     std::string start_page, landmark_page, end_page;
 
@@ -128,7 +134,7 @@ int main(int argc, char* argv[]){
                         }
                     }
 
-                } else if (option == 7) {
+                } else if (option == 9) {
                     system("clear");
                 } else {
                     exit = true;

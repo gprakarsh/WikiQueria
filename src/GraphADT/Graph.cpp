@@ -11,6 +11,7 @@ using std::cout;
 using std::endl;
 using std::flush;
 using std::min;
+using std::string;
 
 
 Graph::Graph(){
@@ -234,4 +235,85 @@ vector<Edge> Graph::getLandmarkPath(const Vertex& source,const Vertex& destinati
     }
 
     return combined;
+}
+
+void Graph::savePNG(string title) const
+{
+    std::ofstream neatoFile;
+    string filename = "images/" + title + ".dot";
+    neatoFile.open(filename.c_str());
+
+    if (!neatoFile.good())
+        std::cerr << "\033[1;31m[Graph Error]\033[0m couldn't create " + filename + ".dot" << endl;
+
+    neatoFile
+        << "digraph G {\n";
+        // << "\toverlap=\"false\";\n"
+        // << "\tdpi=\"1300\";\n"
+        // << "\tsep=\"1.5\";\n"
+        // << "\tnode [fixedsize=\"true\", shape=\"circle\", fontsize=\"7.0\"];\n"
+        // << "\tedge [penwidth=\"1.5\", fontsize=\"7.0\"];\n";
+
+    // vector<Vertex> allv;
+    // for(auto v : vertices){
+    //     allv.push_back(v.second);
+    // }
+
+    // int xpos1 = 100;
+    // int xpos2 = 100;
+    // int xpos, ypos;
+    // for (auto it : allv) {
+    //     string current = it.page_name_;
+    //     neatoFile 
+    //         << "\t\"" 
+    //         << current
+    //         << "\"";
+    //     if (current[1] == '1') {
+    //         ypos = 100;
+    //         xpos = xpos1;
+    //         xpos1 += 100;
+    //     }
+    //     else {
+    //         ypos = 200;
+    //         xpos = xpos2;
+    //         xpos2 += 100;
+    //     }
+    //     neatoFile << "[pos=\""<< xpos << "," << ypos <<"\"]";
+    //     neatoFile << ";\n";
+    // }
+
+    // neatoFile << "\tedge [penwidth=\"1.5\", fontsize=\"7.0\"];\n";
+
+    for (auto it = adjacency_list.begin(); it != adjacency_list.end(); ++it) 
+    {
+        for (auto it2 = it->second.begin(); it2 != it->second.end(); ++it2) 
+        {
+            size_t vertex1Text = it->first.node_id_;
+            size_t vertex2Text = it2->first.node_id_;
+
+            // neatoFile << "\t\"" ;
+            neatoFile << vertex1Text;
+            neatoFile << " -> " ;
+            neatoFile << vertex2Text;
+            // neatoFile << "\"";
+            
+            neatoFile<< ";\n";
+        }
+    }
+
+    neatoFile << "}";
+    neatoFile.close();
+    string command = "dot -Tpng " + filename + " -o " + "images/" + title
+                     + ".png";
+    int result = system(command.c_str());
+
+
+    if (result == 0) {
+        cout << "Output graph saved as images/" << title << ".png" << endl;
+    } else {
+        cout << "Failed to generate visual output graph using `neato`. Install `graphviz` or `neato` to generate a visual graph." << endl;
+    }
+
+    string rmCommand = "rm -f " + filename + " 2> /dev/null";
+    system(rmCommand.c_str());
 }
