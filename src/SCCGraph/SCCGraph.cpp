@@ -194,3 +194,22 @@ vector<Edge> SCCGraph::getShortestPathFast(const Vertex& start, const Vertex& en
     };
     return emptyPath;
 }
+
+vector<Edge> SCCGraph::getLandmarkPathFast(const Vertex& source, const Vertex& destination, const Vertex& landmark) {
+    vector<Edge> source_landmark;
+    vector<Edge> landmark_destination;
+
+    vector<Edge> combined;
+
+    source_landmark = getShortestPathFast(source, landmark);
+    landmark_destination = getShortestPathFast(landmark, destination);
+
+    if(source_landmark.size() != 0 && landmark_destination.size() != 0){
+        combined.insert(combined.begin(),source_landmark.begin(),source_landmark.end());
+        combined.insert(combined.end(),landmark_destination.begin(),landmark_destination.end());
+    }
+    
+    return combined;
+}
+
+

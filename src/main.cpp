@@ -63,8 +63,8 @@ int main(int argc, char* argv[]){
                     std::cout<<"Following are the Strongly Connected Components:"<<std::endl;
                     pGraph.displaySCCs();
                 } else if (option == 4){
-                    for (auto v : pGraph.getFullBFS(0)) {
-                        std::cout << v << std::endl;
+                    for (auto v : pGraph.original.getFullBFS(0)) {
+                        std::cout << v.page_name_ << std::endl;
                     }
                 } else if (option == 5){
 
@@ -76,21 +76,24 @@ int main(int argc, char* argv[]){
                     std::cout << "Enter end page: ";
                     std::getline(std::cin >> std::ws, end_page);
 
-                    std::cout << "Starting Page : " << start_page << "\n";
-                    std::cout << "End Page : " << end_page << "\n";
+                    std::cout << "\n" << "Starting Page : " << start_page << "\n";
+                    std::cout << "End Page : " << end_page << "\n" << "\n";
 
                     Graph& gr = pGraph.original;
                     size_t sp_id = gr.page_to_id.at(start_page);
                     size_t ep_id = gr.page_to_id.at(end_page);
                     vector<Edge> shortestPathEdges = pGraph.getShortestPathFast(gr.vertices.at(sp_id), gr.vertices.at(ep_id));
 
-                    std::cout << "No. of edges in shortest path : " << shortestPathEdges.size() << std::endl;
-                    
-                    for(size_t i = 0; i < shortestPathEdges.size(); i++){
-                        std::string next_page = gr.vertices.at(shortestPathEdges[i].destination_node_id_).page_name_;
-                        std::cout << next_page << std::endl;
+                    if(shortestPathEdges.size() == 0){
+                        std::cout << "No suitable path found" << std::endl;
+                    } else {
+                        std::cout << "No. of edges in shortest path : " << shortestPathEdges.size() << std::endl;
+                        std::cout << "Links for path :" << std::endl;
+                        for(size_t i = 0; i < shortestPathEdges.size(); i++){
+                            std::string next_page = gr.vertices.at(shortestPathEdges[i].destination_node_id_).page_name_;
+                            std::cout << next_page << std::endl;
+                        }
                     }
-                    
                 } else if (option == 6){
 
                     std::string start_page, landmark_page, end_page;
@@ -112,13 +115,17 @@ int main(int argc, char* argv[]){
                     size_t sp_id = gr.page_to_id.at(start_page);
                     size_t lp_id = gr.page_to_id.at(landmark_page);
                     size_t ep_id = gr.page_to_id.at(end_page);
-                    vector<Edge> shortestPathEdges = pGraph.original.Landmarkpath(gr.vertices.at(sp_id), gr.vertices.at(ep_id), gr.vertices.at(lp_id));
+                    vector<Edge> shortestPathEdges = pGraph.getLandmarkPathFast(gr.vertices.at(sp_id), gr.vertices.at(ep_id), gr.vertices.at(lp_id));
 
-                    std::cout << "No. of edges in shortest path through Landmark: " << shortestPathEdges.size() << std::endl;
-                    
-                    for(size_t i = 0; i < shortestPathEdges.size(); i++){
-                        std::string next_page = gr.vertices.at(shortestPathEdges[i].destination_node_id_).page_name_;
-                        std::cout << next_page << std::endl;
+                    if(shortestPathEdges.size() == 0){
+                        std::cout << "No suitable path found" << std::endl;
+                    } else {    
+                        std::cout << "No. of edges in shortest path through Landmark: " << shortestPathEdges.size() << std::endl;
+                        std::cout << "Links for path :" << std::endl;
+                        for(size_t i = 0; i < shortestPathEdges.size(); i++){
+                            std::string next_page = gr.vertices.at(shortestPathEdges[i].destination_node_id_).page_name_;
+                            std::cout << next_page << std::endl;
+                        }
                     }
 
                 } else if (option == 7) {
