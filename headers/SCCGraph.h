@@ -15,7 +15,7 @@ class SCCGraph : public Graph {
         void loadSCCsAsGraph();
         void displayGraph();
         void displayRepNodes();
-        void displaySCCs();
+        void displaySCCs(std::ostream& os);
         vector<Edge> getShortestPathFast(const Vertex& start, const Vertex& end);
         vector<Edge> getLandmarkPathFast(const Vertex& source, const Vertex& destination, const Vertex& landmark);
     private:

@@ -34,8 +34,9 @@ int main(int argc, char* argv[]){
         else {
             std::cout<<"Started preprocessing"<<std::endl;
             size_t limit;
-            if (argc >= 4) 
-                limit = atoi(argv[3]);
+            if (argc >= 5) {
+                limit = atoi(argv[4]);
+            }                
             else
                 limit = -1;
             Graph g = Graph(verticesFile, edgesFile, limit);
@@ -53,6 +54,7 @@ int main(int argc, char* argv[]){
                 std::cout << "7) Find shortest path"<<std::endl;
                 std::cout << "8) Find shortest path through landmark"<<std::endl;
                 std::cout << "9) Clear Screen"<<std::endl;
+                std::cout << "10) Dump SCCs"<<std::endl;
                 //Add more options here
                 std::cout << "Type the corresponding number to the desired option or anything else to exit"<<std::endl;
                 int option;
@@ -67,7 +69,7 @@ int main(int argc, char* argv[]){
                     pGraph.savePNG("compressed_graph");
                 } else if (option == 5){
                     std::cout<<"Following are the Strongly Connected Components:"<<std::endl;
-                    pGraph.displaySCCs();
+                    pGraph.displaySCCs(std::cout);
                 } else if (option == 6){
                     for (auto v : pGraph.original.getFullBFS(0)) {
                         std::cout << v.page_name_ << std::endl;
@@ -136,6 +138,13 @@ int main(int argc, char* argv[]){
 
                 } else if (option == 9) {
                     system("clear");
+                } else if (option == 10) {
+                    std::ofstream sccout;
+                    std::string filename = "scc-outfile.txt";
+                    sccout.open(filename.c_str());
+                    pGraph.displaySCCs(sccout);
+                    sccout.close();
+                    std::cout << "SCCs dumped to scc-outfile.txt.\n";
                 } else {
                     exit = true;
                 }

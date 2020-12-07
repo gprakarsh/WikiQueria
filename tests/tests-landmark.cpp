@@ -24,7 +24,7 @@ TEST_CASE("To check if landmark path works or not", "[LandmarkPath]"){
     g.insertEdge(a,landmark);
     g.insertEdge(landmark,b);
 
-    vector<Edge> ans = g.Landmarkpath(a,b,landmark);
+    vector<Edge> ans = g.getLandmarkPath(a,b,landmark);
 
     REQUIRE( ans.empty() == false); //checking if our concatenation of the two vectors is working or not
     REQUIRE( ans[0].source_node_id_ == 0);

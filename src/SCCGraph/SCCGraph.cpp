@@ -3,6 +3,7 @@
 #include <iostream>
 #include <algorithm> 
 #include <map>
+#include <ostream>
 
 using std::cout;
 using std::endl;
@@ -150,7 +151,7 @@ void SCCGraph::displayRepNodes(){
     std::cout<<std::endl;
 };
 
-void SCCGraph::displaySCCs(){
+void SCCGraph::displaySCCs(std::ostream& os){
     map<int,vector<int>> SCCDisplay;
     for(int i = 0; i < rep_node_ids.size(); i++){
         SCCDisplay.insert({rep_node_ids[i],vector<int>()}); 
@@ -161,11 +162,11 @@ void SCCGraph::displaySCCs(){
         SCCDisplay.at(rep).push_back(node);
     }
     for(auto s : SCCDisplay){
-        std::cout << s.first << " : ";
+        os << s.first << "\t(" << s.second.size() << "):\t";
         for(auto node : s.second){
-            std::cout << node << " "; 
+            os << node << " "; 
         }
-        std::cout<<std::endl;
+        os <<std::endl;
     }
 };
 
