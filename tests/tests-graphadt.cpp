@@ -98,3 +98,19 @@ TEST_CASE("Verify that removeVertex function work as expected.", "[GraphADT]"){
     REQUIRE(g.vertexExists(v0) == false);
     REQUIRE(g.num_edges == 2);              // function should remove all the vertex's Edges
 }
+
+TEST_CASE("To check if landmark path works or not", "[LandmarkPath]"){
+    Vertex a(0, "0");
+
+    Vertex landmark (1, "1");
+
+    Vertex b(2,"2");
+
+    Graph g;
+
+    vector<Edge> ans = g.Landmarkpath(a,b,landmark);
+
+    REQUIRE( ans.empty() == false); //checking if our concatenation of the two vectors is working or not
+
+}
+

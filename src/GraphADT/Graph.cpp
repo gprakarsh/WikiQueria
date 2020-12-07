@@ -278,3 +278,19 @@ vector<Edge> Graph::getShortestPath(const Vertex start, const Vertex end) {
     
     return path;
 }
+
+vector<Edge> Graph::Landmarkpath(Vertex& source, Vertex& destination, Vertex& Landmark){
+    vector<Edge> source_landmark;
+    vector<Edge> landmark_destination;
+
+    vector<Edge> combined;
+
+    source_landmark = getShortestPath(source, Landmark);
+    landmark_destination = getShortestPath(Landmark, destination);
+
+    combined.insert(combined.begin(),source_landmark.begin(),source_landmark.end());
+    combined.insert(combined.end(),landmark_destination.begin(),landmark_destination.end());
+
+    return combined;
+
+}
