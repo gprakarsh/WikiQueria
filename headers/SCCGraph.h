@@ -15,7 +15,9 @@ class SCCGraph : public Graph {
         void loadSCCsAsGraph();
         void displayGraph();
         void displayRepNodes();
+        void displaySCCs();
         vector<Edge> getShortestPathFast(const Vertex& start, const Vertex& end);
+        vector<Edge> getLandmarkPathFast(const Vertex& source, const Vertex& destination, const Vertex& landmark);
     private:
         void not_supported();
         void SCCUtil(int u, int disc[], int low[], stack<int> *st, bool stackMember[]);

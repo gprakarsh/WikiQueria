@@ -40,6 +40,7 @@ class Graph{
     FullBFS getFullBFS(const Vertex& v);
     FullBFS getFullBFS(size_t id);
     virtual void displayGraph();
+    vector<Edge> getLandmarkPath(const Vertex& source,const Vertex& destination,const Vertex& landmark);
     size_t num_vertices;
     size_t num_edges;
     unordered_map<size_t, Vertex> vertices;

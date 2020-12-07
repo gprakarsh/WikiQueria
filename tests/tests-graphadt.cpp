@@ -98,3 +98,5 @@ TEST_CASE("Verify that removeVertex function work as expected.", "[GraphADT]"){
     REQUIRE(g.vertexExists(v0) == false);
     REQUIRE(g.num_edges == 2);              // function should remove all the vertex's Edges
 }
+
+
