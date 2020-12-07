@@ -15,6 +15,7 @@ class SCCGraph : public Graph {
         void loadSCCsAsGraph();
         void displayGraph();
         void displayRepNodes();
+        void displaySCCs();
         vector<Edge> getShortestPathFast(const Vertex& start, const Vertex& end);
     private:
         void not_supported();

@@ -2,10 +2,12 @@
 
 #include <iostream>
 #include <algorithm> 
+#include <map>
 
 using std::cout;
 using std::endl;
 using std::min;
+using std::map;
 
 #define UNVISITED -1
 
@@ -137,7 +139,7 @@ void SCCGraph::loadSCCsAsGraph() {
 
 void SCCGraph::displayGraph(){
     cout<< "Number of SCCs : "<<rep_node_ids.size()<<endl;
-    cout<< "Number of SCC Edges : "<<num_SCC_edges<<endl;
+    // cout<< "Number of SCC Edges : "<<num_SCC_edges<<endl;
     Graph::displayGraph();
 }
 
@@ -146,6 +148,25 @@ void SCCGraph::displayRepNodes(){
         cout<< i << " ";
     }
     std::cout<<std::endl;
+};
+
+void SCCGraph::displaySCCs(){
+    map<int,vector<int>> SCCDisplay;
+    for(int i = 0; i < rep_node_ids.size(); i++){
+        SCCDisplay.insert({rep_node_ids[i],vector<int>()}); 
+    }
+    for(auto r : rep_node_finder){
+        int rep = r.second;
+        int node = r.first;
+        SCCDisplay.at(rep).push_back(node);
+    }
+    for(auto s : SCCDisplay){
+        std::cout << s.first << " : ";
+        for(auto node : s.second){
+            std::cout << node << " "; 
+        }
+        std::cout<<std::endl;
+    }
 };
 
 void SCCGraph::not_supported(){
