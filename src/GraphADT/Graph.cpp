@@ -291,11 +291,9 @@ void Graph::savePNG(string title) const
             size_t vertex1Text = it->first.node_id_;
             size_t vertex2Text = it2->first.node_id_;
 
-            // neatoFile << "\t\"" ;
             neatoFile << vertex1Text;
             neatoFile << " -> " ;
             neatoFile << vertex2Text;
-            // neatoFile << "\"";
             
             neatoFile<< ";\n";
         }
@@ -306,7 +304,6 @@ void Graph::savePNG(string title) const
     string command = "dot -Tpng " + filename + " -o " + "images/" + title
                      + ".png";
     int result = system(command.c_str());
-
 
     if (result == 0) {
         cout << "Output graph saved as images/" << title << ".png" << endl;
