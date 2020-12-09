@@ -8,6 +8,7 @@
 #include "FullBFS.h"
 #include "Mock.h"
 #include "SCCGraph.h"
+#include "ArgumentParser.h"
 
 void demo() {
     Vertex v0 = Vertex(0, "0");
@@ -61,91 +62,33 @@ void demo() {
 
 int main(int argc, char* argv[]){
     ////////////Preprocessing//////////////
-    if (argc == 1) {
+    ArgumentParser parser = ArgumentParser("benchmark");
+    parser.addFlag("-i", "Launch interactively");
+    parser.addFlag("-x", "Do not launch interactively and only load the graph (benchmarking)");
+    parser.addOption("-c", "EDGES", "Specify the number of edges to load");
+    if (argc < 2) {
         demo();
         std::cout << "Wikipedia Page Query Benchmark Tool\n";
         std::cout << "===================\n";
-        std::cout << "Usage: ./finalproj VERTEXFILE EDGEFILE [-i|-x] EDGELIMIT" << '\n';
-        std::cout << "-i : Launch interactively." << '\n';
-        std::cout << "-x : Do not launch interactively and only load the graph (benchmarking)." << '\n';
+        parser.display();
         return 1;
     }
-    ////////////Preprocessing//////////////
-    std::string verticesFile = argv[1];
-    std::string edgesFile = argv[2];
+    parser.processArgs(argc, argv);
+    size_t limit;
+    if (parser.getOption("-c") != "") {
+        limit = stoi(parser.getOption("-c"));
+    }
+    else limit = -1;
 
-    if (argc >= 4){
-        if (std::string(argv[3]) == "-x") {
-                std::cout << "Benchmarking only.\n";
-                Graph g = Graph(verticesFile, edgesFile, atoi(argv[4]));
-                SCCGraph pGraph = SCCGraph(g);
-                return 0;
-        }
-        //////////////////User-Interface/////////////////////////
-        else if (std::string(argv[3]) == "--interactive" || std::string(argv[3]) == "-i") {
-            std::cout<<"Started preprocessing"<<std::endl;
-            size_t limit;
-            if (argc >= 5) 
-                limit = atoi(argv[4]);
-            else
-                limit = -1;
-            Graph g = Graph(verticesFile, edgesFile, limit);
-            SCCGraph pGraph = SCCGraph(g);
-            std::cout<<"Preprocessing successful"<<std::endl;
-            bool exit = false;
-            while(!exit){
-                std::cout << "What would you like to do?"<<std::endl;
-                std::cout << "1) See full graph"<<std::endl;
-                std::cout << "2) Print SCCs"<<std::endl;
-                std::cout << "3) Print Full BFS"<<std::endl;
-                std::cout << "4) Find shortest path"<<std::endl;
-                std::cout << "5) Clear Screen"<<std::endl;
-                //Add more options here
-                std::cout << "Type the corresponding number to the desired option or anything else to exit"<<std::endl;
-                int option;
-                std::cin >> option;
-                if (option == 1){
-                    pGraph.original.displayGraph();
-                } else if (option == 2){
-                    std::cout<<"Following are the Strongly Connected Components:"<<std::endl;
-                    pGraph.displayRepNodes();
-                } else if (option == 3){
-                    for (auto v : pGraph.getFullBFS(0)) {
-                        std::cout << v << std::endl;
-                    }
-                } else if (option == 4){
+    std::string verticesFile = parser.getVertexFile();
+    std::string edgesFile = parser.getEdgeFile();
 
-                    std::string start_page, end_page;
-
-                    std::cout << "Enter start page: ";
-                    std::getline(std::cin >> std::ws, start_page);
-
-                    std::cout << "Enter end page: ";
-                    std::getline(std::cin >> std::ws, end_page);
-
-                    std::cout << "Starting Page : " << start_page << "\n";
-                    std::cout << "End Page : " << end_page << "\n";
-
-                    Graph gr = pGraph.original;
-                    size_t sp_id = gr.page_to_id.at(start_page);
-                    size_t ep_id = gr.page_to_id.at(end_page);
-                    vector<Edge> shortestPathEdges = pGraph.getShortestPathFast(gr.vertices.at(sp_id), gr.vertices.at(ep_id));
-
-                    std::cout << "No. of edges in shortest path : " << shortestPathEdges.size() << std::endl;
-                    
-                    for(size_t i = 0; i < shortestPathEdges.size(); i++){
-                        std::string next_page = gr.vertices.at(shortestPathEdges[i].destination_node_id_).page_name_;
-                        std::cout << next_page << std::endl;
-                    }
-                    
-                } else if (option == 5) {
-                    system("clear");
-                } else {
-                    exit = true;
-                }
-            }
-        }
-    } 
+    if (parser.getFlag("-x")) {
+        std::cout << "Benchmarking only.\n";
+        Graph g = Graph(verticesFile, edgesFile, limit);
+        SCCGraph pGraph = SCCGraph(g);
+        return 0;
+    }
     //////////////////////////////////////
 
     return 0;

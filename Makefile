@@ -5,8 +5,8 @@ BENCHMARK_NAME := benchmark
 CXX			:=	clang++
 CXXFLAGS	:=	$(CS225) -std=c++1y -stdlib=libc++ -c -g -O0 -Wall -Wextra -pedantic -Iheaders
 LD			:=	clang++
-LDFLAGS		:=	-std=c++1y -stdlib=libc++ -lc++abi -lm -Iheaders
-ALL_HEADERS	:=	headers/BFS.h headers/Edge.h headers/FullBFS.h headers/Graph.h headers/Mock.h headers/SCCGraph.h headers/Vertex.h
+LDFLAGS		:=	-std=c++1y -stdlib=libc++ -lc++abi -lm -Iheaders -lboost_program_options
+ALL_HEADERS	:=	headers/BFS.h headers/Edge.h headers/FullBFS.h headers/Graph.h headers/Mock.h headers/SCCGraph.h headers/Vertex.h headers/ArgumentParser.h
 #----------------------------------------------
 
 define make-build-dir
@@ -21,10 +21,10 @@ endef
 
 all : $(EXENAME) $(BENCHMARK_NAME)
 
-$(EXENAME): build/main.o build/Graph.o build/Vertex.o build/Edge.o build/BFS.o build/Mock.o build/SCCGraph.o build/FullBFS.o
+$(EXENAME): build/main.o build/Graph.o build/Vertex.o build/Edge.o build/BFS.o build/Mock.o build/SCCGraph.o build/FullBFS.o build/ArgumentParser.o
 	$(LD) $^ $(LDFLAGS) -o $@
 
-$(BENCHMARK_NAME): build/benchmark-main.o build/Graph.o build/Vertex.o build/Edge.o build/BFS.o build/Mock.o build/SCCGraph.o build/FullBFS.o
+$(BENCHMARK_NAME): build/benchmark-main.o build/Graph.o build/Vertex.o build/Edge.o build/BFS.o build/Mock.o build/SCCGraph.o build/FullBFS.o build/ArgumentParser.o
 	$(LD) $^ $(LDFLAGS) -o $@
 
 build/benchmark-main.o: src/benchmark-main.cpp headers/Graph.h headers/Vertex.h headers/Edge.h headers/SCCGraph.h
@@ -55,6 +55,10 @@ build/Mock.o: src/Mock/Mock.cpp headers/Mock.h
 	$(make-build-dir)
 	$(CXX) $(CXXFLAGS) $< -o $@
 
+build/ArgumentParser.o: src/ArgumentParser.cpp headers/ArgumentParser.h
+	$(make-build-dir)
+	$(CXX) $(CXXFLAGS) $< -o $@
+
 build/BFS.o: src/BFS/BFS.cpp headers/Graph.h headers/Vertex.h headers/Edge.h headers/BFS.h
 	$(make-build-dir)
 	$(CXX) $(CXXFLAGS) $< -o $@
@@ -67,7 +71,7 @@ build/catch.o: tests/catch.cpp tests/catch.hpp
 	$(make-build-dir)
 	$(CXX) $(CXXFLAGS) $< -o $@
 
-test: build/tests-misc.o build/tests-bfs.o build/tests-graphadt.o build/tests-scc.o build/tests-landmark.o build/catch.o build/Vertex.o build/Graph.o build/Edge.o build/BFS.o build/Mock.o build/SCCGraph.o build/FullBFS.o
+test: build/tests-misc.o build/tests-bfs.o build/tests-graphadt.o build/tests-scc.o build/tests-landmark.o build/catch.o build/Vertex.o build/Graph.o build/Edge.o build/BFS.o build/Mock.o build/SCCGraph.o build/FullBFS.o build/ArgumentParser.o
 	$(LD) $^ $(LDFLAGS) -o test
 
 build/tests-misc.o: tests/tests-misc.cpp $(ALL_HEADERS)
