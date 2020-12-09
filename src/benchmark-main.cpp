@@ -67,21 +67,22 @@ int main(int argc, char* argv[]){
     ////////////Preprocessing//////////////
     ArgumentParser parser = ArgumentParser("benchmark");
     parser.addFlag("--bfs", "Set benchmarking to BFS (sweeps: number of BFS steps)");
+    parser.addFlag("--scc", "Set benchmarking to SCC (sweeps: number of edges in original graph, ignores -e)");
     parser.addOption("-e", "EDGES", "Specify the number of edges to load");
     parser.addOption("-m", "SAMPLES", "Specify the number of samples to run");
-    parser.addFlag("-s", "Enable sweeping of values on certain fields");
     parser.addOption("--step", "STEP_SIZE", "(sweeping) Specify the step of a sweep");
     parser.addOption("--from", "STEP_START", "(sweeping) Specify the number of samples to run");
     parser.addOption("--count", "STEP_COUNT", "(sweeping) Number of sweeping steps");
-    if (argc < 2) {
+    if (argc < 2 || !parser.processArgs(argc, argv)) {
         demo();
-        std::cout << "Wikipedia Page Query Benchmark Tool\n";
-        std::cout << "I output CSVs to stderr! Redirect my output with 2> in the shell to extract it.\n";
+        std::cout << "Wikipedia Page Link Graph Runtime Benchmark Tool\n";
+        std::cout << "Note: I output CSVs to stderr! Redirect my output with 2> in the shell to extract it.\n";
         std::cout << "===================\n";
         parser.display();
+        std::cout << "===================\n";
+        std::cout << "Note: If you want to benchmark, you have to specify --step, --from, and --count. See the README for example usage.\n";
         return 1;
     }
-    if (!parser.processArgs(argc, argv)) return 1;
 
     size_t limit = -1;
     if (!parser.getOption("-e").empty()) {
@@ -96,12 +97,12 @@ int main(int argc, char* argv[]){
         samples = stoi(parser.getOption("-m"));
     }
     std::cout << "Number of samples: " << samples << '\n';
-    Graph g = Graph(verticesFile, edgesFile, limit);
     typedef std::chrono::high_resolution_clock myClock;
     typedef std::chrono::duration<double, std::milli> dsec;
 
     double avg = 0;
     if (parser.getFlag("--bfs")) {
+        Graph g = Graph(verticesFile, edgesFile, limit);
         int num_vertices = stoi(parser.getOption("--from"));
         int increment = stoi(parser.getOption("--step"));
         int entries = stoi(parser.getOption("--count"));
@@ -124,7 +125,26 @@ int main(int argc, char* argv[]){
             std::cerr << num_vertices << ',' << avg << '\n';
             num_vertices += increment;
         }
-        
+    } else if (parser.getFlag("--scc")) {
+        int num_edges = stoi(parser.getOption("--from"));
+        int increment = stoi(parser.getOption("--step"));
+        int entries = stoi(parser.getOption("--count"));
+        for (int run = 0; run < entries; run++) {
+            Graph g = Graph(verticesFile, edgesFile, num_edges);
+            for (int i = 0; i < samples; i++) {
+                auto t0 = myClock::now();
+                /* Do timeable action here*/
+                SCCGraph s = SCCGraph(g);
+                /* End timeable action */
+                auto t1 = myClock::now();
+                dsec elapsed = t1 - t0;
+                avg += elapsed.count();
+            }
+            avg = avg / samples;
+            std::cout << "SCC: " << avg << " milliseconds\n";
+            std::cerr << num_edges << ',' << avg << '\n';
+            num_edges += increment;
+        }
     }
     return 0;
 };
