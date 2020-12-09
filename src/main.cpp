@@ -39,8 +39,8 @@ int main(int argc, char* argv[]){
             }                
             else
                 limit = -1;
-            Graph g = Graph(verticesFile, edgesFile, limit);
-            SCCGraph pGraph = SCCGraph(g);
+            Graph g(verticesFile, edgesFile, limit);
+            SCCGraph pGraph(g);
             std::cout<<"Preprocessing successful"<<std::endl;
             bool exit = false;
             while(!exit){
