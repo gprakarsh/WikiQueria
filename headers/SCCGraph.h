@@ -7,10 +7,7 @@
 class SCCGraph : public Graph {
     public:
         Graph& original;
-        // SCCGraph(const std::string & verticesFileName, const std::string & edgesFileName, size_t limit = -1);
         SCCGraph(Graph& g);
-        void removeVertex(const Vertex& v);
-        void removeEdge(const Vertex& source,const Vertex& destination);
         bool pathExists(const Vertex& start, const Vertex& end);
         void loadSCCsAsGraph();
         void displayGraph();
@@ -18,6 +15,9 @@ class SCCGraph : public Graph {
         void displaySCCs(std::ostream& os);
         vector<Edge> getShortestPathFast(const Vertex& start, const Vertex& end);
         vector<Edge> getLandmarkPathFast(const Vertex& source, const Vertex& destination, const Vertex& landmark);
+        // Unsupported functions 
+        void removeVertex(const Vertex& v);
+        void removeEdge(const Vertex& source,const Vertex& destination);
     private:
         void not_supported();
         void SCCUtil(int u, int disc[], int low[], stack<int> *st, bool stackMember[]);

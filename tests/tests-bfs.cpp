@@ -83,12 +83,13 @@ TEST_CASE("Making sure the full (disconnected) BFS works, three disjoint cycles 
     Graph g;insertBasicCycle(g, 0);
     insertBasicCycle(g, 4);
     insertBasicCycle(g, 8);
+    insertBasicCycle(g, 17);
     Vertex v0(0, "0");
     int count{};
     for (auto v : g.getFullBFS(v0)) {
         count++;
     }
-    REQUIRE(count == 12);
+    REQUIRE(count == 16);
 }
 
 TEST_CASE("BFS Shortest Path returns correct path if path exists (cycle)", "[BFS]") {

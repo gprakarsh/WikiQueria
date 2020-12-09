@@ -5,7 +5,7 @@ BENCHMARK_NAME := benchmark
 CXX			:=	clang++
 CXXFLAGS	:=	$(CS225) -std=c++1y -stdlib=libc++ -c -g -O0 -Wall -Wextra -pedantic -Iheaders
 LD			:=	clang++
-LDFLAGS		:=	-std=c++1y -stdlib=libc++ -lc++abi -lm -Iheaders -lboost_program_options
+LDFLAGS		:=	-std=c++1y -stdlib=libc++ -lc++abi -lm -Iheaders
 ALL_HEADERS	:=	headers/BFS.h headers/Edge.h headers/FullBFS.h headers/Graph.h headers/Mock.h headers/SCCGraph.h headers/Vertex.h headers/ArgumentParser.h
 #----------------------------------------------
 

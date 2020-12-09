@@ -19,8 +19,6 @@ public:
     public:
         FullIterator(FullBFS& traversal, bool finished);
         FullIterator& operator++();
-        // bool operator!=(const FullIterator& other) const;
-        // bool visited(const Vertex& v) const;
     };
     virtual FullIterator begin();
     virtual FullIterator end();

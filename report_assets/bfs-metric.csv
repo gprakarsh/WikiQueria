@@ -1,0 +1,16 @@
+# Command: ./benchmark -s -m 10 -e 20000 --bfs --from 1600 --step 200 --count 12 ./data/enwiki-2013-names.csv ./data/enwiki-2013.txt 2>bfs-metric.csv
+# Number of samples: 10
+# Vertices Loaded: 4206784
+# Edges Loaded: 20001
+1600,201.796
+1800,274.022
+2000,340.041
+2200,411.988
+2400,491.849
+2600,577.095
+2800,668.573
+3000,766.741
+3200,871.637
+3400,984.062
+3600,1099.8
+3800,1225.74

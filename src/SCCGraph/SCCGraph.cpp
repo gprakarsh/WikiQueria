@@ -153,7 +153,7 @@ void SCCGraph::displayRepNodes(){
 
 void SCCGraph::displaySCCs(std::ostream& os){
     map<int,vector<int>> SCCDisplay;
-    for(int i = 0; i < rep_node_ids.size(); i++){
+    for(size_t i = 0; i < rep_node_ids.size(); i++){
         SCCDisplay.insert({rep_node_ids[i],vector<int>()}); 
     }
     for(auto r : rep_node_finder){

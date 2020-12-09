@@ -1,5 +1,6 @@
 #include <iostream>
 #include <stdlib.h>
+#include <chrono>
 
 #include "Vertex.h"
 #include "Edge.h"
@@ -9,6 +10,8 @@
 #include "Mock.h"
 #include "SCCGraph.h"
 #include "ArgumentParser.h"
+
+using myclock = std::chrono::high_resolution_clock;
 
 void demo() {
     Vertex v0 = Vertex(0, "0");
@@ -63,33 +66,65 @@ void demo() {
 int main(int argc, char* argv[]){
     ////////////Preprocessing//////////////
     ArgumentParser parser = ArgumentParser("benchmark");
-    parser.addFlag("-i", "Launch interactively");
-    parser.addFlag("-x", "Do not launch interactively and only load the graph (benchmarking)");
-    parser.addOption("-c", "EDGES", "Specify the number of edges to load");
+    parser.addFlag("--bfs", "Set benchmarking to BFS (sweeps: number of BFS steps)");
+    parser.addOption("-e", "EDGES", "Specify the number of edges to load");
+    parser.addOption("-m", "SAMPLES", "Specify the number of samples to run");
+    parser.addFlag("-s", "Enable sweeping of values on certain fields");
+    parser.addOption("--step", "STEP_SIZE", "(sweeping) Specify the step of a sweep");
+    parser.addOption("--from", "STEP_START", "(sweeping) Specify the number of samples to run");
+    parser.addOption("--count", "STEP_COUNT", "(sweeping) Number of sweeping steps");
     if (argc < 2) {
         demo();
         std::cout << "Wikipedia Page Query Benchmark Tool\n";
+        std::cout << "I output CSVs to stderr! Redirect my output with 2> in the shell to extract it.\n";
         std::cout << "===================\n";
         parser.display();
         return 1;
     }
-    parser.processArgs(argc, argv);
-    size_t limit;
-    if (parser.getOption("-c") != "") {
-        limit = stoi(parser.getOption("-c"));
+    if (!parser.processArgs(argc, argv)) return 1;
+
+    size_t limit = -1;
+    if (!parser.getOption("-e").empty()) {
+        limit = stoi(parser.getOption("-e"));
     }
-    else limit = -1;
 
     std::string verticesFile = parser.getVertexFile();
     std::string edgesFile = parser.getEdgeFile();
 
-    if (parser.getFlag("-x")) {
-        std::cout << "Benchmarking only.\n";
-        Graph g = Graph(verticesFile, edgesFile, limit);
-        SCCGraph pGraph = SCCGraph(g);
-        return 0;
+    int samples = 10;
+    if (!parser.getOption("-m").empty()) {
+        samples = stoi(parser.getOption("-m"));
     }
-    //////////////////////////////////////
+    std::cout << "Number of samples: " << samples << '\n';
+    Graph g = Graph(verticesFile, edgesFile, limit);
+    typedef std::chrono::high_resolution_clock myClock;
+    typedef std::chrono::duration<double, std::milli> dsec;
 
+    double avg = 0;
+    if (parser.getFlag("--bfs")) {
+        int num_vertices = stoi(parser.getOption("--from"));
+        int increment = stoi(parser.getOption("--step"));
+        int entries = stoi(parser.getOption("--count"));
+        for (int run = 0; run < entries; run++) {
+            for (int i = 0; i < samples; i++) {
+                FullBFS bfs = g.getFullBFS(0);
+                auto t0 = myClock::now();
+                int count = 0;
+                // for (auto it = bfs.begin(); it != bfs.end(); ++it) {
+                for (auto it = bfs.begin(); it != bfs.end(); ++it) {
+                    count++;
+                    if (count == num_vertices) break;
+                }
+                auto t1 = myClock::now();
+                dsec elapsed = t1 - t0;
+                avg += elapsed.count();
+            }
+            avg = avg / samples;
+            std::cout << "BFS: " << avg << " milliseconds\n";
+            std::cerr << num_vertices << ',' << avg << '\n';
+            num_vertices += increment;
+        }
+        
+    }
     return 0;
 };

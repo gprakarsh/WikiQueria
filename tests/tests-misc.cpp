@@ -9,6 +9,7 @@
 #include "FullBFS.h"
 #include "SCCGraph.h"
 #include "Mock.h"
+#include "ArgumentParser.h"
 
 #include "catch.hpp"
 
