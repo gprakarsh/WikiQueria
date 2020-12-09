@@ -2,6 +2,7 @@
 # Number of samples: 10
 # Vertices Loaded: 4206784
 # Edges Loaded: 20001
+# Number of steps taken in BFS, number of milliseconds
 1600,201.796
 1800,274.022
 2000,340.041
