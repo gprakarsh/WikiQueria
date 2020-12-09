@@ -1,6 +1,6 @@
 # Development
 
-## Week 1 (Up to Nov. 19th)
+## Week 1 (Up to Nov. 29th)
 
 In the first week, we established our goals to work on the BFS traversal and the A* Search, and Landmark Path algorithms.
 We all met several times over break, and discussed various aspects of the project, including the project structure, the underlying data structure for the graph, and the desired API of the data structure.
