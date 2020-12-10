@@ -5,6 +5,8 @@ Final Project
 
 We assume that you are running on EWS for all of these commands.
 
+Throughout, we will refer to Strongly Connected Components as SCCs.
+
 ## Step 1: Setting up datasets
 
 ### Original Dataset
@@ -66,7 +68,7 @@ Then, run `make all` to build all binaries:
 
 ## `finalproj`
 
-Binary to launch interactive tool for graph processing.
+Binary to launch interactive tool for graph processing. Please use this for grading.
 
 Invocation:
 
@@ -76,12 +78,12 @@ Invocation:
 
 The `-e` flag is optional. If specified, it will limit the number of loaded edges from the original file. Otherwise, no limit is assumed.
 
-If you are loading the original dataset, we recommend you specify this, since the original dataset has `101311614` edges. 
+If you are loading the original dataset, we recommend you specify this, since the original dataset has about 100 million edges. On EWS, we experienced segfaults at 1.7 million edges.
 
-TODO: note the maximum number of edges loaded before SCCGraph caused a segfault.
-
-TODO: Explain which menu would be most useful in grading correctness of algorithms
-
+Useful menu options for checking correctness:
+* Validating Full BFS: Option `6`.
+* Validating SCC Calculation: Option `5`
+* Validating Landmark Path: Option `8`
 
 ## `test`
 
@@ -152,7 +154,7 @@ pip3 install --user networkx
 ```
 ## Usage
 
-After you do this, simply invoke the python script by running it in this manner:
+After you finish installing, simply invoke the script by running it in this manner:
 
 ```
 python3 ./make-mock.py OUTNAMES OUTEDGES OUTSCCFILE VERTEXCOUNT CONNECTEDNESS
