@@ -15,6 +15,7 @@ int main(int argc, char* argv[]){
     ArgumentParser parser = ArgumentParser("finalproj");
     parser.addOption("-e", "EDGES", "Specify the number of edges to load");
 
+    // Parse arguments
     if (argc < 2 || !parser.processArgs(argc, argv)) {
         std::cout << "Wikipedia Page Link Graph Interactive Tool\n";
         std::cout << "===================\n";
@@ -30,6 +31,8 @@ int main(int argc, char* argv[]){
     if (!parser.getOption("-e").empty()) {
         limit = stoi(parser.getOption("-e"));
     }
+
+    // Generate graphs
     Graph g(verticesFile, edgesFile, limit);
     SCCGraph pGraph(g);
     std::cout<<"Preprocessing successful"<<std::endl;
@@ -85,10 +88,10 @@ int main(int argc, char* argv[]){
                 std::cout << "No suitable path found" << std::endl;
             } else {
                 std::cout << "No. of edges in shortest path : " << shortestPathEdges.size() << std::endl;
-                std::cout << "Links for path :" << std::endl;
+                std::cout << "Starting at \"" << start_page << "\", click these links:" << std::endl;
                 for(size_t i = 0; i < shortestPathEdges.size(); i++){
                     std::string next_page = gr.vertices.at(shortestPathEdges[i].destination_node_id_).page_name_;
-                    std::cout << next_page << std::endl;
+                    std::cout << "  " << next_page << std::endl;
                 } 
             }
          }else if (option == 8){
@@ -112,10 +115,10 @@ int main(int argc, char* argv[]){
                     std::cout << "No suitable path found" << std::endl;
                 } else {    
                     std::cout << "No. of edges in shortest path through Landmark: " << shortestPathEdges.size() << std::endl;
-                    std::cout << "Links for path :" << std::endl;
+                    std::cout << "Starting at \"" << start_page << "\", click these links:" << std::endl;
                     for(size_t i = 0; i < shortestPathEdges.size(); i++){
                         std::string next_page = gr.vertices.at(shortestPathEdges[i].destination_node_id_).page_name_;
-                        std::cout << next_page << std::endl;
+                        std::cout << "  " << next_page << std::endl;
                     }
                 }
             } else if (option == 9) {
