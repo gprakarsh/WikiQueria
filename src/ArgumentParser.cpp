@@ -2,6 +2,7 @@
 #include <iostream>
 #include <unordered_map>
 #include "ArgumentParser.h"
+
 ArgumentParser::ArgumentParser(std::string program_name) {
     /* nothing */
     program_name_ = program_name;
