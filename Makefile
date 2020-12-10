@@ -1,6 +1,7 @@
 # =================== SETTINGS ===================
 EXENAME := finalproj
 BENCHMARK_NAME := benchmark
+TEST_NAME := test
 
 CXX			:=	clang++
 CXXFLAGS	:=	$(CS225) -std=c++1y -stdlib=libc++ -c -g -O0 -Wall -Wextra -pedantic -Iheaders
@@ -19,13 +20,16 @@ endef
 # $< = first dependency
 # $@ = target
 
-all : $(EXENAME) $(BENCHMARK_NAME)
+all : $(EXENAME) $(BENCHMARK_NAME) $(TEST_NAME)
 
 $(EXENAME): build/main.o build/Graph.o build/Vertex.o build/Edge.o build/BFS.o build/Mock.o build/SCCGraph.o build/FullBFS.o build/ArgumentParser.o
 	$(LD) $^ $(LDFLAGS) -o $@
 
 $(BENCHMARK_NAME): build/benchmark-main.o build/Graph.o build/Vertex.o build/Edge.o build/BFS.o build/Mock.o build/SCCGraph.o build/FullBFS.o build/ArgumentParser.o
 	$(LD) $^ $(LDFLAGS) -o $@
+
+$(TEST_NAME): build/tests-misc.o build/tests-bfs.o build/tests-graphadt.o build/tests-scc.o build/tests-landmark.o build/catch.o build/Vertex.o build/Graph.o build/Edge.o build/BFS.o build/Mock.o build/SCCGraph.o build/FullBFS.o build/ArgumentParser.o
+	$(LD) $^ $(LDFLAGS) -o test
 
 build/benchmark-main.o: src/benchmark-main.cpp headers/Graph.h headers/Vertex.h headers/Edge.h headers/SCCGraph.h
 	$(make-build-dir)
@@ -71,9 +75,6 @@ build/catch.o: tests/catch.cpp tests/catch.hpp
 	$(make-build-dir)
 	$(CXX) $(CXXFLAGS) $< -o $@
 
-test: build/tests-misc.o build/tests-bfs.o build/tests-graphadt.o build/tests-scc.o build/tests-landmark.o build/catch.o build/Vertex.o build/Graph.o build/Edge.o build/BFS.o build/Mock.o build/SCCGraph.o build/FullBFS.o build/ArgumentParser.o
-	$(LD) $^ $(LDFLAGS) -o test
-
 build/tests-misc.o: tests/tests-misc.cpp $(ALL_HEADERS)
 	$(make-build-dir)
 	$(CXX) $(CXXFLAGS) $< -o $@
@@ -95,7 +96,7 @@ build/tests-landmark.o: tests/tests-landmark.cpp $(ALL_HEADERS)
 	$(CXX) $(CXXFLAGS) $< -o $@
 
 clean:
-	rm -rf build/ $(EXENAME) $(BENCHMARK_NAME) test
+	rm -rf build/ $(EXENAME) $(BENCHMARK_NAME) $(TEST_NAME)
 
 # =================== CREATE DATA ===================
 
@@ -110,4 +111,4 @@ data/enwiki-2013.txt: data
 	gunzip -d data/enwiki-2013.txt.gz
 
 data:
-	mkdir data
+	mkdir -p data
