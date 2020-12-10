@@ -185,10 +185,10 @@ There are four required arguments, and they must appear in this order:
 An example invocation with the example arguments listed above would look like this:
 
 ```
-python3 ./make-mock.py data/wiki-names.txt data/wiki-edges.txt 10 0.03
+python3 ./make-mock.py data/wiki-names.txt data/wiki-edges.txt data/wiki-sccs.txt 10 0.03
 ```
 
-This will output the vertex name labels to a file `data/wiki-names.txt`, and the edge list to a file `data/wiki-edges.txt`.
+This will output the vertex name labels to a file `data/wiki-names.txt`, the edge list to a file `data/wiki-edges.txt`, and the known strongly connected components to a file `data/wiki-scc.txt`.
 
 **Warning!** The expected number of edges using this file, given probability `p` and vertex count `n` is `n(n-1)p/2`.
 For example, with `n=5000` and `p=0.05`, the expected number of edges is `624875`. 
