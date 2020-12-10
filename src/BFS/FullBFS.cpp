@@ -16,7 +16,10 @@ FullIterator& FullIterator::operator++() {
     visited_.insert(**this);
     traversal_->addNext(*this);
     traversal_->pop(*this);
+
     if (traversal_->empty(*this)) {
+        // Different from BFSTraversal::Iterator
+        // Iterate over vertices until an unvisited one is encountered
         for (auto v : traversal_->g_->vertices) {
             if (!visited(v.second)) {
                 equeue_.push(Edge());
@@ -24,6 +27,7 @@ FullIterator& FullIterator::operator++() {
                 return *this;
             }
         }
+        // Otherwise, return a depleted iterator
         finished_ = true;
     }
     return *this;}

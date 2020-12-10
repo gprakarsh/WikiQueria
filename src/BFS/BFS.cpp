@@ -69,19 +69,3 @@ Vertex& BFSTraversal::peek(Iterator& it) const {
 bool BFSTraversal::empty(Iterator& it) const {
     return it.queue_.empty();
 };
-
-// class FullBFS {
-// protected:
-//     Graph& g_;
-//     Vertex start_;
-// public:
-//     FullBFS(Graph& g, const Vertex& start);
-//     class Iterator : std::iterator<std::forward_iterator_tag, Vertex> {
-//     public:
-//         Iterator(Vertex start, Graph& g, bool depleted);
-//         BFSTraversal::Iterator current_;
-//         VisitedSet visited_;
-//     };
-//     virtual Iterator begin();
-//     virtual Iterator end();
-// };
