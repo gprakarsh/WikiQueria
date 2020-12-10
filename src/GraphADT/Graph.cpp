@@ -46,8 +46,8 @@ void Graph::createVertices(const std::string & verticesFileName){
         size_t node_id = stoi(node_id_str);
         Vertex v(node_id, page_name);
         insertVertex(v);
-        cout << "\rVertices Loaded: " << vertexCount << flush;
         vertexCount++;
+        cout << "\rVertices Loaded: " << vertexCount << flush;
     }
     cout<<endl;
 };
@@ -69,7 +69,7 @@ void Graph::createEdges(const std::string & edgesFileName, size_t limit){
         size_t from_node_id = stoi(from_node_id_str);
         size_t to_node_id = stoi(to_node_id_str);
         if((vertices.find(from_node_id) != vertices.end())&&(vertices.find(to_node_id) != vertices.end())) {
-            if (limit != static_cast<size_t>(-1) && edgeCount > limit) break;
+            if (limit != static_cast<size_t>(-1) && edgeCount >= limit) break;
             insertEdge(vertices.at(from_node_id), vertices.at(to_node_id));
             edgeCount++;
             cout << "\rEdges Loaded: " << edgeCount << flush;
@@ -248,41 +248,6 @@ void Graph::savePNG(string title) const
 
     neatoFile
         << "digraph G {\n";
-        // << "\toverlap=\"false\";\n"
-        // << "\tdpi=\"1300\";\n"
-        // << "\tsep=\"1.5\";\n"
-        // << "\tnode [fixedsize=\"true\", shape=\"circle\", fontsize=\"7.0\"];\n"
-        // << "\tedge [penwidth=\"1.5\", fontsize=\"7.0\"];\n";
-
-    // vector<Vertex> allv;
-    // for(auto v : vertices){
-    //     allv.push_back(v.second);
-    // }
-
-    // int xpos1 = 100;
-    // int xpos2 = 100;
-    // int xpos, ypos;
-    // for (auto it : allv) {
-    //     string current = it.page_name_;
-    //     neatoFile 
-    //         << "\t\"" 
-    //         << current
-    //         << "\"";
-    //     if (current[1] == '1') {
-    //         ypos = 100;
-    //         xpos = xpos1;
-    //         xpos1 += 100;
-    //     }
-    //     else {
-    //         ypos = 200;
-    //         xpos = xpos2;
-    //         xpos2 += 100;
-    //     }
-    //     neatoFile << "[pos=\""<< xpos << "," << ypos <<"\"]";
-    //     neatoFile << ";\n";
-    // }
-
-    // neatoFile << "\tedge [penwidth=\"1.5\", fontsize=\"7.0\"];\n";
 
     for (auto it = adjacency_list.begin(); it != adjacency_list.end(); ++it) 
     {
