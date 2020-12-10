@@ -26,7 +26,7 @@ bool ArgumentParser::getFlag(std::string name) {
     return (flag_values_.find(name) != flag_values_.end());
 }
 
-void ArgumentParser::display() {
+void ArgumentParser::help() {
     std::cout << "Usage: ./" << program_name_ << " [ARGS] vertex-file edge-file"<< '\n';
     std::cout << "Arguments:" << '\n';
     for (auto pair : option_descriptions_) {
@@ -57,7 +57,7 @@ bool ArgumentParser::processArgs(int argc, char* argv[]) {
         }
     }
     if (!filesFound) {
-        std::cout << "Please enter a vertex file and edge file." << '\n';
+        std::cout << "!!! Please enter a vertex file and edge file. !!!" << '\n';
         return false;
     }
     return true;

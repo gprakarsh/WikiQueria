@@ -19,7 +19,7 @@ int main(int argc, char* argv[]){
     if (argc < 2 || !parser.processArgs(argc, argv)) {
         std::cout << "Wikipedia Page Link Graph Interactive Tool\n";
         std::cout << "===================\n";
-        parser.display();
+        parser.help();
         std::cout << "===================\n";
         return 1;
     }

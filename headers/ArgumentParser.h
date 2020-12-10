@@ -29,7 +29,7 @@ public:
     std::string getEdgeFile();
 
     // Display the valid options to pass into 
-    void display();
+    void help();
 
     // Process the arguments, returns true if successful. If unsuccessful, returns false.
     bool processArgs(int argc, char* argv[]);
