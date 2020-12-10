@@ -35,13 +35,18 @@ void Graph::createVertices(const std::string & verticesFileName){
     std::string trash;
     int vertexCount = 0;
     while(verticesFile.good()){
+        // Initialize a line of the file as a stream
         std::getline(verticesFile, line);
         std::stringstream line_stream(line);
         std::string page_name;
         std::string node_id_str;
+        // Read up to the comma for the node_id
         std::getline(line_stream, node_id_str, ',');
+        // Discard the first quote
         std::getline(line_stream, trash, '"');
+        // Read up to the second quote for the page_name
         std::getline(line_stream, page_name, '"');
+        // If we encountered a comment, continue; otherwise, insert a new vertex
         if (node_id_str[0] == '#' || node_id_str[0] == '"' || !node_id_str[0]) continue;
         size_t node_id = stoi(node_id_str);
         Vertex v(node_id, page_name);
@@ -59,15 +64,19 @@ void Graph::createEdges(const std::string & edgesFileName, size_t limit){
     std::string line;
     size_t edgeCount = 0;
     while(edgesFile.good()){
+        // Read a line in the edge file, and initialize it as a stream
         std::getline(edgesFile, line);
         std::stringstream line_stream(line);
-        std::string from_node_id_str, to_node_id_str; 
-        // if (lineCount % 40000 == 0) {cout << "."; cout.flush(); lineCount = 0;}
+        std::string from_node_id_str, to_node_id_str;
+        // Extract the source vertex
         std::getline(line_stream, from_node_id_str, ' ');
+        // Extract the ending vertex
         std::getline (line_stream, to_node_id_str);
+        // If we read a hash, we encountered a comment; continue with next line
         if (from_node_id_str[0] == '#' || !from_node_id_str[0]) continue;
         size_t from_node_id = stoi(from_node_id_str);
         size_t to_node_id = stoi(to_node_id_str);
+        // If each vertex exists, insert the edge into the graph
         if((vertices.find(from_node_id) != vertices.end())&&(vertices.find(to_node_id) != vertices.end())) {
             if (limit != static_cast<size_t>(-1) && edgeCount >= limit) break;
             insertEdge(vertices.at(from_node_id), vertices.at(to_node_id));
@@ -195,11 +204,13 @@ FullBFS Graph::getFullBFS(size_t id) {
 }
 
 vector<Edge> Graph::getShortestPath(const Vertex start, const Vertex end) {
-    vector<Edge> path;
-    unordered_map<size_t, Edge> originEdge;
-    originEdge[start.node_id_];
+    vector<Edge> path; // Holds output path
+    unordered_map<size_t, Edge> originEdge; // Holds edge from which we reached vertex
+    originEdge[start.node_id_]; // Insert empty edge for the start node
     bool found = false;
     BFSTraversal searchBFS = getBFS(start);
+
+    // Run BFS while keeping track of predecessors in originEdge
     for (auto it = searchBFS.begin(); it != searchBFS.end(); ++it) {
         originEdge.insert({(*it).node_id_, it.arrivalEdge()});
         if (*it == end) {
@@ -208,6 +219,7 @@ vector<Edge> Graph::getShortestPath(const Vertex start, const Vertex end) {
         }
     }
 
+    // If found, reconstruct the path using originEdge
     if (found) {
         size_t last = end.node_id_;
         while (last != start.node_id_) {
@@ -220,10 +232,9 @@ vector<Edge> Graph::getShortestPath(const Vertex start, const Vertex end) {
     return path;
 }
 
-vector<Edge> Graph::getLandmarkPath(const Vertex& source,const Vertex& destination,const Vertex& landmark){
+vector<Edge> Graph::getLandmarkPath(const Vertex& source,const Vertex& destination,const Vertex& landmark) {
     vector<Edge> source_landmark;
     vector<Edge> landmark_destination;
-
     vector<Edge> combined;
 
     source_landmark = getShortestPath(source, landmark);
