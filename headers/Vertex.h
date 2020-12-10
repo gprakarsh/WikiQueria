@@ -12,6 +12,7 @@ struct Vertex{
     std::string page_name_;
 };
 
+// Function used to allow unordered_map usage
 class VertexHashFunction { 
     public: 
         size_t operator()(const Vertex& v) const { 
@@ -19,5 +20,5 @@ class VertexHashFunction {
         } 
 };
 
-std::ostream &operator<<(std::ostream& os, const Vertex& v);
 // Source: https://stackoverflow.com/questions/2981836/how-can-i-use-cout-myclass
+std::ostream &operator<<(std::ostream& os, const Vertex& v);
