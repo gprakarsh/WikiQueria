@@ -12,7 +12,7 @@
 
 #include "catch.hpp"
 
-TEST_CASE("Verify connected BFS works as expected (cycle)", "[BFS]") {
+TEST_CASE("Verify connected BFS works as expected (cycle)", "[bfs]") {
     Graph g;
     insertBasicCycle(g, 0);
     Vertex v0(0, "0");
@@ -26,7 +26,7 @@ TEST_CASE("Verify connected BFS works as expected (cycle)", "[BFS]") {
     REQUIRE(count == 4);
 }
 
-TEST_CASE("Verify connected BFS works as expected (tree)", "[BFS]") {
+TEST_CASE("Verify connected BFS works as expected (tree)", "[bfs]") {
     Graph g;
     insertBasicTree(g, 0);
     Vertex v0(0, "0");
@@ -40,7 +40,7 @@ TEST_CASE("Verify connected BFS works as expected (tree)", "[BFS]") {
     REQUIRE(count == 7);
 }
 
-TEST_CASE("Because SCCGraphs are Graphs, a SCCGraph is traversable and correctly produces the acyclic graph") {
+TEST_CASE("Because SCCGraphs are Graphs, a SCCGraph is traversable and correctly produces the acyclic graph", "[bfs]") {
     Graph gIO("./tests/mock-data/scc-examples/scc-names-hand.csv", "./tests/mock-data/scc-examples/scc-edges-hand.txt");
     SCCGraph sIO = SCCGraph(gIO);
     BFSTraversal bfs = sIO.getBFS(0);
@@ -52,7 +52,7 @@ TEST_CASE("Because SCCGraphs are Graphs, a SCCGraph is traversable and correctly
     REQUIRE(count == 4);
 }
 
-TEST_CASE("Path exists queries using SCCGraphs works") {
+TEST_CASE("Path exists queries using SCCGraphs works", "[bfs][scc]") {
     Graph gIO("./tests/mock-data/scc-examples/scc-names-hand.csv", "./tests/mock-data/scc-examples/scc-edges-hand.txt");
     SCCGraph sIO = SCCGraph(gIO);
     BFSTraversal bfs = sIO.getBFS(0);
@@ -69,7 +69,7 @@ TEST_CASE("Path exists queries using SCCGraphs works") {
     CHECK(sIO.pathExists(v0, v5) == true);
 }
 
-TEST_CASE("Making sure the full (disconnected) BFS works, one cycle of length 4", "[BFS]") {
+TEST_CASE("Making sure the full (disconnected) BFS works, one cycle of length 4", "[bfs]") {
     Graph g;insertBasicCycle(g, 0);
     Vertex v0(0, "0");
     int count{};
@@ -79,7 +79,7 @@ TEST_CASE("Making sure the full (disconnected) BFS works, one cycle of length 4"
     REQUIRE(count == 4);
 }
 
-TEST_CASE("Making sure the full (disconnected) BFS works, three disjoint cycles of length 4 each", "[BFS]") {
+TEST_CASE("Making sure the full (disconnected) BFS works, three disjoint cycles of length 4 each", "[bfs]") {
     Graph g;insertBasicCycle(g, 0);
     insertBasicCycle(g, 4);
     insertBasicCycle(g, 8);
@@ -92,7 +92,7 @@ TEST_CASE("Making sure the full (disconnected) BFS works, three disjoint cycles 
     REQUIRE(count == 16);
 }
 
-TEST_CASE("BFS Shortest Path returns correct path if path exists (cycle)", "[BFS]") {
+TEST_CASE("BFS Shortest Path returns correct path if path exists (cycle)", "[bfs]") {
     Graph g;insertBasicCycle(g, 0);
     Vertex v0(0, "0");
     Vertex v3(3, "3");
@@ -103,7 +103,7 @@ TEST_CASE("BFS Shortest Path returns correct path if path exists (cycle)", "[BFS
     REQUIRE(path.size() == 3);
 }
 
-TEST_CASE("BFS Shortest Path returns correct path if path exists (tree)", "[BFS]") {
+TEST_CASE("BFS Shortest Path returns correct path if path exists (tree)", "[bfs]") {
     Graph g;insertBasicTree(g, 0);
     Vertex v0(0, "0");
     Vertex v6(6, "0.2.2");
@@ -115,7 +115,7 @@ TEST_CASE("BFS Shortest Path returns correct path if path exists (tree)", "[BFS]
 
 }
 
-TEST_CASE("BFS Shortest Path returns nothing if path does not exist", "[BFS]") {
+TEST_CASE("BFS Shortest Path returns nothing if path does not exist", "[bfs]") {
     Graph g;insertBasicCycle(g, 0);
     Vertex v0(0, "0");
     Vertex v3(3, "3");

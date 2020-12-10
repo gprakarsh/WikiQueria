@@ -14,7 +14,7 @@
 
 
 
-TEST_CASE("getShortestPathFast returns the same result as getShortestPath if a path exists") {
+TEST_CASE("getShortestPathFast returns the same result as getShortestPath if a path exists", "[scc]") {
     Graph g;insertBasicCycle(g, 0);
     SCCGraph sG = SCCGraph(g);
     Vertex v0(0, "0");
@@ -27,7 +27,7 @@ TEST_CASE("getShortestPathFast returns the same result as getShortestPath if a p
 
 }
 
-TEST_CASE("getShortestPathFast returns the same result as getShortestPath if a path doesn't exist") {
+TEST_CASE("getShortestPathFast returns the same result as getShortestPath if a path doesn't exist","[scc]") {
     Graph g;insertBasicCycle(g, 0);
     SCCGraph sG = SCCGraph(g);
     Vertex v0(0, "0");
@@ -37,7 +37,7 @@ TEST_CASE("getShortestPathFast returns the same result as getShortestPath if a p
     REQUIRE(path.size() == 0);
 }
 
-TEST_CASE("Querying an SCCGraph via strings works by reading from file", "[UI]") {
+TEST_CASE("Querying an SCCGraph via strings works by reading from file", "[scc][parsing]") {
     Graph g("./tests/mock-data/scc-examples/scc-names-rand.csv", "./tests/mock-data/scc-examples/scc-edges-rand.txt");
     SCCGraph sIO(g);
     std::string start = "Hequfegoho a";
@@ -49,7 +49,7 @@ TEST_CASE("Querying an SCCGraph via strings works by reading from file", "[UI]")
     REQUIRE(path.size() > 0);
 }
 
-TEST_CASE("Querying an SCCGraph via size_t works by reading from file", "[SCC]") {
+TEST_CASE("Querying an SCCGraph via size_t works by reading from file", "[scc][parsing]") {
     Graph g("./tests/mock-data/scc-examples/scc-names-rand.csv", "./tests/mock-data/scc-examples/scc-edges-rand.txt");
     size_t start = 0;
     size_t end = 32;
@@ -60,7 +60,7 @@ TEST_CASE("Querying an SCCGraph via size_t works by reading from file", "[SCC]")
     REQUIRE(path.size() > 0);
 }
 
-TEST_CASE("getShortestPath on the original via size_t works by reading from file", "[SCC]") {
+TEST_CASE("getShortestPath on the original via size_t works by reading from file", "[scc][parsing]") {
     Graph g("./tests/mock-data/scc-examples/scc-names-rand.csv", "./tests/mock-data/scc-examples/scc-edges-rand.txt");
     SCCGraph s(g);
     size_t start = 0;

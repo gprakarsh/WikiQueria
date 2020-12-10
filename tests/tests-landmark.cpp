@@ -13,7 +13,7 @@
 #include "catch.hpp"
 
 
-TEST_CASE("To check if landmark path works or not", "[LandmarkPath]"){
+TEST_CASE("To check if landmark path works or not", "[landmark]"){
     Vertex a(0, "0");
     Vertex landmark (1, "1");
     Vertex b(2,"2");

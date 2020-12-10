@@ -14,19 +14,19 @@
 
 
 
-TEST_CASE("An empty edge is equivalent to all other empty edges", "[GraphADT]") {
+TEST_CASE("An empty edge is equivalent to all other empty edges", "[graphadt]") {
     Edge e;
     REQUIRE(e.isEmpty() == true);
     REQUIRE(Edge(-1, -1).isEmpty() == true);
 }
 
-TEST_CASE("We are able to retrieve the node_id using the name of the vertex.", "[GraphADT]") {
+TEST_CASE("We are able to retrieve the node_id using the name of the vertex.", "[graphadt]") {
     Graph g;insertBasicCycle(g, 0);
     Vertex v0(0, "0");
     REQUIRE(g.page_to_id.at("0") == 0);
 }
 
-TEST_CASE("Verify that vertices and edges are properly inserted", "[GraphADT]") {
+TEST_CASE("Verify that vertices and edges are properly inserted", "[graphadt]") {
 	Graph g;
     insertBasicCycle(g, 0);
 
@@ -34,7 +34,7 @@ TEST_CASE("Verify that vertices and edges are properly inserted", "[GraphADT]") 
 	REQUIRE(g.num_edges == 4);
 }
 
-TEST_CASE("Verify that edgeExists queries work","[GraphADT]") {
+TEST_CASE("Verify that edgeExists queries work","[graphadt]") {
 	Vertex v0 = Vertex(0, "0");
     Vertex v1 = Vertex(1, "1");
     Vertex v2 = Vertex(2, "2");
@@ -47,7 +47,7 @@ TEST_CASE("Verify that edgeExists queries work","[GraphADT]") {
 	REQUIRE(g.edgeExists(v2, v3) == true);
 }
 
-TEST_CASE("Verify that vertexExists queries work", "[GraphADT]") {
+TEST_CASE("Verify that vertexExists queries work", "[graphadt]") {
 	Vertex v0 = Vertex(0, "0");
     Vertex v1 = Vertex(1, "1");
     Vertex v2 = Vertex(25, "anything");
@@ -59,7 +59,7 @@ TEST_CASE("Verify that vertexExists queries work", "[GraphADT]") {
 	REQUIRE(g.vertexExists(v2) == false);
 }
 
-TEST_CASE("Demonstrate how to use the incidentEdges and incidentVertices function.", "[GraphADT]") {
+TEST_CASE("Demonstrate how to use the incidentEdges and incidentVertices function.", "[graphadt]") {
     Graph g;
     insertBasicCycle(g, 0);
 	Vertex v0 = Vertex(0, "0");
@@ -72,7 +72,7 @@ TEST_CASE("Demonstrate how to use the incidentEdges and incidentVertices functio
 	REQUIRE(true);
 }
 
-TEST_CASE("Verify that removeEdge function work as expected.", "[GraphADT]"){
+TEST_CASE("Verify that removeEdge function work as expected.", "[graphadt]"){
     Graph g;
     insertBasicCycle(g, 0);
     Vertex v0(0, "0");
@@ -87,7 +87,7 @@ TEST_CASE("Verify that removeEdge function work as expected.", "[GraphADT]"){
     REQUIRE(g.num_edges == 3);  // num_edges should remain same for non-existent edge
 }
 
-TEST_CASE("Verify that removeVertex function work as expected.", "[GraphADT]"){
+TEST_CASE("Verify that removeVertex function work as expected.", "[graphadt]"){
     Graph g;
     insertBasicCycle(g, 0);
     Vertex v0(0, "0");
