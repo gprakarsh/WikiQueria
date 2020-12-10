@@ -55,11 +55,11 @@ build/Edge.o: src/GraphADT/Edge.cpp headers/Edge.h
 	$(make-build-dir)
 	$(CXX) $(CXXFLAGS) $< -o $@
 
-build/Mock.o: src/Mock/Mock.cpp headers/Mock.h
+build/Mock.o: src/Misc/Mock.cpp headers/Mock.h
 	$(make-build-dir)
 	$(CXX) $(CXXFLAGS) $< -o $@
 
-build/ArgumentParser.o: src/ArgumentParser.cpp headers/ArgumentParser.h
+build/ArgumentParser.o: src/Misc/ArgumentParser.cpp headers/ArgumentParser.h
 	$(make-build-dir)
 	$(CXX) $(CXXFLAGS) $< -o $@
 
