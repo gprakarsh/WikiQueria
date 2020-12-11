@@ -1,5 +1,5 @@
 # =================== SETTINGS ===================
-EXENAME := finalproj
+EXENAME := wikiqueria
 BENCHMARK_NAME := benchmark
 TEST_NAME := test
 

@@ -12,7 +12,7 @@
 
 int main(int argc, char* argv[]){
     ////////////Preprocessing//////////////
-    ArgumentParser parser = ArgumentParser("finalproj");
+    ArgumentParser parser = ArgumentParser("wikiqueria");
     parser.addOption("-e", "EDGES", "Specify the number of edges to load");
 
     // Parse arguments
