@@ -62,18 +62,18 @@ module load llvm/6.0.1
 
 Then, run `make all` to build all binaries:
 
-* `finalproj`
+* `wikiqueria`
 * `benchmark`
 * `test`
 
-## `finalproj`
+## `wikiqueria`
 
 Binary to launch interactive tool for graph processing. Please use this for grading.
 
 Invocation:
 
 ```
-./finalproj [-e LIMIT] path-to-vertex-file path-to-edge-file
+./wikiqueria [-e LIMIT] path-to-vertex-file path-to-edge-file
 ```
 
 The `-e` flag is optional. If specified, it will limit the number of loaded edges from the original file. Otherwise, no limit is assumed.
