@@ -25,6 +25,8 @@ public:
 
         // Override default ++ behavior to allow for disconnected vertices to be visited
         FullIterator& operator++();
+    private:
+        std::unordered_set<size_t> unvisited_;
     };
     virtual FullIterator begin();
     virtual FullIterator end();
