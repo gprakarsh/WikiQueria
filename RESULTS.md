@@ -41,7 +41,7 @@ We verified functionality by checking against hardcoded test cases for the Landm
 
 We deliver three notable executables. 
 The first is `wikiqueria`, which is an interactive tool that a user may use to discover properties about their graph in question. 
-The second is `benchmark`, which can be used to run benchmarking on algorithms.
+The second is `benchmark`, which can be used to run benchmarking for timing on algorithms.
 The third is `test`, which contains all of our unit tests that we used to document and verify development.
 All of these algorithms support command line options to pass various useful parameters, such as limiting the number of edges to be loaded. 
 
@@ -100,3 +100,17 @@ Our first idea with the SCCGraph was to use it to speed up our BFS: given page A
 If we applied our theoretical algorithm and tried to get from dark green to dark red, we would completely avoid the blue SCC, since the SCC BFS would only return the red SCC and green SCC. However, the fastest path involves a path through the blue SCC.
 
 We resolved to use the SCCGraph for reachability queries only.
+
+## Identifying and Fixing Quadratic time FullBFS
+
+Using our `benchmark` binary, we discovered that our FullBFS ran in quadratic time with respect to the number of steps taken. We discovered this by checking our BFS against 5000 vertices and 0 edges with the command `./benchmark --bfs --from 200 --step 400 --count 12 ./tests/mock-data/large-names.csv /dev/null`. Here is the resulting data:
+
+![](./bad-fullbfs.png)
+
+We discovered the source of problem: everytime the FullBFS queue was empty, we iterated through all of the graph’s vertices until we found an unvisited vertex.
+
+We refactored to have an “unvisited” set that we pull vertices out of as we iterate, and we continue until the unvisited set is completely empty. We were able to achieve linear time this way:
+
+![](./good-fullbfs.png)
+
+
