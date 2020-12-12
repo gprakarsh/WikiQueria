@@ -33,7 +33,7 @@ After this command is complete, you will see a new directory and two new files:
 
 If you wish to run your own data, you may do so. We expect that the data you provide will be in this format:
 
-Vertex file -- the first field is the vertex ID, and the second field is the name of the page represented by the vertex ID.
+Vertex file (CSV) -- the first field is the vertex ID, and the second field is the name of the page represented by the vertex ID.
 
 ```
 0,"First page"
@@ -42,7 +42,7 @@ Vertex file -- the first field is the vertex ID, and the second field is the nam
 3,"Commas in quotes, they're okay"
 ```
 
-Edge file -- vertex IDs are separated by a space, and there is a newline separating each edge. The first field is the source vertex ID, the second field is the destination vertex ID.
+Edge file (TXT) -- vertex IDs are separated by a space, and there is a newline separating each edge. The first field is the source vertex ID, the second field is the destination vertex ID.
 
 ```
 0 1
