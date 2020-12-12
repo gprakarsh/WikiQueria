@@ -104,6 +104,8 @@ Filters:
 * `[landmark]`: Run tests related to finding a landmark path. Primary file: `tests/tests-landmark.cpp`
 * `[parsing]`: Run tests related to file processing and user input validation. Primary file: `tests/tests-misc.cpp`
 
+These tests have some codependence, so you may see functionality for each in other files as well.
+
 Please do not modify or rename the files in `tests/mock-data/`. You may have trouble with running this binary otherwise.
 
 
