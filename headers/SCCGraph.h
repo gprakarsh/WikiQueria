@@ -33,6 +33,8 @@ class SCCGraph : public Graph {
         // Unsupported functions!
         void removeVertex(const Vertex& v);
         void removeEdge(const Vertex& source,const Vertex& destination);
+        // Public member
+        unordered_map<size_t, size_t> rep_node_finder;
     private:
         // Helper function to process SCCs as vertices and edges for the SCCGraph object
         void loadSCCsAsGraph();
@@ -49,6 +51,5 @@ class SCCGraph : public Graph {
         size_t num_SCCs;
         size_t num_SCC_edges;
         vector<size_t> rep_node_ids;
-        unordered_map<size_t, size_t> rep_node_finder;
         unordered_map<Vertex, unordered_map<Vertex, Edge, VertexHashFunction>, VertexHashFunction> comp_adj_list;
 };
