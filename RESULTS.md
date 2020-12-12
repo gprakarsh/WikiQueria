@@ -40,9 +40,9 @@ We verified functionality by checking against hardcoded test cases for the Landm
 # Delivered Binaries
 
 We deliver three notable executables. 
-The first is finalproj, which is an interactive tool that a user may use to discover properties about their graph in question. 
-The second is benchmark, which can be used to run benchmarking on algorithms.
-The third is test, which contains all of our unit tests that we used to document and verify development.
+The first is `wikiqueria`, which is an interactive tool that a user may use to discover properties about their graph in question. 
+The second is `benchmark`, which can be used to run benchmarking on algorithms.
+The third is `test`, which contains all of our unit tests that we used to document and verify development.
 All of these algorithms support command line options to pass various useful parameters, such as limiting the number of edges to be loaded. 
 
 # Interesting Discoveries (Dataset insights)
