@@ -24,17 +24,17 @@ class SCCGraph : public Graph {
         // Displays all SCCs, with their size and their member vertices
         void displaySCCs(std::ostream& os);
         
-        // Get the shortest path, but use SCC to query reachability first
+        // Get the shortest path across vertices in the original graph, but use SCC to query reachability first
         vector<Edge> getShortestPathFast(const Vertex& start, const Vertex& end);
 
-        // Get the landmark path, but use SCC to query reachability first
+        // Get the Landmark path across vertices in the original graph, but use SCC to query reachability first
         vector<Edge> getLandmarkPathFast(const Vertex& source, const Vertex& destination, const Vertex& landmark);
         
         // Unsupported functions!
         void removeVertex(const Vertex& v);
         void removeEdge(const Vertex& source,const Vertex& destination);
     private:
-        // Helper function to process SCCs as vertices and edges in the graph
+        // Helper function to process SCCs as vertices and edges for the SCCGraph object
         void loadSCCsAsGraph();
 
         // Placeholder function for unsupported function
