@@ -1,4 +1,4 @@
-# bathula2-pg12-rishic2-sahansk2
+# WikiQueria
 
 Final Project Presentation Link: https://youtu.be/SneRr0m7hWo
 
