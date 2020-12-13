@@ -5,3 +5,6 @@ wikiqueria
 test
 
 benchmark
+
+tests/mock-data/large-edge.txt
+scc-outfile.txt
